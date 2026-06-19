@@ -609,26 +609,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <div class="bg-gradient-to-br from-forest-700 via-forest-600 to-forest-800 text-white p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden">
                                 <div class="absolute right-0 top-0 w-40 h-40 bg-white/5 rounded-full blur-2xl translate-x-12 -translate-y-12"></div>
                                 <div class="absolute left-0 bottom-0 w-32 h-32 bg-white/5 rounded-full blur-xl -translate-x-8 translate-y-8"></div>
-                                <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                                    <div>
-                                        <div class="flex items-center gap-2 mb-2">
-                                            <span class="bg-white/20 text-white font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">${getGreeting()}</span>
-                                            <span class="text-forest-100 text-[11px] font-medium">${formatTanggalIndonesia()}</span>
-                                        </div>
-                                        <h2 class="text-2xl md:text-3xl font-extrabold mb-1">Assalamu'alaikum, ${userProfile.nama}!</h2>
-                                        <p class="text-sm text-forest-100/80 font-medium">${schoolSettings.nama} | TA ${schoolSettings.tahunAjaran} (${schoolSettings.semester})</p>
-                                        <div class="flex items-center gap-2 mt-3">
-                                            <div class="bg-white/15 backdrop-blur-sm px-4 py-2 rounded-xl flex items-center gap-2.5">
-                                                <i class="ph ph-clock text-xl text-white"></i>
-                                                <span class="text-xl font-extrabold text-white tabular-nums tracking-wide" id="dashboard-clock">--:--:--</span>
-                                                <span class="text-xs text-orange-200 font-medium" id="dashboard-wib">WIB</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-2 no-print">
-                                        <button onclick="window.loadPage('Absensi Siswa')" class="bg-white text-forest-700 hover:bg-emerald-50 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5"><i class="ph ph-check-square text-base"></i> Isi Absen</button>
-                                        <button onclick="window.loadPage('Jurnal Agenda Guru')" class="bg-white/15 border border-white/20 hover:bg-white/25 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all flex items-center gap-1.5"><i class="ph ph-pencil-simple text-base"></i> Tulis Jurnal</button>
-                                    </div>
+                                <div class="relative z-10">
+                                    <span class="inline-block bg-white/20 text-white font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider mb-3">${getGreeting()}</span>
+                                    <h2 class="text-2xl md:text-3xl font-extrabold mb-1">Assalamu'alaikum, ${userProfile.nama}!</h2>
+                                    <p class="text-sm text-forest-100/80 font-medium">${schoolSettings.nama} | TA ${schoolSettings.tahunAjaran} (${schoolSettings.semester})</p>
                                 </div>
                             </div>
 
