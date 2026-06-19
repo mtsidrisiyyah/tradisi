@@ -218,7 +218,7 @@
                         class="bg-slate-950 px-2 text-slate-400">Uji Coba Cepat</span></div>
             </div>
 
-            <button onclick="loginAsDemo()"
+            <button id="demo-login-btn" type="button" onclick="loginAsDemo()"
                 class="w-full py-2.5 px-4 bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white border border-white/10 rounded-xl transition-all text-xs font-semibold flex items-center justify-center gap-2">
                 <i class="ph ph-user-play"></i> Masuk Instan (Mode Demo)
             </button>
@@ -2211,8 +2211,10 @@
 
         // MASUK INSTAN DEMO
         window.loginAsDemo = async function() {
-            const btn = document.querySelector('button[onclick="loginAsDemo()"]');
-            btn.innerHTML = `<i class="ph ph-spinner animate-spin text-sm"></i> Menyiapkan...`;
+            const btn = document.getElementById('demo-login-btn');
+            if (btn) {
+                btn.innerHTML = `<i class="ph ph-spinner animate-spin text-sm"></i> Menyiapkan...`;
+            }
             
             useMockDb = true; // Force local storage database for Demo mode
             currentUser = { uid: 'demo-user', email: 'demo.guru@idrisiyyah.sch.id' };
@@ -2224,7 +2226,9 @@
             
             setTimeout(() => {
                 onUserAuthenticated();
-                btn.innerHTML = `<i class="ph ph-user-play"></i> Masuk Instan (Mode Demo)`;
+                if (btn) {
+                    btn.innerHTML = `<i class="ph ph-user-play"></i> Masuk Instan (Mode Demo)`;
+                }
             }, 500);
         };
 
@@ -2271,9 +2275,16 @@
         }
 
         function updateUIProfileInfo() {
-            document.getElementById('sidebar-user-name').innerText = userProfile.nama;
-            document.getElementById('topbar-user-name').innerText = userProfile.nama;
-            document.getElementById('user-initial').innerText = userProfile.nama.charAt(0).toUpperCase();
+            const nama = (userProfile && typeof userProfile.nama === 'string' && userProfile.nama.trim() !== '') ? userProfile.nama : "Guru Pendidik";
+            
+            const sidebarName = document.getElementById('sidebar-user-name');
+            if (sidebarName) sidebarName.innerText = nama;
+            
+            const topbarName = document.getElementById('topbar-user-name');
+            if (topbarName) topbarName.innerText = nama;
+            
+            const userInitial = document.getElementById('user-initial');
+            if (userInitial) userInitial.innerText = nama.charAt(0).toUpperCase();
         }
 
         // 10. DARK MODE TOGGLE & INITIALIZATION
