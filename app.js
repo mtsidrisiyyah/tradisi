@@ -4,9 +4,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 
         // Firebase config template
         let firebaseConfig = {
-            apiKey: "AIzaSyB3EUC_8nk4DARQIRTlnClRYjdDrIzN16s",
+            apiKey: "AIzaSyBKM5MkbbskFzq8z3gI8hrIeHKZ4iN0lI4",
             authDomain: "tradisi-e0a51.firebaseapp.com",
-            databaseURL: "https://tradisi-e0a51-default-rtdb.firebaseio.com",
+            databaseURL: "https://tradisi-e0a51-default-rtdb.asia-southeast1.firebasedatabase.app",
             projectId: "tradisi-e0a51",
             storageBucket: "tradisi-e0a51.firebasestorage.app",
             messagingSenderId: "1096495313079",
