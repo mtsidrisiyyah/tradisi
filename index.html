@@ -505,17 +505,28 @@
                     const data = localStorage.getItem(`tradisi_profile_${uid}`);
                     return data ? JSON.parse(data) : { nama: "Ir. Hermawan, M.Pd.", nip: "197508212005011002", mapel: "Informatika" };
                 } else {
-                    const docRef = doc(db, getUserDocPath(uid));
-                    const snap = await getDoc(docRef);
-                    return snap.exists() ? snap.data() : { nama: "Guru Pendidik", nip: "-", mapel: "-" };
+                    try {
+                        const docRef = doc(db, getUserDocPath(uid));
+                        const snap = await getDoc(docRef);
+                        return snap.exists() ? snap.data() : { nama: "Guru Pendidik", nip: "-", mapel: "-" };
+                    } catch (e) {
+                        console.warn("Firestore getProfile failed, fallback to local storage:", e);
+                        const data = localStorage.getItem(`tradisi_profile_${uid}`);
+                        return data ? JSON.parse(data) : { nama: "Ir. Hermawan, M.Pd.", nip: "197508212005011002", mapel: "Informatika" };
+                    }
                 }
             },
             async saveProfile(uid, data) {
                 if (useMockDb) {
                     localStorage.setItem(`tradisi_profile_${uid}`, JSON.stringify(data));
                 } else {
-                    const docRef = doc(db, getUserDocPath(uid));
-                    await setDoc(docRef, data, { merge: true });
+                    try {
+                        const docRef = doc(db, getUserDocPath(uid));
+                        await setDoc(docRef, data, { merge: true });
+                    } catch (e) {
+                        console.error("Firestore saveProfile failed, fallback to local storage:", e);
+                        localStorage.setItem(`tradisi_profile_${uid}`, JSON.stringify(data));
+                    }
                 }
             },
             async getData(collectionName) {
@@ -2199,13 +2210,18 @@
         });
 
         // MASUK INSTAN DEMO
-        window.loginAsDemo = async function () {
+        window.loginAsDemo = async function() {
             const btn = document.querySelector('button[onclick="loginAsDemo()"]');
             btn.innerHTML = `<i class="ph ph-spinner animate-spin text-sm"></i> Menyiapkan...`;
-
+            
+            useMockDb = true; // Force local storage database for Demo mode
             currentUser = { uid: 'demo-user', email: 'demo.guru@idrisiyyah.sch.id' };
-            userProfile = await dbService.getProfile('demo-user');
-
+            try {
+                userProfile = await dbService.getProfile('demo-user');
+            } catch (e) {
+                userProfile = { nama: "User Demo", role: "guru" };
+            }
+            
             setTimeout(() => {
                 onUserAuthenticated();
                 btn.innerHTML = `<i class="ph ph-user-play"></i> Masuk Instan (Mode Demo)`;
@@ -2213,12 +2229,16 @@
         };
 
         document.getElementById('logout-btn').addEventListener('click', async () => {
-            if (useMockDb) {
-                currentUser = null;
-                onUserLoggedOut();
-            } else {
-                await signOut(auth);
+            if (auth) {
+                try {
+                    await signOut(auth);
+                } catch (e) {
+                    console.error("SignOut failed:", e);
+                }
             }
+            useMockDb = !isFirebaseConfigured; // Reset to configured state
+            currentUser = null;
+            onUserLoggedOut();
         });
 
         if (!useMockDb && auth) {
