@@ -136,3 +136,139 @@ input:focus, select:focus, textarea:focus {
 
 /* === TOAST === */
 .toast-show { transform: translateY(0) !important; opacity: 1 !important; }
+
+/* ============================================
+   LOGIN PAGE ANIMATIONS
+   ============================================ */
+
+/* Slide-in from left for branding panel */
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.login-panel-left {
+    animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Slide-in from right for form panel */
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.login-panel-right {
+    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    opacity: 0;
+}
+
+/* Staggered reveal for text elements */
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.login-reveal { opacity: 0; animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.login-reveal-1 { animation-delay: 0.4s; }
+.login-reveal-2 { animation-delay: 0.55s; }
+.login-reveal-3 { animation-delay: 0.7s; }
+.login-reveal-4 { animation-delay: 0.85s; }
+.login-reveal-5 { animation-delay: 1.0s; }
+.login-reveal-6 { animation-delay: 1.15s; }
+
+/* Floating particles */
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+.login-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    animation: particleFloat linear infinite;
+}
+.login-particle:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; width: 3px; height: 3px; }
+.login-particle:nth-child(2) { left: 25%; animation-duration: 18s; animation-delay: 2s; width: 5px; height: 5px; }
+.login-particle:nth-child(3) { left: 40%; animation-duration: 14s; animation-delay: 4s; }
+.login-particle:nth-child(4) { left: 55%; animation-duration: 20s; animation-delay: 1s; width: 6px; height: 6px; }
+.login-particle:nth-child(5) { left: 70%; animation-duration: 16s; animation-delay: 3s; width: 3px; height: 3px; }
+.login-particle:nth-child(6) { left: 85%; animation-duration: 22s; animation-delay: 5s; }
+.login-particle:nth-child(7) { left: 15%; animation-duration: 15s; animation-delay: 6s; width: 5px; height: 5px; }
+.login-particle:nth-child(8) { left: 60%; animation-duration: 19s; animation-delay: 2.5s; width: 3px; height: 3px; }
+
+/* Gentle pulse glow behind logo */
+@keyframes logoPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+    50% { box-shadow: 0 0 40px rgba(255,255,255,0.2); }
+}
+.login-logo-glow {
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+/* Feature pills hover effect */
+.login-pill {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.login-pill:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.2) !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Input field glow animation */
+@keyframes inputGlow {
+    0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    50% { box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.15); }
+    100% { box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1); }
+}
+#login-form input:focus {
+    animation: inputGlow 0.4s ease-out forwards;
+}
+
+/* Button shine effect */
+@keyframes btnShine {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+#login-btn {
+    position: relative;
+    overflow: hidden;
+}
+#login-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: none;
+}
+#login-btn:hover::after {
+    animation: btnShine 0.6s ease-out;
+}
+
+/* Decorative wave SVG animation */
+@keyframes waveMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.login-wave {
+    animation: waveMove 20s linear infinite;
+}
+
+/* Gradient text shimmer for headline accent */
+@keyframes textShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.login-text-shimmer {
+    background: linear-gradient(270deg, #fbbf24, #f59e0b, #d97706, #fbbf24);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShimmer 4s ease-in-out infinite;
+}
