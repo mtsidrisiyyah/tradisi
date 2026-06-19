@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRADISI - Transformasi Digital Administrasi Idrisiyyah</title>
-    
+    <title>tradisi - transformasi digital administrasi mts idrisiyyah</title>
+
     <!-- Meta tags untuk SEO & GitHub Pages sharing -->
     <meta name="description" content="Sistem Informasi Manajemen Administrasi Guru Terpadu">
     <meta name="theme-color" content="#2563eb">
@@ -12,14 +13,15 @@
     <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Phosphor Icons untuk Ikon Menu -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    
+
     <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
@@ -38,7 +40,7 @@
             }
         }
     </script>
-    
+
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -46,22 +48,34 @@
 
         /* Memastikan output print menggunakan Calibri dan menyembunyikan elemen UI */
         @media print {
-            body, .printable-area {
+
+            body,
+            .printable-area {
                 font-family: 'Calibri', 'Carlito', sans-serif !important;
                 background-color: #ffffff !important;
                 color: #000000 !important;
             }
-            #sidebar, #topbar, .no-print, .btn, button, form, .banner-info {
+
+            #sidebar,
+            #topbar,
+            .no-print,
+            .btn,
+            button,
+            form,
+            .banner-info {
                 display: none !important;
             }
+
             #main-content {
                 margin: 0 !important;
                 padding: 0 !important;
                 width: 100% !important;
             }
+
             .print-page-break {
                 page-break-before: always;
             }
+
             .print-card-border {
                 border: 1px solid #000000 !important;
                 box-shadow: none !important;
@@ -73,23 +87,34 @@
         .fade-in {
             animation: fadeIn 0.25s ease-out forwards;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         /* Custom scrollbar untuk sidebar agar rapi di Windows/Mac */
         .custom-scrollbar::-webkit-scrollbar {
             width: 5px;
             height: 5px;
         }
+
         .custom-scrollbar::-webkit-scrollbar-track {
             background: transparent;
         }
+
         .custom-scrollbar::-webkit-scrollbar-thumb {
             background: #4b5563;
             border-radius: 10px;
         }
+
         .custom-scrollbar:hover::-webkit-scrollbar-thumb {
             background: #6b7280;
         }
@@ -103,13 +128,22 @@
             z-index: 0;
             animation: floatBlob 15s infinite alternate ease-in-out;
         }
+
         @keyframes floatBlob {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, -40px) scale(1.1); }
-            100% { transform: translate(-20px, 20px) scale(0.9); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(30px, -40px) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
         }
     </style>
-    
+
     <script>
         // Memeriksa dan menginisialisasi tema sebelum halaman dirender untuk mencegah flash screen
         const savedTheme = localStorage.getItem('tradisi_theme');
@@ -120,24 +154,31 @@
         }
     </script>
 </head>
-<body class="text-slate-800 dark:text-slate-200 antialiased h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
+
+<body
+    class="text-slate-800 dark:text-slate-200 antialiased h-screen overflow-hidden flex flex-col bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
 
     <!-- VIEW 1: HALAMAN LOGIN PREMIUM -->
-    <div id="login-view" class="flex-1 flex items-center justify-center bg-slate-950 absolute inset-0 z-50 overflow-hidden">
+    <div id="login-view"
+        class="flex-1 flex items-center justify-center bg-slate-950 absolute inset-0 z-50 overflow-hidden">
         <!-- Floating animated blobs -->
         <div class="blob w-96 h-96 bg-emerald-500 top-1/4 left-1/4 animate-pulse"></div>
         <div class="blob w-96 h-96 bg-blue-600 bottom-1/4 right-1/4" style="animation-delay: 3s;"></div>
-        
+
         <!-- Glassmorphism Login Card -->
-        <div class="bg-white/10 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-slate-800/50 p-8 rounded-2xl shadow-2xl w-full max-w-md mx-4 relative z-10 transition-all duration-300">
+        <div
+            class="bg-white/10 dark:bg-slate-900/40 backdrop-blur-xl border border-white/20 dark:border-slate-800/50 p-8 rounded-2xl shadow-2xl w-full max-w-md mx-4 relative z-10 transition-all duration-300">
             <div class="text-center mb-8">
                 <div class="inline-flex p-3 bg-gradient-to-tr from-emerald-500 to-blue-600 rounded-2xl shadow-lg mb-3">
                     <i class="ph ph-books text-4xl text-white"></i>
                 </div>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">TRADISI</h1>
-                <p class="text-xs text-slate-300 mt-1 uppercase tracking-widest font-semibold">Transformasi Digital Administrasi Idrisiyyah</p>
+                <h1
+                    class="text-3xl font-extrabold text-white tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                    TRADISI</h1>
+                <p class="text-xs text-slate-300 mt-1 uppercase tracking-widest font-semibold">Transformasi Digital
+                    Administrasi Idrisiyyah</p>
             </div>
-            
+
             <form id="login-form" class="space-y-4">
                 <div>
                     <label class="block text-xs font-semibold text-slate-300 mb-1.5 uppercase">Alamat Email</label>
@@ -145,7 +186,9 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                             <i class="ph ph-envelope"></i>
                         </span>
-                        <input type="email" id="email" required class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-white transition-all text-sm" placeholder="guru@idrisiyyah.sch.id">
+                        <input type="email" id="email" required
+                            class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-white transition-all text-sm"
+                            placeholder="guru@idrisiyyah.sch.id">
                     </div>
                 </div>
                 <div>
@@ -154,21 +197,29 @@
                         <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                             <i class="ph ph-lock"></i>
                         </span>
-                        <input type="password" id="password" required class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-white transition-all text-sm" placeholder="••••••••">
+                        <input type="password" id="password" required
+                            class="w-full pl-10 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-white transition-all text-sm"
+                            placeholder="••••••••">
                     </div>
                 </div>
-                <div id="login-error" class="text-red-400 text-xs hidden bg-red-950/40 border border-red-500/30 p-3 rounded-xl"></div>
-                <button type="submit" id="login-btn" class="w-full mt-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-md active:scale-[0.98] flex justify-center items-center">
+                <div id="login-error"
+                    class="text-red-400 text-xs hidden bg-red-950/40 border border-red-500/30 p-3 rounded-xl"></div>
+                <button type="submit" id="login-btn"
+                    class="w-full mt-2 bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold py-2.5 px-4 rounded-xl transition-all shadow-md active:scale-[0.98] flex justify-center items-center">
                     <span>Masuk</span>
                 </button>
             </form>
 
             <div class="relative my-6">
-                <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-white/10"></div></div>
-                <div class="relative flex justify-center text-xs uppercase"><span class="bg-slate-950 px-2 text-slate-400">Uji Coba Cepat</span></div>
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-white/10"></div>
+                </div>
+                <div class="relative flex justify-center text-xs uppercase"><span
+                        class="bg-slate-950 px-2 text-slate-400">Uji Coba Cepat</span></div>
             </div>
 
-            <button onclick="loginAsDemo()" class="w-full py-2.5 px-4 bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white border border-white/10 rounded-xl transition-all text-xs font-semibold flex items-center justify-center gap-2">
+            <button onclick="loginAsDemo()"
+                class="w-full py-2.5 px-4 bg-white/5 hover:bg-white/10 text-slate-200 hover:text-white border border-white/10 rounded-xl transition-all text-xs font-semibold flex items-center justify-center gap-2">
                 <i class="ph ph-user-play"></i> Masuk Instan (Mode Demo)
             </button>
 
@@ -180,37 +231,45 @@
 
     <!-- VIEW 2: APLIKASI UTAMA (Dashboard & Menu) -->
     <div id="app-view" class="hidden h-full flex w-full">
-        
+
         <!-- Sidebar -->
-        <aside id="sidebar" class="bg-slate-900 dark:bg-slate-950 text-white w-72 flex-shrink-0 h-full flex flex-col transition-transform transform -translate-x-full md:translate-x-0 absolute md:relative z-40 border-r border-slate-800 dark:border-slate-900 shadow-xl">
-            <div class="p-5 flex items-center justify-between border-b border-slate-800 dark:border-slate-900 bg-slate-950/50">
+        <aside id="sidebar"
+            class="bg-slate-900 dark:bg-slate-950 text-white w-72 flex-shrink-0 h-full flex flex-col transition-transform transform -translate-x-full md:translate-x-0 absolute md:relative z-40 border-r border-slate-800 dark:border-slate-900 shadow-xl">
+            <div
+                class="p-5 flex items-center justify-between border-b border-slate-800 dark:border-slate-900 bg-slate-950/50">
                 <div class="flex items-center gap-3">
                     <div class="p-2 bg-gradient-to-tr from-emerald-500 to-blue-600 rounded-lg">
                         <i class="ph ph-books text-xl text-white"></i>
                     </div>
                     <div>
-                        <h2 class="text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">TRADISI</h2>
+                        <h2
+                            class="text-xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">
+                            TRADISI</h2>
                         <p class="text-[9px] text-slate-400 uppercase tracking-widest -mt-0.5">Administrasi Guru</p>
                     </div>
                 </div>
-                <button id="close-sidebar" class="md:hidden text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800">
+                <button id="close-sidebar"
+                    class="md:hidden text-slate-400 hover:text-white p-1 rounded hover:bg-slate-800">
                     <i class="ph ph-x text-xl"></i>
                 </button>
             </div>
-            
+
             <div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4" id="sidebar-menu-container">
                 <!-- Menu akan di-render di sini via JavaScript -->
             </div>
-            
+
             <div class="p-4 border-t border-slate-800 dark:border-slate-900 bg-slate-950/20">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-blue-600 flex items-center justify-center text-lg font-bold text-white shadow-md" id="user-initial">G</div>
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-blue-600 flex items-center justify-center text-lg font-bold text-white shadow-md"
+                        id="user-initial">G</div>
                     <div class="overflow-hidden">
                         <p class="text-sm font-medium truncate" id="sidebar-user-name">Memuat...</p>
-                        <p class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider" id="sidebar-user-role">Guru / Pendidik</p>
+                        <p class="text-[10px] text-emerald-400 font-semibold uppercase tracking-wider"
+                            id="sidebar-user-role">Guru / Pendidik</p>
                     </div>
                 </div>
-                <button id="logout-btn" class="w-full flex items-center justify-center gap-2 bg-rose-600/10 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-500/20 py-2 rounded-xl transition-all text-xs font-semibold">
+                <button id="logout-btn"
+                    class="w-full flex items-center justify-center gap-2 bg-rose-600/10 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-500/20 py-2 rounded-xl transition-all text-xs font-semibold">
                     <i class="ph ph-sign-out"></i> Keluar
                 </button>
             </div>
@@ -218,29 +277,36 @@
 
         <!-- Main Content Area -->
         <main class="flex-1 flex flex-col h-full bg-slate-50 dark:bg-slate-900 min-w-0">
-            
+
             <!-- Topbar -->
-            <header id="topbar" class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 px-4 md:px-8 py-3.5 flex items-center justify-between flex-shrink-0 z-30 transition-colors duration-200">
+            <header id="topbar"
+                class="bg-white dark:bg-slate-900 shadow-sm border-b border-slate-200 dark:border-slate-800 px-4 md:px-8 py-3.5 flex items-center justify-between flex-shrink-0 z-30 transition-colors duration-200">
                 <div class="flex items-center gap-4">
-                    <button id="open-sidebar" class="md:hidden text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 p-1.5 rounded-lg">
+                    <button id="open-sidebar"
+                        class="md:hidden text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 p-1.5 rounded-lg">
                         <i class="ph ph-list text-2xl"></i>
                     </button>
                     <div>
-                        <h2 class="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2" id="header-title">Dashboard</h2>
+                        <h2 class="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2"
+                            id="header-title">Dashboard</h2>
                     </div>
                 </div>
                 <div class="flex items-center gap-3">
                     <!-- Dark Mode Toggle -->
-                    <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-500 transition-colors" title="Toggle Tema">
+                    <button onclick="toggleDarkMode()"
+                        class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-emerald-500 transition-colors"
+                        title="Toggle Tema">
                         <i id="theme-toggle-icon" class="ph ph-moon text-lg"></i>
                     </button>
-                    
-                    <button onclick="window.print()" class="no-print hidden md:flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all shadow-sm">
+
+                    <button onclick="window.print()"
+                        class="no-print hidden md:flex items-center gap-2 text-slate-700 dark:text-slate-300 hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all shadow-sm">
                         <i class="ph ph-printer text-base"></i> Cetak Halaman
                     </button>
-                    
+
                     <div class="hidden md:block text-right pl-3 border-l border-slate-200 dark:border-slate-800">
-                        <p class="text-xs font-bold text-slate-800 dark:text-slate-200 leading-tight" id="topbar-user-name">Memuat...</p>
+                        <p class="text-xs font-bold text-slate-800 dark:text-slate-200 leading-tight"
+                            id="topbar-user-name">Memuat...</p>
                         <p class="text-[9px] text-slate-400 font-medium">Sistem Terkoneksi</p>
                     </div>
                 </div>
@@ -257,24 +323,33 @@
     </div>
 
     <!-- GLOBAL CRUD MODAL -->
-    <div id="crud-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm hidden p-4">
-        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl max-w-lg w-full border border-slate-200 dark:border-slate-700 overflow-hidden transform scale-95 opacity-0 transition-all duration-300" id="crud-modal-box">
-            <div class="px-6 py-4 bg-slate-50 dark:bg-slate-850 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
+    <div id="crud-modal"
+        class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-sm hidden p-4">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl max-w-lg w-full border border-slate-200 dark:border-slate-700 overflow-hidden transform scale-95 opacity-0 transition-all duration-300"
+            id="crud-modal-box">
+            <div
+                class="px-6 py-4 bg-slate-50 dark:bg-slate-850 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center">
                 <h3 class="text-base font-bold text-slate-800 dark:text-slate-100" id="crud-modal-title">Form</h3>
-                <button onclick="closeModal()" class="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 p-1.5 rounded-lg"><i class="ph ph-x text-lg"></i></button>
+                <button onclick="closeModal()"
+                    class="text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 p-1.5 rounded-lg"><i
+                        class="ph ph-x text-lg"></i></button>
             </div>
             <form id="crud-modal-form" class="p-6 space-y-4">
                 <div id="crud-modal-body"></div>
                 <div class="flex justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-700">
-                    <button type="button" onclick="closeModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-xl hover:bg-slate-200 transition-colors">Batal</button>
-                    <button type="submit" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-md transition-colors" id="crud-modal-save-btn">Simpan</button>
+                    <button type="button" onclick="closeModal()"
+                        class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-semibold rounded-xl hover:bg-slate-200 transition-colors">Batal</button>
+                    <button type="submit"
+                        class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-md transition-colors"
+                        id="crud-modal-save-btn">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- TOAST NOTIFICATION -->
-    <div id="toast" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 bg-slate-900 text-white dark:bg-white dark:text-slate-900 py-3 px-5 rounded-2xl shadow-2xl max-w-sm border border-slate-800 dark:border-slate-200">
+    <div id="toast"
+        class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 bg-slate-900 text-white dark:bg-white dark:text-slate-900 py-3 px-5 rounded-2xl shadow-2xl max-w-sm border border-slate-800 dark:border-slate-200">
         <i id="toast-icon" class="ph ph-check-circle text-xl text-emerald-500"></i>
         <div class="text-xs font-semibold" id="toast-text">Berhasil!</div>
     </div>
@@ -300,10 +375,10 @@
         }
 
         // Memeriksa apakah konfigurasi Firebase valid
-        const isFirebaseConfigured = firebaseConfig && 
-                                     firebaseConfig.apiKey && 
-                                     firebaseConfig.apiKey !== "ISI_API_KEY_ANDA" && 
-                                     !firebaseConfig.apiKey.startsWith("ISI_");
+        const isFirebaseConfigured = firebaseConfig &&
+            firebaseConfig.apiKey &&
+            firebaseConfig.apiKey !== "ISI_API_KEY_ANDA" &&
+            !firebaseConfig.apiKey.startsWith("ISI_");
 
         let app = null;
         let auth = null;
@@ -327,7 +402,7 @@
 
         const isPreviewEnv = typeof __app_id !== 'undefined';
         const appId = isPreviewEnv ? __app_id : 'tradisi-app';
-        
+
         const getUserDocPath = (uid) => {
             return isPreviewEnv ? `artifacts/${appId}/users/${uid}/profile/data` : `users/${uid}`;
         };
@@ -477,7 +552,7 @@
         // 6. VARIABEL GLOBAL
         let currentUser = null;
         let userProfile = { nama: "Guru Pendidik", nip: "-", mapel: "-" };
-        
+
         // 7. INISIALISASI UI ELEMENTS
         const loginView = document.getElementById('login-view');
         const appView = document.getElementById('app-view');
@@ -512,7 +587,7 @@
         }
 
         // TOAST NOTIFICATION HELPERS
-        window.showToast = function(message, isError = false) {
+        window.showToast = function (message, isError = false) {
             const toast = document.getElementById('toast');
             const toastText = document.getElementById('toast-text');
             const toastIcon = document.getElementById('toast-icon');
@@ -535,7 +610,7 @@
 
         // GLOBAL MODAL HELPERS
         let modalOnConfirm = null;
-        window.openModal = function(title, bodyHtml, confirmText = "Simpan", onConfirm = null) {
+        window.openModal = function (title, bodyHtml, confirmText = "Simpan", onConfirm = null) {
             document.getElementById('crud-modal-title').innerText = title;
             document.getElementById('crud-modal-body').innerHTML = bodyHtml;
             document.getElementById('crud-modal-save-btn').innerText = confirmText;
@@ -550,7 +625,7 @@
             }, 10);
         };
 
-        window.closeModal = function() {
+        window.closeModal = function () {
             const modal = document.getElementById('crud-modal');
             const modalBox = document.getElementById('crud-modal-box');
             modalBox.classList.remove('scale-100', 'opacity-100');
@@ -566,15 +641,15 @@
         });
 
         // 8. SPA NAVIGATION LOGIC
-        window.loadPage = async function(pageTitle) {
+        window.loadPage = async function (pageTitle) {
             headerTitle.innerText = pageTitle;
-            
+
             // Highlight active menu
             document.querySelectorAll('.menu-item').forEach(el => {
                 el.classList.remove('bg-slate-800/80', 'text-white', 'font-semibold');
                 el.querySelector('.bullet-indicator').classList.remove('bg-emerald-500', 'scale-125');
                 el.querySelector('.bullet-indicator').classList.add('bg-slate-600');
-                if(el.getAttribute('data-page') === pageTitle) {
+                if (el.getAttribute('data-page') === pageTitle) {
                     el.classList.add('bg-slate-800/80', 'text-white', 'font-semibold');
                     el.querySelector('.bullet-indicator').classList.remove('bg-slate-600');
                     el.querySelector('.bullet-indicator').classList.add('bg-emerald-500', 'scale-125');
@@ -582,7 +657,7 @@
             });
 
             // Close sidebar on mobile after navigating
-            if(window.innerWidth < 768) toggleSidebar(false);
+            if (window.innerWidth < 768) toggleSidebar(false);
 
             // Tampilkan Loading Area
             contentArea.innerHTML = `
@@ -595,12 +670,12 @@
             // Render Page Content
             try {
                 const schoolSettings = await dbService.getData('madrasah_settings').then(res => Array.isArray(res) ? res[0] || SEED_DATA.madrasah_settings : res);
-                
+
                 if (pageTitle === 'Dashboard') {
                     const students = await dbService.getData('siswa');
                     const journals = await dbService.getData('jurnal');
                     const schedules = await dbService.getData('jadwal');
-                    
+
                     let bannerDb = '';
                     if (useMockDb) {
                         bannerDb = `
@@ -640,7 +715,7 @@
                             jadwalHtml += `
                                 <div class="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-slate-800/40 rounded-xl">
                                     <div class="flex items-center gap-2">
-                                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">${s.hari.substring(0,3)}</div>
+                                        <div class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xs font-bold">${s.hari.substring(0, 3)}</div>
                                         <div>
                                             <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${s.mapel}</p>
                                             <p class="text-[10px] text-slate-400">${s.kelas} | ${s.jam}</p>
@@ -778,7 +853,7 @@
                         e.preventDefault();
                         const btn = e.target.querySelector('button[type="submit"]');
                         btn.innerText = "Menyimpan...";
-                        
+
                         const newSettings = {
                             nama: document.getElementById('school-name').value,
                             kepala: document.getElementById('school-head').value,
@@ -826,7 +901,7 @@
                         e.preventDefault();
                         const btn = e.target.querySelector('button[type="submit"]');
                         btn.innerText = "Menyimpan...";
-                        
+
                         const newNama = document.getElementById('prof-nama').value;
                         const newNip = document.getElementById('prof-nip').value;
                         const newMapel = document.getElementById('prof-mapel').value;
@@ -847,8 +922,8 @@
 
                 else if (pageTitle === 'Data Siswa') {
                     const students = await dbService.getData('siswa');
-                    
-                    window.renderStudentsTable = function(filteredList = students) {
+
+                    window.renderStudentsTable = function (filteredList = students) {
                         const tbody = document.getElementById('students-table-body');
                         if (filteredList.length === 0) {
                             tbody.innerHTML = `
@@ -923,7 +998,7 @@
                         </div>
                     `;
 
-                    window.filterStudents = function() {
+                    window.filterStudents = function () {
                         const search = document.getElementById('search-student').value.toLowerCase();
                         const kelas = document.getElementById('filter-class').value;
                         const filtered = students.filter(s => {
@@ -934,7 +1009,7 @@
                         renderStudentsTable(filtered);
                     };
 
-                    window.addStudentModal = function() {
+                    window.addStudentModal = function () {
                         const formBody = `
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nomor Induk Siswa Nasional (NISN)</label>
@@ -983,9 +1058,9 @@
                         });
                     };
 
-                    window.editStudentModal = function(id) {
+                    window.editStudentModal = function (id) {
                         const s = students.find(item => item.id === id);
-                        if(!s) return;
+                        if (!s) return;
 
                         const formBody = `
                             <input type="hidden" id="stud-id" value="${s.id}">
@@ -1037,8 +1112,8 @@
                         });
                     };
 
-                    window.deleteStudent = function(id) {
-                        if(confirm("Apakah Anda yakin ingin menghapus data siswa ini?")) {
+                    window.deleteStudent = function (id) {
+                        if (confirm("Apakah Anda yakin ingin menghapus data siswa ini?")) {
                             const index = students.findIndex(item => item.id === id);
                             if (index !== -1) {
                                 students.splice(index, 1);
@@ -1071,7 +1146,7 @@
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Pilih Tanggal</label>
-                                    <input type="date" id="absen-tanggal" value="${new Date().toISOString().substring(0,10)}" onchange="loadAttendanceList()" class="px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-emerald-500 text-xs w-44">
+                                    <input type="date" id="absen-tanggal" value="${new Date().toISOString().substring(0, 10)}" onchange="loadAttendanceList()" class="px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-emerald-500 text-xs w-44">
                                 </div>
                             </div>
 
@@ -1119,13 +1194,13 @@
                         </div>
                     `;
 
-                    window.loadAttendanceList = function() {
+                    window.loadAttendanceList = function () {
                         const selectedClass = document.getElementById('absen-kelas').value;
                         const selectedDate = document.getElementById('absen-tanggal').value;
-                        
+
                         const classStudents = students.filter(s => s.kelas === selectedClass);
                         const existingRecord = attendances.find(a => a.kelas === selectedClass && a.tanggal === selectedDate);
-                        
+
                         const badge = document.getElementById('absen-stat-badge');
                         if (existingRecord) {
                             badge.className = "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold py-1 px-3 rounded-full";
@@ -1169,7 +1244,7 @@
                         renderAttendanceSummary(classStudents, existingRecord);
                     };
 
-                    window.renderAttendanceSummary = function(classStudents, record) {
+                    window.renderAttendanceSummary = function (classStudents, record) {
                         let h = 0, s = 0, i = 0, a = 0;
                         const total = classStudents.length;
 
@@ -1186,10 +1261,10 @@
                             h = total;
                         }
 
-                        const p_h = total ? Math.round((h/total)*100) : 0;
-                        const p_s = total ? Math.round((s/total)*100) : 0;
-                        const p_i = total ? Math.round((i/total)*100) : 0;
-                        const p_a = total ? Math.round((a/total)*100) : 0;
+                        const p_h = total ? Math.round((h / total) * 100) : 0;
+                        const p_s = total ? Math.round((s / total) * 100) : 0;
+                        const p_i = total ? Math.round((i / total) * 100) : 0;
+                        const p_a = total ? Math.round((a / total) * 100) : 0;
 
                         document.getElementById('absen-summary-container').innerHTML = `
                             <div class="space-y-1">
@@ -1231,11 +1306,11 @@
                         `;
                     };
 
-                    window.saveAttendance = async function() {
+                    window.saveAttendance = async function () {
                         const selectedClass = document.getElementById('absen-kelas').value;
                         const selectedDate = document.getElementById('absen-tanggal').value;
                         const classStudents = students.filter(s => s.kelas === selectedClass);
-                        
+
                         const records = {};
                         classStudents.forEach(s => {
                             const radio = document.querySelector(`input[name="status-${s.id}"]:checked`);
@@ -1243,7 +1318,7 @@
                         });
 
                         const existingIdx = attendances.findIndex(a => a.kelas === selectedClass && a.tanggal === selectedDate);
-                        
+
                         if (existingIdx !== -1) {
                             attendances[existingIdx].records = records;
                         } else {
@@ -1265,8 +1340,8 @@
 
                 else if (pageTitle === 'Jurnal Agenda Guru') {
                     const journals = await dbService.getData('jurnal');
-                    
-                    window.renderJournalTable = function(filtered = journals) {
+
+                    window.renderJournalTable = function (filtered = journals) {
                         const tbody = document.getElementById('jurnal-table-body');
                         if (filtered.length === 0) {
                             tbody.innerHTML = `<tr><td colspan="7" class="px-6 py-8 text-center text-xs text-slate-500">Belum ada catatan agenda kelas.</td></tr>`;
@@ -1301,7 +1376,7 @@
                                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Tanggal</label>
-                                            <input type="date" id="jur-tanggal" value="${new Date().toISOString().substring(0,10)}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-emerald-500 text-xs">
+                                            <input type="date" id="jur-tanggal" value="${new Date().toISOString().substring(0, 10)}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-emerald-500 text-xs">
                                         </div>
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Pilih Kelas</label>
@@ -1413,13 +1488,13 @@
                         filterJournals();
                     });
 
-                    window.filterJournals = function() {
+                    window.filterJournals = function () {
                         const val = document.getElementById('jur-filter-kelas').value;
                         const filtered = val ? journals.filter(j => j.kelas === val) : journals;
                         renderJournalTable(filtered);
                     };
 
-                    window.deleteJournal = function(id) {
+                    window.deleteJournal = function (id) {
                         if (confirm("Hapus agenda mengajar ini?")) {
                             const idx = journals.findIndex(j => j.id === id);
                             if (idx !== -1) {
@@ -1529,7 +1604,7 @@
                         </div>
                     `;
 
-                    window.toggleGradeView = function(mode) {
+                    window.toggleGradeView = function (mode) {
                         const inpView = document.getElementById('grade-input-view');
                         const ledView = document.getElementById('grade-ledger-view');
                         const btnInp = document.getElementById('btn-view-input');
@@ -1548,11 +1623,11 @@
                         }
                     };
 
-                    window.loadGrades = function() {
+                    window.loadGrades = function () {
                         const cls = document.getElementById('grade-kelas').value;
                         const subject = document.getElementById('grade-mapel').value;
                         const classStudents = students.filter(s => s.kelas === cls);
-                        
+
                         document.getElementById('print-ledger-info').innerText = `${schoolSettings.nama} | Mata Pelajaran: ${subject} | Kelas: ${cls} | TA: ${schoolSettings.tahunAjaran}`;
 
                         // Render Input Form
@@ -1583,7 +1658,7 @@
                             tbodyLed.innerHTML = classStudents.map((s, idx) => {
                                 const score = grades.find(g => g.siswaId === s.id && g.kelas === cls && g.mapel === subject) || { tugas: 0, ulangan: 0, uts: 0, uas: 0 };
                                 const avg = Math.round((parseInt(score.tugas) + parseInt(score.ulangan) + parseInt(score.uts) + parseInt(score.uas)) / 4);
-                                
+
                                 let grade = 'E';
                                 if (avg >= 85) grade = 'A';
                                 else if (avg >= 75) grade = 'B';
@@ -1611,7 +1686,7 @@
                         }
                     };
 
-                    window.saveGrades = async function() {
+                    window.saveGrades = async function () {
                         const cls = document.getElementById('grade-kelas').value;
                         const subject = document.getElementById('grade-mapel').value;
                         const classStudents = students.filter(s => s.kelas === cls);
@@ -1753,7 +1828,7 @@
                         </div>
                     `;
 
-                    window.updateCoverPreview = function() {
+                    window.updateCoverPreview = function () {
                         document.getElementById('p-cov-main-title').innerText = document.getElementById('cov-title').value.toUpperCase();
                         document.getElementById('p-cov-subtitle').innerText = document.getElementById('cov-subtitle').value;
                         document.getElementById('p-cov-mapel').innerText = document.getElementById('cov-mapel').value;
@@ -1761,14 +1836,14 @@
                         document.getElementById('p-cov-guru').innerText = document.getElementById('cov-guru').value;
                         document.getElementById('p-cov-nip').innerText = "NIP. " + document.getElementById('cov-nip').value;
                     };
-                    
+
                     updateCoverPreview();
                 }
 
                 else if (pageTitle === 'Jadwal Pelajaran') {
                     const schedules = await dbService.getData('jadwal');
-                    
-                    window.renderSchedule = function() {
+
+                    window.renderSchedule = function () {
                         const container = document.getElementById('schedule-list-container');
                         if (schedules.length === 0) {
                             container.innerHTML = `<p class="text-xs text-slate-500 text-center py-8">Belum ada jadwal terdaftar.</p>`;
@@ -1777,7 +1852,7 @@
                         container.innerHTML = schedules.map(s => `
                             <div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-100 dark:border-slate-850">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-sm">${s.hari.substring(0,3)}</div>
+                                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center font-bold text-sm">${s.hari.substring(0, 3)}</div>
                                     <div>
                                         <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${s.mapel}</p>
                                         <p class="text-[10px] text-slate-400">${s.kelas} | Jam ${s.jam}</p>
@@ -1848,7 +1923,7 @@
                         renderSchedule();
                     });
 
-                    window.deleteSchedule = function(id) {
+                    window.deleteSchedule = function (id) {
                         const idx = schedules.findIndex(s => s.id === id);
                         if (idx !== -1) {
                             schedules.splice(idx, 1);
@@ -1865,7 +1940,7 @@
                 else if (pageTitle === 'Kalender Pendidikan') {
                     const events = await dbService.getData('events');
 
-                    window.renderEvents = function() {
+                    window.renderEvents = function () {
                         const container = document.getElementById('events-container');
                         if (events.length === 0) {
                             container.innerHTML = `<p class="text-xs text-slate-500 text-center py-8">Belum ada kegiatan akademik.</p>`;
@@ -1936,7 +2011,7 @@
                         renderEvents();
                     });
 
-                    window.deleteEvent = function(id) {
+                    window.deleteEvent = function (id) {
                         const idx = events.findIndex(ev => ev.id === id);
                         if (idx !== -1) {
                             events.splice(idx, 1);
@@ -1989,7 +2064,7 @@
                 else {
                     const docs = await dbService.getData('documents');
 
-                    window.renderDocs = function() {
+                    window.renderDocs = function () {
                         const container = document.getElementById('docs-list-container');
                         if (docs.length === 0) {
                             container.innerHTML = `<p class="text-xs text-slate-500 text-center py-8">Belum ada berkas terunggah.</p>`;
@@ -2032,7 +2107,7 @@
                         </div>
                     `;
 
-                    window.uploadDocModal = function() {
+                    window.uploadDocModal = function () {
                         const formBody = `
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Nama Berkas Perangkat</label>
@@ -2051,7 +2126,7 @@
                                 tipe: pageTitle,
                                 nama: document.getElementById('doc-upload-name').value + '.pdf',
                                 ukuran: '1.2 MB',
-                                tanggal: new Date().toISOString().substring(0,10)
+                                tanggal: new Date().toISOString().substring(0, 10)
                             };
 
                             docs.push(newDoc);
@@ -2062,7 +2137,7 @@
                         });
                     };
 
-                    window.deleteDoc = function(id) {
+                    window.deleteDoc = function (id) {
                         const idx = docs.findIndex(d => d.id === id);
                         if (idx !== -1) {
                             docs.splice(idx, 1);
@@ -2075,7 +2150,7 @@
 
                     renderDocs();
                 }
-            } catch(e) {
+            } catch (e) {
                 console.error("Gagal merender konten halaman:", e);
                 contentArea.innerHTML = `
                     <div class="fade-in bg-rose-50 dark:bg-rose-950/20 p-6 rounded-3xl border border-rose-200 dark:border-rose-800 text-center py-10 max-w-lg mx-auto">
@@ -2095,7 +2170,7 @@
             const pass = document.getElementById('password').value;
             const btn = document.getElementById('login-btn');
             const errDiv = document.getElementById('login-error');
-            
+
             btn.innerHTML = `<i class="ph ph-spinner animate-spin text-xl"></i>`;
             btn.disabled = true;
             errDiv.classList.add('hidden');
@@ -2124,13 +2199,13 @@
         });
 
         // MASUK INSTAN DEMO
-        window.loginAsDemo = async function() {
+        window.loginAsDemo = async function () {
             const btn = document.querySelector('button[onclick="loginAsDemo()"]');
             btn.innerHTML = `<i class="ph ph-spinner animate-spin text-sm"></i> Menyiapkan...`;
-            
+
             currentUser = { uid: 'demo-user', email: 'demo.guru@idrisiyyah.sch.id' };
             userProfile = await dbService.getProfile('demo-user');
-            
+
             setTimeout(() => {
                 onUserAuthenticated();
                 btn.innerHTML = `<i class="ph ph-user-play"></i> Masuk Instan (Mode Demo)`;
@@ -2163,7 +2238,7 @@
             updateUIProfileInfo();
             loginView.classList.add('hidden');
             appView.classList.remove('hidden');
-            
+
             renderSidebar();
             window.loadPage('Dashboard');
         }
@@ -2182,7 +2257,7 @@
         }
 
         // 10. DARK MODE TOGGLE & INITIALIZATION
-        window.toggleDarkMode = function() {
+        window.toggleDarkMode = function () {
             const isDark = document.documentElement.classList.toggle('dark');
             localStorage.setItem('tradisi_theme', isDark ? 'dark' : 'light');
             updateThemeIcon();
@@ -2200,9 +2275,9 @@
         // 11. MOBILE SIDEBAR INTERACTION
         const sidebar = document.getElementById('sidebar');
         const mobileOverlay = document.getElementById('mobile-overlay');
-        
-        window.toggleSidebar = function(show) {
-            if(show) {
+
+        window.toggleSidebar = function (show) {
+            if (show) {
                 sidebar.classList.remove('-translate-x-full');
                 mobileOverlay.classList.remove('hidden');
             } else {
@@ -2218,4 +2293,5 @@
         renderSidebar();
     </script>
 </body>
+
 </html>
