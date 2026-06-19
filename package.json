@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "firebase": "^12.15.0"
+  "name": "tradisi",
+  "version": "1.0.0",
+  "description": "Transformasi Digital Administrasi MTs Idrisiyyah",
+  "private": true,
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve . --cors"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
   }
 }
