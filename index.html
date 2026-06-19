@@ -3,47 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TRADISI - Transformasi Digital Administrasi MTs Idrisiyyah</title>
+    <title>Tradisi-Transformasi Digital Administrasi MTs Idrisiyyah</title>
     <meta name="description" content="Sistem Informasi Manajemen Administrasi Guru Terpadu">
-    <meta name="theme-color" content="#f97316">
+    <meta name="theme-color" content="#166534">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Lucide Icons (Modern Icon Set) -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <!-- Google Font: Outfit (closest free alternative to Google Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Phosphor Icons (fallback for existing references) -->
+    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
 
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Tailwind Configuration - Morning Spirit Palette -->
+    <!-- Tailwind Configuration - Natural Forest Palette -->
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"SF Pro Text"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+                        sans: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                     },
                     colors: {
-                        // Morning Spirit Warm Palette
-                        morning: {
-                            50: '#fff7ed',
-                            100: '#ffedd5',
-                            200: '#fed7aa',
-                            300: '#fdba74',
-                            400: '#fb923c',
-                            500: '#f97316',
-                            600: '#ea580c',
-                            700: '#c2410c',
-                            800: '#9a3412',
-                            900: '#7c2d12',
+                        forest: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#166534',
+                            800: '#14532d',
+                            900: '#052e16',
+                            950: '#022c22',
+                        },
+                        sand: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
                         },
                         slate: {
-                            850: '#1e293b',
+                            850: '#172033',
                         }
                     }
                 }
@@ -51,7 +65,7 @@
         }
     </script>
 
-    <!-- Theme Init (prevent flash) -->
+    <!-- Theme Init -->
     <script>
         const savedTheme = localStorage.getItem('tradisi_theme');
         if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -64,78 +78,147 @@
 
 <body class="text-stone-800 dark:text-stone-200 antialiased h-screen overflow-hidden flex flex-col bg-stone-50 dark:bg-stone-900 transition-colors duration-200">
 
-    <!-- VIEW 1: HALAMAN LOGIN -->
-    <div id="login-view" class="flex-1 flex items-center justify-center login-bg absolute inset-0 z-50 overflow-hidden">
-        <!-- Animated glows - Sunrise palette -->
-        <div class="login-glow-orange"></div>
-        <div class="login-glow-amber"></div>
-        <div class="login-glow-rose"></div>
-
-        <!-- Login Card -->
-        <div class="bg-white/10 backdrop-blur-2xl border border-white/20 p-8 rounded-3xl shadow-2xl w-full max-w-md mx-4 relative z-10">
-            <div class="text-center mb-8">
-                <div class="inline-flex p-2 bg-gradient-to-br from-orange-500 via-amber-500 to-rose-500 rounded-2xl shadow-lg shadow-orange-500/20 mb-4">
-                    <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo MTs Idrisiyyah" class="w-16 h-16 object-contain">
+    <!-- ============ LOGIN PAGE - Modern Split Layout ============ -->
+    <div id="login-view" class="flex-1 absolute inset-0 z-50 flex">
+        
+        <!-- LEFT: Branding Panel -->
+        <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-forest-800 via-forest-700 to-forest-900">
+            <!-- Decorative circles -->
+            <div class="absolute top-20 left-20 w-64 h-64 rounded-full bg-forest-600/20 blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-sand-500/10 blur-3xl" style="animation: floatBlob 20s infinite alternate ease-in-out;"></div>
+            <div class="absolute top-1/2 left-1/3 w-40 h-40 rounded-full bg-forest-400/10 blur-2xl" style="animation: floatBlob 15s infinite alternate-reverse ease-in-out;"></div>
+            
+            <!-- Content -->
+            <div class="relative z-10 flex flex-col justify-between p-12 w-full">
+                <div>
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="p-2.5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10">
+                            <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-10 h-10 object-contain">
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">TRADISI</h2>
+                            <p class="text-[10px] text-forest-300 uppercase tracking-widest">Digital Administration</p>
+                        </div>
+                    </div>
                 </div>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight bg-gradient-to-r from-orange-400 via-amber-400 to-rose-400 bg-clip-text text-transparent">
-                    TRADISI</h1>
-                <p class="text-xs text-stone-400 mt-1.5 uppercase tracking-widest font-medium">Transformasi Digital Administrasi Idrisiyyah</p>
+
+                <div class="space-y-6">
+                    <h1 class="text-4xl font-extrabold text-white leading-tight">
+                        Transformasi Digital<br>
+                        <span class="text-sand-400">Administrasi</span> Madrasah
+                    </h1>
+                    <p class="text-forest-200/80 text-sm max-w-md leading-relaxed">
+                        Sistem informasi manajemen guru terpadu untuk MTs Idrisiyyah Tasikmalaya. Kelola administrasi, absensi, penilaian, dan perangkat ajar dalam satu platform.
+                    </p>
+                    
+                    <!-- Feature pills -->
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                            <i class="ph ph-users mr-1"></i> Data Siswa
+                        </span>
+                        <span class="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                            <i class="ph ph-notebook mr-1"></i> Jurnal Guru
+                        </span>
+                        <span class="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                            <i class="ph ph-chart-bar mr-1"></i> Penilaian
+                        </span>
+                        <span class="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                            <i class="ph ph-book-open-text mr-1"></i> Perangkat Ajar
+                        </span>
+                    </div>
+                </div>
+
+                <div class="text-[11px] text-forest-400/60">
+                    &copy; 2026 MTs Idrisiyyah Tasikmalaya
+                </div>
             </div>
+        </div>
 
-            <form id="login-form" class="space-y-5">
-                <div>
-                    <label class="block text-xs font-semibold text-stone-300 mb-2 uppercase tracking-wide">Alamat Email</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
-                            <i class="ph ph-envelope-simple text-lg"></i>
-                        </span>
-                        <input type="email" id="email" required
-                            class="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 outline-none text-white transition-all text-sm placeholder:text-stone-500"
-                            placeholder="guru@idrisiyyah.sch.id">
+        <!-- RIGHT: Login Form -->
+        <div class="flex-1 flex items-center justify-center bg-stone-50 dark:bg-stone-950 px-6">
+            <div class="w-full max-w-md">
+                <!-- Mobile logo (shown only on small screens) -->
+                <div class="lg:hidden text-center mb-8">
+                    <div class="inline-flex p-2.5 bg-forest-700 rounded-2xl shadow-lg shadow-forest-700/20 mb-3">
+                        <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-12 h-12 object-contain">
                     </div>
+                    <h1 class="text-2xl font-bold text-forest-800 dark:text-forest-300">TRADISI</h1>
+                    <p class="text-xs text-stone-400 mt-1">Transformasi Digital Administrasi Idrisiyyah</p>
                 </div>
-                <div>
-                    <label class="block text-xs font-semibold text-stone-300 mb-2 uppercase tracking-wide">Kata Sandi</label>
-                    <div class="relative">
-                        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 text-stone-400">
-                            <i class="ph ph-lock-key text-lg"></i>
-                        </span>
-                        <input type="password" id="password" required
-                            class="w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-orange-500/50 focus:border-orange-500 outline-none text-white transition-all text-sm placeholder:text-stone-500"
-                            placeholder="Masukkan kata sandi">
-                    </div>
-                </div>
-                <div id="login-error" class="text-red-400 text-xs hidden bg-red-950/40 border border-red-500/30 p-3 rounded-xl"></div>
-                <button type="submit" id="login-btn"
-                    class="w-full mt-2 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-600 hover:from-orange-600 hover:via-amber-600 hover:to-orange-700 text-white font-bold py-3 px-4 rounded-xl transition-all shadow-lg shadow-orange-500/25 active:scale-[0.98] flex justify-center items-center text-sm">
-                    <span>Masuk</span>
-                </button>
-            </form>
 
-            <div class="mt-8 text-center text-xs text-stone-500">
-                Hubungi administrator untuk pendaftaran akun.
+                <!-- Form header -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Selamat datang kembali</h2>
+                    <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Masuk ke akun Anda untuk melanjutkan</p>
+                </div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 dark:text-stone-400 mb-2 uppercase tracking-wide">Email</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-stone-400">
+                                <i class="ph ph-envelope-simple text-lg"></i>
+                            </span>
+                            <input type="email" id="email" required
+                                class="w-full pl-12 pr-4 py-3.5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-xl focus:ring-2 focus:ring-forest-500/30 focus:border-forest-500 outline-none text-stone-800 dark:text-stone-200 transition-all text-sm placeholder:text-stone-400"
+                                placeholder="guru@idrisiyyah.sch.id">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-stone-600 dark:text-stone-400 mb-2 uppercase tracking-wide">Password</label>
+                        <div class="relative">
+                            <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-stone-400">
+                                <i class="ph ph-lock-key text-lg"></i>
+                            </span>
+                            <input type="password" id="password" required
+                                class="w-full pl-12 pr-4 py-3.5 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-xl focus:ring-2 focus:ring-forest-500/30 focus:border-forest-500 outline-none text-stone-800 dark:text-stone-200 transition-all text-sm placeholder:text-stone-400"
+                                placeholder="Masukkan kata sandi">
+                        </div>
+                    </div>
+                    
+                    <div id="login-error" class="text-red-600 dark:text-red-400 text-xs hidden bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50 p-3 rounded-xl"></div>
+                    
+                    <button type="submit" id="login-btn"
+                        class="w-full bg-forest-700 hover:bg-forest-800 text-white font-semibold py-3.5 px-4 rounded-xl transition-all shadow-lg shadow-forest-700/20 active:scale-[0.98] flex justify-center items-center text-sm">
+                        <span>Masuk</span>
+                    </button>
+                </form>
+
+                <!-- Footer -->
+                <div class="mt-8 text-center">
+                    <p class="text-xs text-stone-400">
+                        Belum punya akun? <span class="text-forest-600 dark:text-forest-400 font-medium">Hubungi administrator</span>
+                    </p>
+                </div>
+
+                <!-- Live clock on login page -->
+                <div class="mt-6 flex items-center justify-center gap-2 text-stone-400">
+                    <i class="ph ph-clock text-sm"></i>
+                    <span class="text-xs font-medium" id="login-clock">--:--:--</span>
+                    <span class="text-[10px]" id="login-date">Memuat...</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- VIEW 2: APLIKASI UTAMA -->
+    <!-- ============ APP VIEW ============ -->
     <div id="app-view" class="hidden h-full flex w-full">
 
         <!-- Sidebar -->
         <aside id="sidebar"
-            class="bg-stone-900 dark:bg-stone-950 text-white w-72 flex-shrink-0 h-full flex flex-col transition-transform transform -translate-x-full md:translate-x-0 absolute md:relative z-40 border-r border-stone-800 dark:border-stone-900 shadow-xl">
-            <div class="p-5 flex items-center justify-between border-b border-stone-800 dark:border-stone-900 bg-stone-950/50">
+            class="bg-forest-900 dark:bg-forest-950 text-white w-72 flex-shrink-0 h-full flex flex-col transition-transform transform -translate-x-full md:translate-x-0 absolute md:relative z-40 border-r border-forest-800 dark:border-forest-950 shadow-xl">
+            <div class="p-5 flex items-center justify-between border-b border-forest-800 dark:border-forest-950 bg-forest-950/50">
                 <div class="flex items-center gap-3">
-                    <div class="p-1.5 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl shadow-md shadow-orange-500/20">
+                    <div class="p-1.5 bg-white/10 rounded-xl">
                         <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-8 h-8 object-contain">
                     </div>
                     <div>
-                        <h2 class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-orange-400 to-amber-400 bg-clip-text text-transparent">
-                            TRADISI</h2>
-                        <p class="text-[9px] text-stone-500 uppercase tracking-widest -mt-0.5 font-medium">Administrasi Guru</p>
+                        <h2 class="text-lg font-bold tracking-tight text-white">TRADISI</h2>
+                        <p class="text-[9px] text-forest-400 uppercase tracking-widest -mt-0.5 font-medium">Administrasi Guru</p>
                     </div>
                 </div>
-                <button id="close-sidebar" class="md:hidden text-stone-400 hover:text-white p-1 rounded hover:bg-stone-800">
+                <button id="close-sidebar" class="md:hidden text-forest-400 hover:text-white p-1 rounded hover:bg-forest-800">
                     <i class="ph ph-x text-xl"></i>
                 </button>
             </div>
@@ -144,24 +227,24 @@
                 <!-- Menu rendered via JavaScript -->
             </div>
 
-            <div class="p-4 border-t border-stone-800 dark:border-stone-900 bg-stone-950/20">
+            <div class="p-4 border-t border-forest-800 dark:border-forest-950 bg-forest-950/30">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-500 flex items-center justify-center text-lg font-bold text-white shadow-md shadow-orange-500/20"
+                    <div class="w-10 h-10 rounded-xl bg-forest-700 flex items-center justify-center text-lg font-bold text-white shadow-md"
                         id="user-initial">G</div>
                     <div class="overflow-hidden">
                         <p class="text-sm font-medium truncate" id="sidebar-user-name">Memuat...</p>
-                        <p class="text-[10px] text-orange-400 font-semibold uppercase tracking-wider"
+                        <p class="text-[10px] text-sand-400 font-semibold uppercase tracking-wider"
                             id="sidebar-user-role">Guru / Pendidik</p>
                     </div>
                 </div>
                 <button id="logout-btn"
-                    class="w-full flex items-center justify-center gap-2 bg-rose-600/10 hover:bg-rose-600 text-rose-400 hover:text-white border border-rose-500/20 py-2.5 rounded-xl transition-all text-xs font-semibold">
+                    class="w-full flex items-center justify-center gap-2 bg-red-500/10 hover:bg-red-600 text-red-400 hover:text-white border border-red-500/20 py-2.5 rounded-xl transition-all text-xs font-semibold">
                     <i class="ph ph-sign-out"></i> Keluar
                 </button>
             </div>
         </aside>
 
-        <!-- Main Content Area -->
+        <!-- Main Content -->
         <main class="flex-1 flex flex-col h-full bg-stone-50 dark:bg-stone-900 min-w-0">
 
             <!-- Topbar -->
@@ -179,14 +262,14 @@
                 </div>
                 <div class="flex items-center gap-3">
                     <button onclick="toggleDarkMode()"
-                        class="p-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-orange-500 transition-colors"
+                        class="p-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-forest-600 transition-colors"
                         title="Toggle Tema">
                         <i id="theme-toggle-icon" class="ph ph-moon text-lg"></i>
                     </button>
 
-                    <!-- Live Date/Time Display -->
+                    <!-- Live Date/Time -->
                     <div class="hidden md:flex items-center gap-2 bg-stone-100 dark:bg-stone-800 px-3.5 py-2 rounded-xl">
-                        <i class="ph ph-clock text-orange-500 text-base"></i>
+                        <i class="ph ph-clock text-forest-600 dark:text-forest-400 text-base"></i>
                         <div class="text-right">
                             <p class="text-[11px] font-bold text-stone-800 dark:text-stone-200 leading-tight" id="topbar-clock">--:--:--</p>
                             <p class="text-[9px] text-stone-400 font-medium leading-tight" id="topbar-date">Memuat...</p>
@@ -211,7 +294,7 @@
         <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"></div>
     </div>
 
-    <!-- GLOBAL CRUD MODAL -->
+    <!-- ============ GLOBAL CRUD MODAL ============ -->
     <div id="crud-modal"
         class="fixed inset-0 z-50 flex items-center justify-center bg-stone-950/60 backdrop-blur-sm hidden p-4">
         <div class="bg-white dark:bg-stone-800 rounded-2xl shadow-xl max-w-lg w-full border border-stone-200 dark:border-stone-700 overflow-hidden transform scale-95 opacity-0 transition-all duration-300"
@@ -228,21 +311,21 @@
                     <button type="button" onclick="closeModal()"
                         class="px-4 py-2 bg-stone-100 dark:bg-stone-700 text-stone-700 dark:text-stone-200 text-xs font-semibold rounded-xl hover:bg-stone-200 transition-colors">Batal</button>
                     <button type="submit"
-                        class="px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white text-xs font-semibold rounded-xl shadow-md transition-colors"
+                        class="px-4 py-2 bg-forest-700 hover:bg-forest-800 text-white text-xs font-semibold rounded-xl shadow-md transition-colors"
                         id="crud-modal-save-btn">Simpan</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- TOAST NOTIFICATION -->
+    <!-- ============ TOAST NOTIFICATION ============ -->
     <div id="toast"
         class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 bg-stone-900 text-white dark:bg-white dark:text-stone-900 py-3 px-5 rounded-2xl shadow-2xl max-w-sm border border-stone-800 dark:border-stone-200">
-        <i id="toast-icon" class="ph ph-check-circle text-xl text-orange-500"></i>
+        <i id="toast-icon" class="ph ph-check-circle text-xl text-forest-500"></i>
         <div class="text-xs font-semibold" id="toast-text">Berhasil!</div>
     </div>
 
-    <!-- Application Logic (External JS) -->
+    <!-- Application Logic -->
     <script type="module" src="app.js"></script>
 
     <!-- Live Clock -->
@@ -255,17 +338,23 @@
             const timeStr = `${jam}:${menit}:${detik}`;
             const bulan = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
             const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+            const dateStr = `${hari[now.getDay()]}, ${now.getDate()} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
 
-            // Topbar clock
+            // Topbar
             const clockEl = document.getElementById('topbar-clock');
             if (clockEl) clockEl.textContent = timeStr;
-
             const dateEl = document.getElementById('topbar-date');
-            if (dateEl) dateEl.textContent = `${hari[now.getDay()]}, ${now.getDate()} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
+            if (dateEl) dateEl.textContent = dateStr;
 
-            // Dashboard clock
+            // Dashboard
             const dashClock = document.getElementById('dashboard-clock');
             if (dashClock) dashClock.textContent = timeStr;
+
+            // Login page
+            const loginClock = document.getElementById('login-clock');
+            if (loginClock) loginClock.textContent = timeStr;
+            const loginDate = document.getElementById('login-date');
+            if (loginDate) loginDate.textContent = `· ${dateStr}`;
         }
         updateClock();
         setInterval(updateClock, 1000);

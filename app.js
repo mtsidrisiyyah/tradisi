@@ -367,7 +367,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
             if (isError) {
                 toastIcon.className = "ph ph-x-circle text-rose-500 text-xl";
             } else {
-                toastIcon.className = "ph ph-check-circle text-orange-500 text-xl";
+                toastIcon.className = "ph ph-check-circle text-forest-600 text-xl";
             }
 
             toast.classList.remove('translate-y-20', 'opacity-0');
@@ -481,12 +481,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
             // Highlight active menu
             document.querySelectorAll('.menu-item').forEach(el => {
                 el.classList.remove('bg-slate-800/80', 'text-white', 'font-semibold');
-                el.querySelector('.bullet-indicator').classList.remove('bg-orange-500', 'scale-125');
+                el.querySelector('.bullet-indicator').classList.remove('bg-forest-600', 'scale-125');
                 el.querySelector('.bullet-indicator').classList.add('bg-slate-600');
                 if (el.getAttribute('data-page') === pageTitle) {
                     el.classList.add('bg-slate-800/80', 'text-white', 'font-semibold');
                     el.querySelector('.bullet-indicator').classList.remove('bg-slate-600');
-                    el.querySelector('.bullet-indicator').classList.add('bg-orange-500', 'scale-125');
+                    el.querySelector('.bullet-indicator').classList.add('bg-forest-600', 'scale-125');
                 }
             });
 
@@ -496,7 +496,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
             // Tampilkan Loading Area
             contentArea.innerHTML = `
                 <div class="flex flex-col justify-center items-center h-64 text-slate-400">
-                    <i class="ph ph-spinner animate-spin text-3xl text-orange-500 mb-2"></i>
+                    <i class="ph ph-spinner animate-spin text-3xl text-forest-600 mb-2"></i>
                     <p class="text-xs">Memuat konten...</p>
                 </div>
             `;
@@ -559,7 +559,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                         <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${j.kelas} - ${j.mapel} <span class="text-slate-400 font-normal">(${j.jamKe})</span></p>
                                         <p class="text-[11px] text-slate-500 dark:text-slate-400 truncate">${j.materi}</p>
                                     </div>
-                                    <span class="text-[9px] font-bold bg-emerald-100 dark:bg-emerald-950 text-orange-600 dark:text-orange-400 px-2 py-0.5 rounded-full h-fit">Hari Ini</span>
+                                    <span class="text-[9px] font-bold bg-emerald-100 dark:bg-emerald-950 text-forest-700 dark:text-forest-400 px-2 py-0.5 rounded-full h-fit">Hari Ini</span>
                                 </div>
                             `;
                         });
@@ -576,7 +576,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 jadwalHtml += `
                                     <div class="flex items-center justify-between p-2.5 bg-slate-50 dark:bg-slate-800/40 rounded-xl">
                                         <div class="flex items-center gap-2">
-                                            <div class="w-9 h-9 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 flex items-center justify-center text-[10px] font-bold">${s.hari.substring(0, 3)}</div>
+                                            <div class="w-9 h-9 rounded-lg bg-forest-600/10 text-forest-700 dark:text-forest-400 flex items-center justify-center text-[10px] font-bold">${s.hari.substring(0, 3)}</div>
                                             <div>
                                                 <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${s.mapel}</p>
                                                 <p class="text-[10px] text-slate-400">${s.kelas} | ${s.jam}</p>
@@ -591,7 +591,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             jadwalHtml += `
                                 <div class="flex items-center justify-between p-2.5 bg-emerald-50 dark:bg-emerald-950/20 rounded-xl border border-emerald-200/50 dark:border-emerald-800/30">
                                     <div class="flex items-center gap-2">
-                                        <div class="w-9 h-9 rounded-lg bg-orange-500 text-white flex items-center justify-center text-[10px] font-bold">Now</div>
+                                        <div class="w-9 h-9 rounded-lg bg-forest-600 text-white flex items-center justify-center text-[10px] font-bold">Now</div>
                                         <div>
                                             <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${s.mapel}</p>
                                             <p class="text-[10px] text-slate-400">${s.kelas} | ${s.jam}</p>
@@ -606,17 +606,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         <div class="fade-in space-y-6">
                             ${bannerDb}
                             <!-- Welcome Card -->
-                            <div class="bg-gradient-to-br from-orange-500 via-amber-500 to-rose-600 text-white p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden">
+                            <div class="bg-gradient-to-br from-forest-700 via-forest-600 to-forest-800 text-white p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden">
                                 <div class="absolute right-0 top-0 w-40 h-40 bg-white/5 rounded-full blur-2xl translate-x-12 -translate-y-12"></div>
                                 <div class="absolute left-0 bottom-0 w-32 h-32 bg-white/5 rounded-full blur-xl -translate-x-8 translate-y-8"></div>
                                 <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                     <div>
                                         <div class="flex items-center gap-2 mb-2">
                                             <span class="bg-white/20 text-white font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider">${getGreeting()}</span>
-                                            <span class="text-orange-100 text-[11px] font-medium">${formatTanggalIndonesia()}</span>
+                                            <span class="text-forest-100 text-[11px] font-medium">${formatTanggalIndonesia()}</span>
                                         </div>
                                         <h2 class="text-2xl md:text-3xl font-extrabold mb-1">Assalamu'alaikum, ${userProfile.nama}!</h2>
-                                        <p class="text-sm text-orange-100/80 font-medium">${schoolSettings.nama} | TA ${schoolSettings.tahunAjaran} (${schoolSettings.semester})</p>
+                                        <p class="text-sm text-forest-100/80 font-medium">${schoolSettings.nama} | TA ${schoolSettings.tahunAjaran} (${schoolSettings.semester})</p>
                                         <div class="flex items-center gap-2 mt-3">
                                             <div class="bg-white/15 backdrop-blur-sm px-4 py-2 rounded-xl flex items-center gap-2.5">
                                                 <i class="ph ph-clock text-xl text-white"></i>
@@ -626,7 +626,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                         </div>
                                     </div>
                                     <div class="flex gap-2 no-print">
-                                        <button onclick="window.loadPage('Absensi Siswa')" class="bg-white text-orange-600 hover:bg-emerald-50 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5"><i class="ph ph-check-square text-base"></i> Isi Absen</button>
+                                        <button onclick="window.loadPage('Absensi Siswa')" class="bg-white text-forest-700 hover:bg-emerald-50 px-4 py-2.5 rounded-xl text-xs font-bold transition-all shadow-md flex items-center gap-1.5"><i class="ph ph-check-square text-base"></i> Isi Absen</button>
                                         <button onclick="window.loadPage('Jurnal Agenda Guru')" class="bg-white/15 border border-white/20 hover:bg-white/25 px-4 py-2.5 rounded-xl text-xs font-bold text-white transition-all flex items-center gap-1.5"><i class="ph ph-pencil-simple text-base"></i> Tulis Jurnal</button>
                                     </div>
                                 </div>
@@ -651,7 +651,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                             <div class="text-2xl font-bold text-slate-800 dark:text-slate-100">${schedules.length}</div>
                                             <div class="text-[10px] text-slate-400 mt-1">${todaySchedules.length} hari ini</div>
                                         </div>
-                                        <div class="p-2.5 bg-orange-500/10 text-orange-600 rounded-xl"><i class="ph ph-calendar-blank text-xl"></i></div>
+                                        <div class="p-2.5 bg-forest-600/10 text-forest-700 rounded-xl"><i class="ph ph-calendar-blank text-xl"></i></div>
                                     </div>
                                 </div>
                                 <div class="stat-card stat-card-purple bg-white dark:bg-slate-800 p-4 md:p-5 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-800">
@@ -691,7 +691,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     <p class="text-[11px] font-bold text-slate-700 dark:text-slate-300">Modul Ajar</p>
                                 </button>
                                 <button onclick="window.loadPage('Jadwal Pelajaran')" class="quick-action bg-white dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200/50 dark:border-slate-800 text-center group">
-                                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center group-hover:bg-orange-500 group-hover:text-white transition-all"><i class="ph ph-clock text-xl"></i></div>
+                                    <div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-forest-600/10 text-forest-700 flex items-center justify-center group-hover:bg-forest-600 group-hover:text-white transition-all"><i class="ph ph-clock text-xl"></i></div>
                                     <p class="text-[11px] font-bold text-slate-700 dark:text-slate-300">Jadwal</p>
                                 </button>
                                 <button onclick="window.loadPage('Kalender Pendidikan')" class="quick-action bg-white dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200/50 dark:border-slate-800 text-center group">
@@ -704,21 +704,21 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                                 <div class="md:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800 space-y-4">
                                     <h3 class="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                        <i class="ph ph-notebook text-orange-500"></i> ${todayJournals.length > 0 ? 'Jurnal Hari Ini' : 'Jurnal Mengajar Terbaru'}
+                                        <i class="ph ph-notebook text-forest-600"></i> ${todayJournals.length > 0 ? 'Jurnal Hari Ini' : 'Jurnal Mengajar Terbaru'}
                                     </h3>
                                     <div class="space-y-3 fade-in-stagger">
                                         ${agendaHtml}
                                     </div>
-                                    <button onclick="window.loadPage('Jurnal Agenda Guru')" class="text-xs text-orange-500 dark:text-orange-400 font-bold hover:underline">Lihat semua jurnal &rarr;</button>
+                                    <button onclick="window.loadPage('Jurnal Agenda Guru')" class="text-xs text-forest-600 dark:text-forest-400 font-bold hover:underline">Lihat semua jurnal &rarr;</button>
                                 </div>
                                 <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800 space-y-4">
                                     <h3 class="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                        <i class="ph ph-calendar-blank text-orange-500"></i> ${todaySchedules.length > 0 ? 'Jadwal Hari Ini (' + todayName + ')' : 'Jadwal Terdekat'}
+                                        <i class="ph ph-calendar-blank text-forest-600"></i> ${todaySchedules.length > 0 ? 'Jadwal Hari Ini (' + todayName + ')' : 'Jadwal Terdekat'}
                                     </h3>
                                     <div class="space-y-2.5 fade-in-stagger">
                                         ${jadwalHtml}
                                     </div>
-                                    <button onclick="window.loadPage('Jadwal Pelajaran')" class="text-xs text-orange-500 dark:text-orange-400 font-bold hover:underline">Kelola jadwal &rarr;</button>
+                                    <button onclick="window.loadPage('Jadwal Pelajaran')" class="text-xs text-forest-600 dark:text-forest-400 font-bold hover:underline">Kelola jadwal &rarr;</button>
                                 </div>
                             </div>
                         </div>
@@ -730,25 +730,25 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         <div class="fade-in space-y-6 max-w-3xl">
                             <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800">
                                 <h3 class="text-base font-bold border-b dark:border-slate-700 pb-3 mb-5 flex items-center gap-2 text-slate-800 dark:text-slate-100">
-                                    <i class="ph ph-buildings text-orange-500 text-lg"></i> Identitas Madrasah
+                                    <i class="ph ph-buildings text-forest-600 text-lg"></i> Identitas Madrasah
                                 </h3>
                                 <form id="school-settings-form" class="space-y-4">
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Nama Madrasah / Sekolah</label>
-                                        <input type="text" id="school-name" value="${schoolSettings.nama}" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                        <input type="text" id="school-name" value="${schoolSettings.nama}" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">NPSN</label>
-                                            <input type="text" id="school-npsn" value="${schoolSettings.npsn || ''}" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit angka" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="school-npsn" value="${schoolSettings.npsn || ''}" maxlength="10" pattern="[0-9]{10}" placeholder="10 digit angka" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">NSM</label>
-                                            <input type="text" id="school-nsm" value="${schoolSettings.nsm || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="school-nsm" value="${schoolSettings.nsm || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Akreditasi</label>
-                                            <select id="school-akreditasi" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <select id="school-akreditasi" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                                 <option value="A" ${schoolSettings.akreditasi === 'A' ? 'selected' : ''}>A (Unggul)</option>
                                                 <option value="B" ${schoolSettings.akreditasi === 'B' ? 'selected' : ''}>B (Baik)</option>
                                                 <option value="C" ${schoolSettings.akreditasi === 'C' ? 'selected' : ''}>C (Cukup)</option>
@@ -759,21 +759,21 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Kepala Madrasah</label>
-                                            <input type="text" id="school-head" value="${schoolSettings.kepala}" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="school-head" value="${schoolSettings.kepala}" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">NIP Kepala Madrasah</label>
-                                            <input type="text" id="school-head-nip" value="${schoolSettings.nipKepala}" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="school-head-nip" value="${schoolSettings.nipKepala}" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Tahun Pelajaran</label>
-                                            <input type="text" id="school-year" value="${schoolSettings.tahunAjaran}" placeholder="contoh: 2026/2027" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="school-year" value="${schoolSettings.tahunAjaran}" placeholder="contoh: 2026/2027" required class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Semester</label>
-                                            <select id="school-semester" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <select id="school-semester" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                                 <option value="Ganjil" ${schoolSettings.semester === 'Ganjil' ? 'selected' : ''}>Ganjil</option>
                                                 <option value="Genap" ${schoolSettings.semester === 'Genap' ? 'selected' : ''}>Genap</option>
                                             </select>
@@ -781,28 +781,28 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Nama Yayasan</label>
-                                        <input type="text" id="school-yayasan" value="${schoolSettings.yayasan || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                        <input type="text" id="school-yayasan" value="${schoolSettings.yayasan || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Alamat Madrasah</label>
-                                        <textarea id="school-address" rows="2" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">${schoolSettings.alamat || ''}</textarea>
+                                        <textarea id="school-address" rows="2" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">${schoolSettings.alamat || ''}</textarea>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Email</label>
-                                            <input type="email" id="school-email" value="${schoolSettings.email || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="email" id="school-email" value="${schoolSettings.email || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Telepon</label>
-                                            <input type="text" id="school-phone" value="${schoolSettings.telepon || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="school-phone" value="${schoolSettings.telepon || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Website</label>
-                                            <input type="url" id="school-website" value="${schoolSettings.website || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="url" id="school-website" value="${schoolSettings.website || ''}" class="w-full px-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                     </div>
                                     <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
-                                        <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md active:scale-98 text-xs uppercase tracking-wider flex items-center gap-2">
+                                        <button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md active:scale-98 text-xs uppercase tracking-wider flex items-center gap-2">
                                             <i class="ph ph-floppy-disk text-base"></i> Simpan Pengaturan
                                         </button>
                                     </div>
@@ -847,7 +847,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     contentArea.innerHTML = `
                         <div class="fade-in space-y-6 max-w-2xl">
                             <!-- Profile Header Card -->
-                            <div class="bg-gradient-to-r from-orange-500 to-amber-600 p-6 rounded-3xl shadow-lg text-white relative overflow-hidden">
+                            <div class="bg-gradient-to-r from-forest-700 to-forest-600 p-6 rounded-3xl shadow-lg text-white relative overflow-hidden">
                                 <div class="absolute right-0 top-0 w-32 h-32 bg-white/5 rounded-full blur-xl translate-x-8 -translate-y-8"></div>
                                 <div class="flex items-center gap-4 relative z-10">
                                     <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center text-2xl font-extrabold shadow-lg">${userProfile.nama ? userProfile.nama.charAt(0).toUpperCase() : 'G'}</div>
@@ -878,27 +878,27 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <!-- Edit Form -->
                             <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800">
                                 <h3 class="text-sm font-bold border-b dark:border-slate-700 pb-3 mb-5 flex items-center gap-2 text-slate-800 dark:text-slate-100">
-                                    <i class="ph ph-pencil-simple text-orange-500"></i> Edit Profil
+                                    <i class="ph ph-pencil-simple text-forest-600"></i> Edit Profil
                                 </h3>
                                 <form id="profile-form" class="space-y-4">
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Nama Lengkap & Gelar</label>
-                                            <input type="text" id="prof-nama" value="${userProfile.nama}" required class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="prof-nama" value="${userProfile.nama}" required class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">NIP / NUPTK</label>
-                                            <input type="text" id="prof-nip" value="${userProfile.nip}" required class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="prof-nip" value="${userProfile.nip}" required class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Mata Pelajaran Diampu</label>
-                                            <input type="text" id="prof-mapel" value="${userProfile.mapel}" required class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="prof-mapel" value="${userProfile.mapel}" required class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Jabatan</label>
-                                            <select id="prof-jabatan" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <select id="prof-jabatan" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                                 <option value="Guru Mata Pelajaran" ${(userProfile.jabatan||'') === 'Guru Mata Pelajaran' ? 'selected' : ''}>Guru Mata Pelajaran</option>
                                                 <option value="Wali Kelas" ${(userProfile.jabatan||'') === 'Wali Kelas' ? 'selected' : ''}>Wali Kelas</option>
                                                 <option value="Wakil Kepala Madrasah" ${(userProfile.jabatan||'') === 'Wakil Kepala Madrasah' ? 'selected' : ''}>Wakil Kepala Madrasah</option>
@@ -909,25 +909,25 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Pangkat / Golongan</label>
-                                            <input type="text" id="prof-pangkat" value="${userProfile.pangkat || ''}" placeholder="contoh: Pembina / IV-a" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="prof-pangkat" value="${userProfile.pangkat || ''}" placeholder="contoh: Pembina / IV-a" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Pendidikan Terakhir</label>
-                                            <input type="text" id="prof-pendidikan" value="${userProfile.pendidikan || ''}" placeholder="contoh: S2 - Teknik Informatika" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="text" id="prof-pendidikan" value="${userProfile.pendidikan || ''}" placeholder="contoh: S2 - Teknik Informatika" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">No. Handphone</label>
-                                            <input type="tel" id="prof-hp" value="${userProfile.hp || ''}" placeholder="08xxxxxxxxxx" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="tel" id="prof-hp" value="${userProfile.hp || ''}" placeholder="08xxxxxxxxxx" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Email</label>
-                                            <input type="email" id="prof-email" value="${userProfile.email || (currentUser ? currentUser.email || '' : '')}" placeholder="guru@idrisiyyah.sch.id" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-sm">
+                                            <input type="email" id="prof-email" value="${userProfile.email || (currentUser ? currentUser.email || '' : '')}" placeholder="guru@idrisiyyah.sch.id" class="w-full px-4 py-2.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-sm">
                                         </div>
                                     </div>
                                     <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
-                                        <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md active:scale-98 text-xs uppercase tracking-wider flex items-center gap-2">
+                                        <button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-md active:scale-98 text-xs uppercase tracking-wider flex items-center gap-2">
                                             <i class="ph ph-floppy-disk text-base"></i> Simpan Perubahan
                                         </button>
                                     </div>
@@ -1033,9 +1033,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     <div class="flex flex-1 gap-2.5 max-w-md">
                                         <div class="relative flex-1">
                                             <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400"><i class="ph ph-magnifying-glass"></i></span>
-                                            <input type="text" id="search-student" oninput="filterStudents()" placeholder="Cari siswa berdasarkan nama/NISN..." class="w-full pl-9 pr-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="search-student" oninput="filterStudents()" placeholder="Cari siswa berdasarkan nama/NISN..." class="w-full pl-9 pr-4 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
-                                        <select id="filter-class" onchange="filterStudents()" class="px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <select id="filter-class" onchange="filterStudents()" class="px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                             <option value="">Semua Kelas</option>
                                             <option value="VII-A">VII-A</option>
                                             <option value="VII-B">VII-B</option>
@@ -1046,7 +1046,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                         </select>
                                     </div>
                                     <div class="flex gap-2 no-print">
-                                        <button onclick="addStudentModal()" class="btn bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-sm transition-all active:scale-98">
+                                        <button onclick="addStudentModal()" class="btn bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-4 rounded-xl text-xs flex items-center gap-2 shadow-sm transition-all active:scale-98">
                                             <i class="ph ph-plus text-base"></i> Tambah Siswa
                                         </button>
                                     </div>
@@ -1089,16 +1089,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         const formBody = `
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nomor Induk Siswa Nasional (NISN)</label>
-                                <input type="text" id="stud-nisn" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                <input type="text" id="stud-nisn" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nama Lengkap</label>
-                                <input type="text" id="stud-nama" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                <input type="text" id="stud-nama" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                             </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Kelas</label>
-                                    <select id="stud-kelas" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                    <select id="stud-kelas" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                                         <option value="VII-A">VII-A</option>
                                         <option value="VII-B">VII-B</option>
                                         <option value="VIII-A">VIII-A</option>
@@ -1109,7 +1109,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Jenis Kelamin</label>
-                                    <select id="stud-jk" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                    <select id="stud-jk" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                                         <option value="L">Laki-laki</option>
                                         <option value="P">Perempuan</option>
                                     </select>
@@ -1142,16 +1142,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <input type="hidden" id="stud-id" value="${s.id}">
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nomor Induk Siswa Nasional (NISN)</label>
-                                <input type="text" id="stud-nisn" value="${s.nisn}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                <input type="text" id="stud-nisn" value="${s.nisn}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nama Lengkap</label>
-                                <input type="text" id="stud-nama" value="${s.nama}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                <input type="text" id="stud-nama" value="${s.nama}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                             </div>
                             <div class="grid grid-cols-2 gap-3">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Kelas</label>
-                                    <select id="stud-kelas" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                    <select id="stud-kelas" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                                         <option value="VII-A" ${s.kelas === 'VII-A' ? 'selected' : ''}>VII-A</option>
                                         <option value="VII-B" ${s.kelas === 'VII-B' ? 'selected' : ''}>VII-B</option>
                                         <option value="VIII-A" ${s.kelas === 'VIII-A' ? 'selected' : ''}>VIII-A</option>
@@ -1162,7 +1162,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Jenis Kelamin</label>
-                                    <select id="stud-jk" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                    <select id="stud-jk" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                                         <option value="L" ${s.jk === 'L' ? 'selected' : ''}>Laki-laki</option>
                                         <option value="P" ${s.jk === 'P' ? 'selected' : ''}>Perempuan</option>
                                     </select>
@@ -1215,7 +1215,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800 flex flex-wrap gap-4 items-end">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Pilih Kelas</label>
-                                    <select id="absen-kelas" onchange="loadAttendanceList()" class="px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs w-44">
+                                    <select id="absen-kelas" onchange="loadAttendanceList()" class="px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs w-44">
                                         <option value="VII-A">VII-A</option>
                                         <option value="VII-B">VII-B</option>
                                         <option value="VIII-A">VIII-A</option>
@@ -1223,7 +1223,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Pilih Tanggal</label>
-                                    <input type="date" id="absen-tanggal" value="${new Date().toISOString().substring(0, 10)}" onchange="loadAttendanceList()" class="px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs w-44">
+                                    <input type="date" id="absen-tanggal" value="${new Date().toISOString().substring(0, 10)}" onchange="loadAttendanceList()" class="px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs w-44">
                                 </div>
                             </div>
 
@@ -1251,7 +1251,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     </div>
 
                                     <div class="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
-                                        <button onclick="saveAttendance()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition-all shadow-md active:scale-98">
+                                        <button onclick="saveAttendance()" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition-all shadow-md active:scale-98">
                                             Simpan Absensi
                                         </button>
                                     </div>
@@ -1260,7 +1260,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 <!-- Attendance Summary -->
                                 <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-4">
                                     <h3 class="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                        <i class="ph ph-chart-pie text-orange-500"></i> Statistik Hari Ini
+                                        <i class="ph ph-chart-pie text-forest-600"></i> Statistik Hari Ini
                                     </h3>
                                     
                                     <div class="space-y-3.5" id="absen-summary-container">
@@ -1280,7 +1280,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
 
                         const badge = document.getElementById('absen-stat-badge');
                         if (existingRecord) {
-                            badge.className = "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-orange-400 text-[10px] font-bold py-1 px-3 rounded-full";
+                            badge.className = "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-forest-400 text-[10px] font-bold py-1 px-3 rounded-full";
                             badge.innerText = "Sudah Disimpan";
                         } else {
                             badge.className = "bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold py-1 px-3 rounded-full";
@@ -1302,7 +1302,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     <td class="px-4 py-3 text-xs text-center">
                                         <div class="inline-flex rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden bg-slate-100 dark:bg-slate-900">
                                             <input type="radio" name="status-${s.id}" id="H-${s.id}" value="H" ${val === 'H' ? 'checked' : ''} class="hidden peer/h">
-                                            <label for="H-${s.id}" class="px-3.5 py-1 text-[11px] font-bold text-slate-500 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 peer-checked/h:bg-orange-500 peer-checked/h:text-white transition-all select-none">H</label>
+                                            <label for="H-${s.id}" class="px-3.5 py-1 text-[11px] font-bold text-slate-500 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 peer-checked/h:bg-forest-600 peer-checked/h:text-white transition-all select-none">H</label>
 
                                             <input type="radio" name="status-${s.id}" id="S-${s.id}" value="S" ${val === 'S' ? 'checked' : ''} class="hidden peer/s">
                                             <label for="S-${s.id}" class="px-3.5 py-1 text-[11px] font-bold text-slate-500 cursor-pointer hover:bg-slate-200 dark:hover:bg-slate-800 peer-checked/s:bg-amber-500 peer-checked/s:text-white border-l border-slate-200 dark:border-slate-750 transition-all select-none">S</label>
@@ -1346,11 +1346,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         document.getElementById('absen-summary-container').innerHTML = `
                             <div class="space-y-1">
                                 <div class="flex justify-between text-xs font-semibold">
-                                    <span class="text-orange-500 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-orange-500"></span> Hadir (${h}/${total})</span>
+                                    <span class="text-forest-600 flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-forest-600"></span> Hadir (${h}/${total})</span>
                                     <span>${p_h}%</span>
                                 </div>
                                 <div class="w-full bg-slate-100 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
-                                    <div class="bg-orange-500 h-full" style="width: ${p_h}%"></div>
+                                    <div class="bg-forest-600 h-full" style="width: ${p_h}%"></div>
                                 </div>
                             </div>
                             <div class="space-y-1">
@@ -1446,18 +1446,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <!-- Add Form -->
                             <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
                                 <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                                    <i class="ph ph-plus-circle text-orange-500 text-base"></i> Catat Agenda Kelas Baru
+                                    <i class="ph ph-plus-circle text-forest-600 text-base"></i> Catat Agenda Kelas Baru
                                 </h3>
                                 
                                 <form id="jurnal-form" class="space-y-4">
                                     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Tanggal</label>
-                                            <input type="date" id="jur-tanggal" value="${new Date().toISOString().substring(0, 10)}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="date" id="jur-tanggal" value="${new Date().toISOString().substring(0, 10)}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Pilih Kelas</label>
-                                            <select id="jur-kelas" class="w-full px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <select id="jur-kelas" class="w-full px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                                 <option value="VII-A">VII-A</option>
                                                 <option value="VII-B">VII-B</option>
                                                 <option value="VIII-A">VIII-A</option>
@@ -1465,31 +1465,31 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                         </div>
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Jam Ke</label>
-                                            <input type="text" id="jur-jam" placeholder="contoh: 1-2" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="jur-jam" placeholder="contoh: 1-2" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Mata Pelajaran</label>
-                                            <input type="text" id="jur-mapel" value="${userProfile.mapel}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="jur-mapel" value="${userProfile.mapel}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                     </div>
 
                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div class="md:col-span-1">
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Uraian Materi Pembelajaran</label>
-                                            <textarea id="jur-materi" rows="2" placeholder="Tuliskan materi ajar yang disampaikan..." required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs"></textarea>
+                                            <textarea id="jur-materi" rows="2" placeholder="Tuliskan materi ajar yang disampaikan..." required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs"></textarea>
                                         </div>
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Hambatan / Catatan Kelas</label>
-                                            <textarea id="jur-kendala" rows="2" placeholder="Hambatan/siswa tidak masuk..." class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs"></textarea>
+                                            <textarea id="jur-kendala" rows="2" placeholder="Hambatan/siswa tidak masuk..." class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs"></textarea>
                                         </div>
                                         <div>
                                             <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Tindak Lanjut</label>
-                                            <textarea id="jur-tindaklanjut" rows="2" placeholder="Solusi/rencana pertemuan selanjutnya..." class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs"></textarea>
+                                            <textarea id="jur-tindaklanjut" rows="2" placeholder="Solusi/rencana pertemuan selanjutnya..." class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs"></textarea>
                                         </div>
                                     </div>
 
                                     <div class="flex justify-end">
-                                        <button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs transition-all shadow-md active:scale-98">
+                                        <button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs transition-all shadow-md active:scale-98">
                                             Simpan Agenda Mengajar
                                         </button>
                                     </div>
@@ -1500,7 +1500,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm overflow-hidden printable-area">
                                 <div class="p-6 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center no-print">
                                     <div class="flex gap-2 max-w-xs">
-                                        <select id="jur-filter-kelas" onchange="filterJournals()" class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <select id="jur-filter-kelas" onchange="filterJournals()" class="px-3 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                             <option value="">Semua Kelas</option>
                                             <option value="VII-A">VII-A</option>
                                             <option value="VII-B">VII-B</option>
@@ -1598,7 +1598,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800 flex flex-wrap gap-4 items-end no-print">
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Pilih Kelas</label>
-                                    <select id="grade-kelas" onchange="loadGrades()" class="px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs w-44">
+                                    <select id="grade-kelas" onchange="loadGrades()" class="px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs w-44">
                                         <option value="VII-A">VII-A</option>
                                         <option value="VII-B">VII-B</option>
                                         <option value="VIII-A">VIII-A</option>
@@ -1606,10 +1606,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 </div>
                                 <div>
                                     <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Mata Pelajaran</label>
-                                    <input type="text" id="grade-mapel" value="${userProfile.mapel}" oninput="loadGrades()" class="px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs w-44">
+                                    <input type="text" id="grade-mapel" value="${userProfile.mapel}" oninput="loadGrades()" class="px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs w-44">
                                 </div>
                                 <div class="flex gap-2">
-                                    <button onclick="toggleGradeView('input')" id="btn-view-input" class="bg-orange-600 text-white text-xs font-bold px-4 py-2 rounded-xl border border-emerald-600">Form Input</button>
+                                    <button onclick="toggleGradeView('input')" id="btn-view-input" class="bg-forest-700 text-white text-xs font-bold px-4 py-2 rounded-xl border border-emerald-600">Form Input</button>
                                     <button onclick="toggleGradeView('ledger')" id="btn-view-ledger" class="bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold px-4 py-2 rounded-xl">Rekap Nilai</button>
                                 </div>
                             </div>
@@ -1639,7 +1639,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 </div>
 
                                 <div class="p-6 border-t border-slate-100 dark:border-slate-800 flex justify-end">
-                                    <button onclick="saveGrades()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition-all active:scale-98">
+                                    <button onclick="saveGrades()" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition-all active:scale-98">
                                         Simpan Nilai Siswa
                                     </button>
                                 </div>
@@ -1691,13 +1691,13 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         if (mode === 'input') {
                             inpView.classList.remove('hidden');
                             ledView.classList.add('hidden');
-                            btnInp.className = "bg-orange-600 text-white text-xs font-bold px-4 py-2 rounded-xl border border-emerald-600";
+                            btnInp.className = "bg-forest-700 text-white text-xs font-bold px-4 py-2 rounded-xl border border-emerald-600";
                             btnLed.className = "bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold px-4 py-2 rounded-xl";
                         } else {
                             inpView.classList.add('hidden');
                             ledView.classList.remove('hidden');
                             btnInp.className = "bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold px-4 py-2 rounded-xl";
-                            btnLed.className = "bg-orange-600 text-white text-xs font-bold px-4 py-2 rounded-xl border border-emerald-600";
+                            btnLed.className = "bg-forest-700 text-white text-xs font-bold px-4 py-2 rounded-xl border border-emerald-600";
                         }
                     };
 
@@ -1756,7 +1756,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                         <td class="px-4 py-3 text-xs text-center font-bold">${avg}</td>
                                         <td class="px-4 py-3 text-xs text-center"><span class="font-bold">${grade}</span></td>
                                         <td class="px-4 py-3 text-xs text-center">
-                                            <span class="px-2 py-0.5 rounded-full font-bold text-[9px] ${pass ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-orange-400' : 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400'}">${pass ? 'Lulus KKM' : 'Remedial'}</span>
+                                            <span class="px-2 py-0.5 rounded-full font-bold text-[9px] ${pass ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-forest-400' : 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400'}">${pass ? 'Lulus KKM' : 'Remedial'}</span>
                                         </td>
                                     </tr>
                                 `;
@@ -1803,42 +1803,42 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <!-- Left: Form inputs -->
                             <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200/50 dark:border-slate-800 space-y-4 no-print">
                                 <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                                    <i class="ph ph-note text-orange-500 text-base"></i> Buat Cover Perangkat Pembelajaran
+                                    <i class="ph ph-note text-forest-600 text-base"></i> Buat Cover Perangkat Pembelajaran
                                 </h3>
                                 
                                 <div class="space-y-4">
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Judul Dokumen Utama</label>
-                                        <input type="text" id="cov-title" value="BUKU KERJA GURU I" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="text" id="cov-title" value="BUKU KERJA GURU I" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
                                     <div>
                                         <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Sub Judul Dokumen</label>
-                                        <input type="text" id="cov-subtitle" value="Rencana Pelaksanaan Pembelajaran (RPP)" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="text" id="cov-subtitle" value="Rencana Pelaksanaan Pembelajaran (RPP)" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Mata Pelajaran</label>
-                                            <input type="text" id="cov-mapel" value="${userProfile.mapel}" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="cov-mapel" value="${userProfile.mapel}" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Kelas / Semester</label>
-                                            <input type="text" id="cov-kelas" value="Kelas VII / Ganjil" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="cov-kelas" value="Kelas VII / Ganjil" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                     </div>
                                     <div class="grid grid-cols-2 gap-4">
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nama Pendidik (Guru)</label>
-                                            <input type="text" id="cov-guru" value="${userProfile.nama}" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="cov-guru" value="${userProfile.nama}" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                         <div>
                                             <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">NIP / NUPTK</label>
-                                            <input type="text" id="cov-nip" value="${userProfile.nip}" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                            <input type="text" id="cov-nip" value="${userProfile.nip}" oninput="updateCoverPreview()" class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-end">
-                                    <button onclick="window.print()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-md active:scale-98">
+                                    <button onclick="window.print()" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2.5 px-6 rounded-xl text-xs flex items-center gap-1.5 transition-all shadow-md active:scale-98">
                                         <i class="ph ph-printer text-base"></i> Cetak Cover A4
                                     </button>
                                 </div>
@@ -1925,7 +1925,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         container.innerHTML = schedules.map(s => `
                             <div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-100 dark:border-slate-850">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center font-bold text-sm">${s.hari.substring(0, 3)}</div>
+                                    <div class="w-10 h-10 rounded-xl bg-forest-600/10 text-forest-700 flex items-center justify-center font-bold text-sm">${s.hari.substring(0, 3)}</div>
                                     <div>
                                         <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${s.mapel}</p>
                                         <p class="text-[10px] text-slate-400">${s.kelas} | Jam ${s.jam}</p>
@@ -1940,19 +1940,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         <div class="fade-in grid grid-cols-1 lg:grid-cols-3 gap-8">
                             <div class="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-4">
                                 <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                                    <i class="ph ph-calendar text-orange-500 text-base"></i> Daftar Jadwal Pembelajaran Anda
+                                    <i class="ph ph-calendar text-forest-600 text-base"></i> Daftar Jadwal Pembelajaran Anda
                                 </h3>
                                 <div class="space-y-3" id="schedule-list-container"></div>
                             </div>
                             
                             <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-4">
                                 <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                                    <i class="ph ph-plus-circle text-orange-500 text-base"></i> Tambah Jadwal Baru
+                                    <i class="ph ph-plus-circle text-forest-600 text-base"></i> Tambah Jadwal Baru
                                 </h3>
                                 <form id="sched-form" class="space-y-4">
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Hari</label>
-                                        <select id="sc-hari" class="w-full px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <select id="sc-hari" class="w-full px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                             <option value="Senin">Senin</option>
                                             <option value="Selasa">Selasa</option>
                                             <option value="Rabu">Rabu</option>
@@ -1963,17 +1963,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Jam Pelajaran</label>
-                                        <input type="text" id="sc-jam" placeholder="contoh: 07:30 - 09:00" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="text" id="sc-jam" placeholder="contoh: 07:30 - 09:00" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Kelas</label>
-                                        <input type="text" id="sc-kelas" placeholder="contoh: VII-A" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="text" id="sc-kelas" placeholder="contoh: VII-A" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Mata Pelajaran</label>
-                                        <input type="text" id="sc-mapel" value="${userProfile.mapel}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="text" id="sc-mapel" value="${userProfile.mapel}" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
-                                    <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-xl text-xs shadow-sm transition-all active:scale-98">Simpan Jadwal</button>
+                                    <button type="submit" class="w-full bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-4 rounded-xl text-xs shadow-sm transition-all active:scale-98">Simpan Jadwal</button>
                                 </form>
                             </div>
                         </div>
@@ -2037,33 +2037,33 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         <div class="fade-in grid grid-cols-1 lg:grid-cols-3 gap-8">
                             <div class="lg:col-span-2 bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-4">
                                 <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                                    <i class="ph ph-calendar-blank text-orange-500 text-base"></i> Kalender Kegiatan Akademik
+                                    <i class="ph ph-calendar-blank text-forest-600 text-base"></i> Kalender Kegiatan Akademik
                                 </h3>
                                 <div class="space-y-3" id="events-container"></div>
                             </div>
                             
                             <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-4">
                                 <h3 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                                    <i class="ph ph-plus-circle text-orange-500 text-base"></i> Tambah Acara Baru
+                                    <i class="ph ph-plus-circle text-forest-600 text-base"></i> Tambah Acara Baru
                                 </h3>
                                 <form id="event-form" class="space-y-4">
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Tanggal Acara</label>
-                                        <input type="date" id="ev-date" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="date" id="ev-date" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Nama Kegiatan</label>
-                                        <input type="text" id="ev-title" placeholder="contoh: Pembagian Rapor Semester Ganjil" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <input type="text" id="ev-title" placeholder="contoh: Pembagian Rapor Semester Ganjil" required class="w-full px-3.5 py-1.5 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                     </div>
                                     <div>
                                         <label class="block text-[10px] font-semibold text-slate-500 dark:text-slate-400 mb-1 uppercase">Kategori</label>
-                                        <select id="ev-cat" class="w-full px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-orange-500 text-xs">
+                                        <select id="ev-cat" class="w-full px-3.5 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl outline-none focus:border-forest-500 text-xs">
                                             <option value="Akademik">Akademik</option>
                                             <option value="Ujian">Ujian</option>
                                             <option value="Kegiatan">Kegiatan Sekolah</option>
                                         </select>
                                     </div>
-                                    <button type="submit" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-xl text-xs shadow-sm transition-all active:scale-98">Simpan Acara</button>
+                                    <button type="submit" class="w-full bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-4 rounded-xl text-xs shadow-sm transition-all active:scale-98">Simpan Acara</button>
                                 </form>
                             </div>
                         </div>
@@ -2103,8 +2103,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         <div class="fade-in space-y-6">
                             <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-6">
                                 <div class="flex items-center gap-3 border-b dark:border-slate-700 pb-4">
-                                    <div class="p-2.5 bg-orange-500/10 rounded-xl">
-                                        <i class="ph ph-books text-orange-500 text-2xl"></i>
+                                    <div class="p-2.5 bg-forest-600/10 rounded-xl">
+                                        <i class="ph ph-books text-forest-600 text-2xl"></i>
                                     </div>
                                     <div>
                                         <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">Kurikulum Merdeka</h3>
@@ -2122,11 +2122,11 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 <!-- Prinsip Utama -->
                                 <div>
                                     <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
-                                        <i class="ph ph-star text-orange-500"></i> Prinsip Utama
+                                        <i class="ph ph-star text-forest-600"></i> Prinsip Utama
                                     </h4>
                                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         <div class="p-4 bg-orange-50 dark:bg-orange-950/20 rounded-2xl border border-orange-200/50 dark:border-orange-800/30">
-                                            <div class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-3"><i class="ph ph-target text-xl"></i></div>
+                                            <div class="w-10 h-10 rounded-xl bg-forest-600/10 text-forest-700 flex items-center justify-center mb-3"><i class="ph ph-target text-xl"></i></div>
                                             <h5 class="text-xs font-bold text-slate-800 dark:text-slate-200 mb-1">Fokus Materi Esensial</h5>
                                             <p class="text-[11px] text-slate-500">Mengurangi kepadatan materi agar siswa dapat mendalami konsep secara bermakna.</p>
                                         </div>
@@ -2146,39 +2146,39 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 <!-- Komponen Pembelajaran -->
                                 <div>
                                     <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
-                                        <i class="ph ph-list-checks text-orange-500"></i> Komponen Perangkat Ajar
+                                        <i class="ph ph-list-checks text-forest-600"></i> Komponen Perangkat Ajar
                                     </h4>
                                     <div class="space-y-3">
                                         <div class="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-850 rounded-xl">
-                                            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</div>
+                                            <div class="w-8 h-8 rounded-lg bg-forest-600/10 text-forest-700 flex items-center justify-center flex-shrink-0 text-sm font-bold">1</div>
                                             <div>
                                                 <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Capaian Pembelajaran (CP)</p>
                                                 <p class="text-[11px] text-slate-500">Kompetensi yang ditetapkan pemerintah per fase yang harus dicapai peserta didik.</p>
                                             </div>
                                         </div>
                                         <div class="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-850 rounded-xl">
-                                            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 text-sm font-bold">2</div>
+                                            <div class="w-8 h-8 rounded-lg bg-forest-600/10 text-forest-700 flex items-center justify-center flex-shrink-0 text-sm font-bold">2</div>
                                             <div>
                                                 <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Alur Tujuan Pembelajaran (ATP)</p>
                                                 <p class="text-[11px] text-slate-500">Urutan tujuan pembelajaran yang disusun guru dari CP sebagai panduan pembelajaran.</p>
                                             </div>
                                         </div>
                                         <div class="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-850 rounded-xl">
-                                            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 text-sm font-bold">3</div>
+                                            <div class="w-8 h-8 rounded-lg bg-forest-600/10 text-forest-700 flex items-center justify-center flex-shrink-0 text-sm font-bold">3</div>
                                             <div>
                                                 <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Modul Ajar (pengganti RPP)</p>
                                                 <p class="text-[11px] text-slate-500">Rencana pembelajaran yang lebih komprehensif: tujuan, kegiatan, dan asesmen.</p>
                                             </div>
                                         </div>
                                         <div class="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-850 rounded-xl">
-                                            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 text-sm font-bold">4</div>
+                                            <div class="w-8 h-8 rounded-lg bg-forest-600/10 text-forest-700 flex items-center justify-center flex-shrink-0 text-sm font-bold">4</div>
                                             <div>
                                                 <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Kriteria Ketercapaian Tujuan Pembelajaran (KKTP)</p>
                                                 <p class="text-[11px] text-slate-500">Indikator yang menunjukkan apakah peserta didik telah mencapai tujuan pembelajaran.</p>
                                             </div>
                                         </div>
                                         <div class="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-850 rounded-xl">
-                                            <div class="w-8 h-8 rounded-lg bg-orange-500/10 text-orange-600 flex items-center justify-center flex-shrink-0 text-sm font-bold">5</div>
+                                            <div class="w-8 h-8 rounded-lg bg-forest-600/10 text-forest-700 flex items-center justify-center flex-shrink-0 text-sm font-bold">5</div>
                                             <div>
                                                 <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Asesmen Formatif & Sumatif</p>
                                                 <p class="text-[11px] text-slate-500">Penilaian proses (formatif) dan hasil akhir (sumatif) untuk mengukur capaian belajar.</p>
@@ -2190,12 +2190,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                 <!-- Fase -->
                                 <div>
                                     <h4 class="text-sm font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
-                                        <i class="ph ph-steps text-orange-500"></i> Fase Pembelajaran di Madrasah
+                                        <i class="ph ph-steps text-forest-600"></i> Fase Pembelajaran di Madrasah
                                     </h4>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div class="p-4 border-2 border-orange-500/30 rounded-2xl bg-orange-50/50 dark:bg-orange-950/10">
                                             <div class="flex items-center gap-2 mb-2">
-                                                <span class="bg-orange-500 text-white font-bold text-[10px] px-2.5 py-1 rounded-full">FASE D</span>
+                                                <span class="bg-forest-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-full">FASE D</span>
                                                 <span class="text-xs font-bold text-slate-800 dark:text-slate-200">Kelas VII - IX (MTs/SMP)</span>
                                             </div>
                                             <ul class="text-[11px] text-slate-600 dark:text-slate-400 space-y-1.5 list-disc pl-4">
@@ -2231,22 +2231,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         const c = document.getElementById('items-list');
                         if (!list.length) { c.innerHTML = `<div class="text-center py-8 text-xs text-slate-400"><i class="ph ph-file-text text-3xl mb-2"></i><p>Belum ada Program Tahunan.</p></div>`; return; }
                         c.innerHTML = list.map((d, i) => `<div class="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-100 dark:border-slate-850">
-                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center"><i class="ph ph-file-text text-xl"></i></div>
+                            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-forest-600/10 text-forest-700 flex items-center justify-center"><i class="ph ph-file-text text-xl"></i></div>
                             <div><p class="text-xs font-bold text-slate-800 dark:text-slate-200">PROTA ${d.mapel} - Kelas ${d.kelas}</p><p class="text-[10px] text-slate-400">TA ${d.tahunAjaran} | Smt1: ${d.semester1} | Smt2: ${d.semester2}</p></div></div>
                             <button onclick="deleteItem('prota','${d.id}',renderProta,items)" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg transition-colors"><i class="ph ph-trash text-base"></i></button></div>`).join('');
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Program Tahunan</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Program Tahunan</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mata Pelajaran</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII / VIII / IX" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Alokasi Smt 1</label><input type="text" id="f-smt1" placeholder="54 JP" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Alokasi Smt 2</label><input type="text" id="f-smt2" placeholder="54 JP" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                            </div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Keterangan</label><input type="text" id="f-ket" placeholder="Fase D - ..." class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mata Pelajaran</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII / VIII / IX" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Alokasi Smt 1</label><input type="text" id="f-smt1" placeholder="54 JP" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Alokasi Smt 2</label><input type="text" id="f-smt2" placeholder="54 JP" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                            </div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Keterangan</label><input type="text" id="f-ket" placeholder="Fase D - ..." class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Daftar PROTA</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Daftar PROTA</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'pr_' + Date.now(), mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, tahunAjaran: schoolSettings.tahunAjaran, semester1: document.getElementById('f-smt1').value, semester2: document.getElementById('f-smt2').value, keterangan: document.getElementById('f-ket').value });
@@ -2260,20 +2260,20 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     window.renderPromes = function(list = items) {
                         const c = document.getElementById('items-list');
                         if (!list.length) { c.innerHTML = `<div class="text-center py-8 text-xs text-slate-400"><i class="ph ph-calendar text-3xl mb-2"></i><p>Belum ada Program Semester.</p></div>`; return; }
-                        c.innerHTML = `<table class="w-full text-left"><thead><tr class="text-[10px] font-bold text-slate-500 uppercase border-b border-slate-100 dark:border-slate-800"><th class="px-4 py-2">No</th><th class="px-4 py-2">Bulan</th><th class="px-4 py-2">Kegiatan</th><th class="px-4 py-2 w-20">JP</th><th class="px-4 py-2 w-16 no-print">Aksi</th></tr></thead><tbody>${list.map((d, i) => `<tr class="border-b border-slate-50 dark:border-slate-800/30 hover:bg-slate-50/50"><td class="px-4 py-3 text-xs text-slate-500">${i+1}</td><td class="px-4 py-3 text-xs font-bold text-slate-800 dark:text-slate-200">${d.bulan}</td><td class="px-4 py-3 text-xs text-slate-600 dark:text-slate-400">${d.kegiatan}</td><td class="px-4 py-3 text-xs font-bold text-orange-600">${d.jp}</td><td class="px-4 py-3 no-print"><button onclick="deleteItem('promes','${d.id}',renderPromes,items)" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg"><i class="ph ph-trash text-base"></i></button></td></tr>`).join('')}</tbody></table>`;
+                        c.innerHTML = `<table class="w-full text-left"><thead><tr class="text-[10px] font-bold text-slate-500 uppercase border-b border-slate-100 dark:border-slate-800"><th class="px-4 py-2">No</th><th class="px-4 py-2">Bulan</th><th class="px-4 py-2">Kegiatan</th><th class="px-4 py-2 w-20">JP</th><th class="px-4 py-2 w-16 no-print">Aksi</th></tr></thead><tbody>${list.map((d, i) => `<tr class="border-b border-slate-50 dark:border-slate-800/30 hover:bg-slate-50/50"><td class="px-4 py-3 text-xs text-slate-500">${i+1}</td><td class="px-4 py-3 text-xs font-bold text-slate-800 dark:text-slate-200">${d.bulan}</td><td class="px-4 py-3 text-xs text-slate-600 dark:text-slate-400">${d.kegiatan}</td><td class="px-4 py-3 text-xs font-bold text-forest-700">${d.jp}</td><td class="px-4 py-3 no-print"><button onclick="deleteItem('promes','${d.id}',renderPromes,items)" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg"><i class="ph ph-trash text-base"></i></button></td></tr>`).join('')}</tbody></table>`;
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Kegiatan Bulanan</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Kegiatan Bulanan</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Bulan</label><select id="f-bulan" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option>Juli</option><option>Agustus</option><option>September</option><option>Oktober</option><option>November</option><option>Desember</option></select></div>
-                                <div class="md:col-span-1"><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kegiatan</label><input type="text" id="f-kegiatan" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">JP</label><input type="text" id="f-jp" placeholder="12" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                            </div><div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Bulan</label><select id="f-bulan" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option>Juli</option><option>Agustus</option><option>September</option><option>Oktober</option><option>November</option><option>Desember</option></select></div>
+                                <div class="md:col-span-1"><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kegiatan</label><input type="text" id="f-kegiatan" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">JP</label><input type="text" id="f-jp" placeholder="12" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                            </div><div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> PROMES ${schoolSettings.semester}</h3><div id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> PROMES ${schoolSettings.semester}</h3><div id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'pm_' + Date.now(), mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, semester: schoolSettings.semester, bulan: document.getElementById('f-bulan').value, kegiatan: document.getElementById('f-kegiatan').value, jp: document.getElementById('f-jp').value });
@@ -2289,23 +2289,23 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         if (!list.length) { c.innerHTML = `<div class="text-center py-8 text-xs text-slate-400"><i class="ph ph-path text-3xl mb-2"></i><p>Belum ada ATP.</p></div>`; return; }
                         const sorted = [...list].sort((a,b) => a.urutan - b.urutan);
                         c.innerHTML = sorted.map((d, i) => `<div class="flex gap-3 border-l-2 border-emerald-500 pl-4 py-3">
-                            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="bg-emerald-100 dark:bg-emerald-950 text-orange-600 font-bold text-[10px] px-2 py-0.5 rounded-full">#${d.urutan}</span><span class="bg-blue-100 dark:bg-blue-950 text-blue-600 text-[9px] font-bold px-2 py-0.5 rounded-full">Fase ${d.fase}</span></div>
+                            <div class="flex-1"><div class="flex items-center gap-2 mb-1"><span class="bg-emerald-100 dark:bg-emerald-950 text-forest-700 font-bold text-[10px] px-2 py-0.5 rounded-full">#${d.urutan}</span><span class="bg-blue-100 dark:bg-blue-950 text-blue-600 text-[9px] font-bold px-2 py-0.5 rounded-full">Fase ${d.fase}</span></div>
                             <p class="text-xs font-bold text-slate-800 dark:text-slate-200">${d.tp}</p><p class="text-[10px] text-slate-400 mt-0.5">CP: ${d.cp}</p></div>
                             <button onclick="deleteItem('atp','${d.id}',renderAtp,items)" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg h-fit"><i class="ph ph-trash text-base"></i></button></div>`).join('');
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Alur Tujuan Pembelajaran</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Alur Tujuan Pembelajaran</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Fase</label><select id="f-fase" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option value="D">D (Kelas VII-IX)</option><option value="E">E (Kelas X-XII)</option></select></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Urutan</label><input type="number" id="f-urutan" value="${items.length + 1}" min="1" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Fase</label><select id="f-fase" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option value="D">D (Kelas VII-IX)</option><option value="E">E (Kelas X-XII)</option></select></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Urutan</label><input type="number" id="f-urutan" value="${items.length + 1}" min="1" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
                             </div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Capaian Pembelajaran (CP)</label><textarea id="f-cp" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Capaian Pembelajaran dari kurikulum..."></textarea></div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran (TP)</label><textarea id="f-tp" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Tujuan Pembelajaran yang diturunkan dari CP..."></textarea></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Capaian Pembelajaran (CP)</label><textarea id="f-cp" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Capaian Pembelajaran dari kurikulum..."></textarea></div>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran (TP)</label><textarea id="f-tp" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Tujuan Pembelajaran yang diturunkan dari CP..."></textarea></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-path text-orange-500 mr-1"></i> Alur Pembelajaran</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-path text-forest-600 mr-1"></i> Alur Pembelajaran</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'atp_' + Date.now(), fase: document.getElementById('f-fase').value, mapel: document.getElementById('f-mapel').value, cp: document.getElementById('f-cp').value, tp: document.getElementById('f-tp').value, urutan: parseInt(document.getElementById('f-urutan').value) });
@@ -2327,24 +2327,24 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Buat Modul Ajar</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Buat Modul Ajar</h3>
                             <form id="item-form" class="space-y-4">
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Fase</label><select id="f-fase" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option value="D">D</option><option value="E">E</option></select></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Alokasi Waktu</label><input type="text" id="f-alokasi" placeholder="2 x 40 menit" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Fase</label><select id="f-fase" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option value="D">D</option><option value="E">E</option></select></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Alokasi Waktu</label><input type="text" id="f-alokasi" placeholder="2 x 40 menit" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
                             </div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran</label><textarea id="f-tujuan" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Peserta didik mampu..."></textarea></div>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran</label><textarea id="f-tujuan" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Peserta didik mampu..."></textarea></div>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pendahuluan</label><textarea id="f-pendahuluan" rows="3" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Apersepsi, motivasi..."></textarea></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kegiatan Inti</label><textarea id="f-inti" rows="3" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Diskusi, praktik..."></textarea></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Penutup</label><textarea id="f-penutup" rows="3" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Refleksi, penugasan..."></textarea></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pendahuluan</label><textarea id="f-pendahuluan" rows="3" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Apersepsi, motivasi..."></textarea></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kegiatan Inti</label><textarea id="f-inti" rows="3" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Diskusi, praktik..."></textarea></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Penutup</label><textarea id="f-penutup" rows="3" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Refleksi, penugasan..."></textarea></div>
                             </div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Asesmen</label><input type="text" id="f-asesmen" placeholder="Formatif: ..., Sumatif: ..." class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan Modul</button></div></form>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Asesmen</label><input type="text" id="f-asesmen" placeholder="Formatif: ..., Sumatif: ..." class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan Modul</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Daftar Modul Ajar</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Daftar Modul Ajar</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'ma_' + Date.now(), mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, fase: document.getElementById('f-fase').value, alokasiWaktu: document.getElementById('f-alokasi').value, tujuan: document.getElementById('f-tujuan').value, pendahuluan: document.getElementById('f-pendahuluan').value, inti: document.getElementById('f-inti').value, penutup: document.getElementById('f-penutup').value, asesmen: document.getElementById('f-asesmen').value });
@@ -2365,16 +2365,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Bahan Ajar</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Bahan Ajar</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Judul</label><input type="text" id="f-judul" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jenis</label><select id="f-jenis" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option>Handout</option><option>LKS</option><option>Modul</option><option>Presentasi</option></select></div>
-                            </div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Ringkasan Materi</label><textarea id="f-ringkasan" rows="3" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></textarea></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Judul</label><input type="text" id="f-judul" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jenis</label><select id="f-jenis" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option>Handout</option><option>LKS</option><option>Modul</option><option>Presentasi</option></select></div>
+                            </div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Ringkasan Materi</label><textarea id="f-ringkasan" rows="3" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></textarea></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Daftar Bahan Ajar</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Daftar Bahan Ajar</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'ba_' + Date.now(), judul: document.getElementById('f-judul').value, mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, jenis: document.getElementById('f-jenis').value, ringkasan: document.getElementById('f-ringkasan').value });
@@ -2396,17 +2396,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Buat LKPD</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Buat LKPD</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Judul LKPD</label><input type="text" id="f-judul" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Judul LKPD</label><input type="text" id="f-judul" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
                             </div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran</label><textarea id="f-tujuan" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></textarea></div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Instruksi Kegiatan</label><textarea id="f-instruksi" rows="4" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="1. Langkah pertama...\n2. Langkah kedua..."></textarea></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan LKPD</button></div></form>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran</label><textarea id="f-tujuan" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></textarea></div>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Instruksi Kegiatan</label><textarea id="f-instruksi" rows="4" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="1. Langkah pertama...\n2. Langkah kedua..."></textarea></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan LKPD</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Daftar LKPD</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Daftar LKPD</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'lk_' + Date.now(), judul: document.getElementById('f-judul').value, mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, tujuan: document.getElementById('f-tujuan').value, instruksi: document.getElementById('f-instruksi').value });
@@ -2427,17 +2427,17 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Program Asesmen</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Program Asesmen</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jenis</label><select id="f-jenis" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option>Formatif</option><option>Sumatif</option><option>Diagnostik</option></select></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Teknik</label><input type="text" id="f-teknik" placeholder="Observasi, Tes Tulis..." required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Waktu</label><input type="text" id="f-waktu" placeholder="Setiap pertemuan" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jenis</label><select id="f-jenis" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option>Formatif</option><option>Sumatif</option><option>Diagnostik</option></select></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Teknik</label><input type="text" id="f-teknik" placeholder="Observasi, Tes Tulis..." required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Waktu</label><input type="text" id="f-waktu" placeholder="Setiap pertemuan" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
                             </div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Daftar Program Asesmen</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Daftar Program Asesmen</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'pa_' + Date.now(), mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, jenis: document.getElementById('f-jenis').value, teknik: document.getElementById('f-teknik').value, waktu: document.getElementById('f-waktu').value });
@@ -2452,22 +2452,22 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         const c = document.getElementById('items-list');
                         if (!list.length) { c.innerHTML = `<div class="text-center py-8 text-xs text-slate-400"><i class="ph ph-check-square text-3xl mb-2"></i><p>Belum ada KKTP.</p></div>`; return; }
                         c.innerHTML = list.map(d => `<div class="p-4 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-100 dark:border-slate-850">
-                            <div class="flex items-start justify-between"><div><p class="text-xs font-bold text-slate-800 dark:text-slate-200">${d.mapel} - Kelas ${d.kelas}</p><p class="text-[10px] text-orange-600 font-semibold mt-0.5">TP: ${d.tp}</p></div>
+                            <div class="flex items-start justify-between"><div><p class="text-xs font-bold text-slate-800 dark:text-slate-200">${d.mapel} - Kelas ${d.kelas}</p><p class="text-[10px] text-forest-700 font-semibold mt-0.5">TP: ${d.tp}</p></div>
                             <button onclick="deleteItem('kktp','${d.id}',renderKKTP,items)" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg"><i class="ph ph-trash text-base"></i></button></div>
                             <p class="text-[10px] text-slate-500 mt-2">${d.kriteria}</p></div>`).join('');
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah KKTP</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah KKTP</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div class="md:col-span-2"><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div class="md:col-span-2"><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
                             </div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran</label><textarea id="f-tp" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></textarea></div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kriteria / Indikator Ketercapaian</label><textarea id="f-kriteria" rows="3" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500" placeholder="Pisahkan dengan koma untuk beberapa kriteria..."></textarea></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan KKTP</button></div></form>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Tujuan Pembelajaran</label><textarea id="f-tp" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></textarea></div>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kriteria / Indikator Ketercapaian</label><textarea id="f-kriteria" rows="3" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500" placeholder="Pisahkan dengan koma untuk beberapa kriteria..."></textarea></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan KKTP</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Daftar KKTP</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Daftar KKTP</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'kk_' + Date.now(), mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, tp: document.getElementById('f-tp').value, kriteria: document.getElementById('f-kriteria').value });
@@ -2483,7 +2483,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         const c = document.getElementById('items-list');
                         if (!list.length) { c.innerHTML = `<div class="text-center py-8 text-xs text-slate-400"><i class="ph ph-question text-3xl mb-2"></i><p>Belum ada soal.</p></div>`; return; }
                         c.innerHTML = list.map((d, i) => `<div class="p-4 bg-slate-50 dark:bg-slate-850 rounded-2xl border border-slate-100 dark:border-slate-850">
-                            <div class="flex items-start justify-between mb-2"><div class="flex items-center gap-2"><span class="bg-emerald-100 dark:bg-emerald-950 text-orange-600 font-bold text-[10px] px-2 py-0.5 rounded-full">${d.jenis}</span><span class="text-[10px] text-slate-400">${d.mapel} | Kelas ${d.kelas}</span></div>
+                            <div class="flex items-start justify-between mb-2"><div class="flex items-center gap-2"><span class="bg-emerald-100 dark:bg-emerald-950 text-forest-700 font-bold text-[10px] px-2 py-0.5 rounded-full">${d.jenis}</span><span class="text-[10px] text-slate-400">${d.mapel} | Kelas ${d.kelas}</span></div>
                             <button onclick="deleteItem('bankSoal','${d.id}',renderBS,items)" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg"><i class="ph ph-trash text-base"></i></button></div>
                             <p class="text-xs font-bold text-slate-800 dark:text-slate-200 mb-2">${d.soal}</p>
                             ${d.jenis === 'PG' ? `<div class="grid grid-cols-2 gap-1 text-[10px]"><span class="p-1.5 rounded ${d.kunci === 'A' ? 'bg-emerald-100 text-emerald-700 font-bold' : 'text-slate-500'}">A. ${d.pilihanA}</span><span class="p-1.5 rounded ${d.kunci === 'B' ? 'bg-emerald-100 text-emerald-700 font-bold' : 'text-slate-500'}">B. ${d.pilihanB}</span></div>` : ''}
@@ -2491,18 +2491,18 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Soal</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Soal</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jenis Soal</label><select id="f-jenis" onchange="togglePGFields()" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option value="PG">Pilihan Ganda</option><option value="Esai">Esai</option><option value="Uraian">Uraian</option></select></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jenis Soal</label><select id="f-jenis" onchange="togglePGFields()" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option value="PG">Pilihan Ganda</option><option value="Esai">Esai</option><option value="Uraian">Uraian</option></select></div>
                             </div>
-                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Soal</label><textarea id="f-soal" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></textarea></div>
-                            <div id="pg-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pilihan A</label><input type="text" id="f-a" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pilihan B</label><input type="text" id="f-b" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div></div>
-                            <div class="grid grid-cols-2 gap-4"><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kunci Jawaban</label><input type="text" id="f-kunci" placeholder="A/B/C/D atau teks" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pembahasan</label><input type="text" id="f-pembahasan" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div></div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan Soal</button></div></form>
+                            <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Soal</label><textarea id="f-soal" rows="2" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></textarea></div>
+                            <div id="pg-fields" class="grid grid-cols-1 md:grid-cols-2 gap-4"><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pilihan A</label><input type="text" id="f-a" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pilihan B</label><input type="text" id="f-b" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div></div>
+                            <div class="grid grid-cols-2 gap-4"><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kunci Jawaban</label><input type="text" id="f-kunci" placeholder="A/B/C/D atau teks" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div><div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Pembahasan</label><input type="text" id="f-pembahasan" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div></div>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan Soal</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-orange-500 mr-1"></i> Bank Soal</h3><div class="space-y-3" id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-list text-forest-600 mr-1"></i> Bank Soal</h3><div class="space-y-3" id="items-list"></div></div></div>`;
                     window.togglePGFields = function() { const pg = document.getElementById('pg-fields'); pg.style.display = document.getElementById('f-jenis').value === 'PG' ? '' : 'none'; };
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
@@ -2521,19 +2521,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                     };
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm no-print">
-                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-orange-500"></i> Tambah Kisi-Kisi Soal</h3>
+                            <h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200 flex items-center gap-2"><i class="ph ph-plus-circle text-forest-600"></i> Tambah Kisi-Kisi Soal</h3>
                             <form id="item-form" class="space-y-4"><div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div class="md:col-span-3"><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">KD / Tujuan Pembelajaran</label><input type="text" id="f-kd" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Mapel</label><input type="text" id="f-mapel" value="${userProfile.mapel}" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kelas</label><input type="text" id="f-kelas" placeholder="VII" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div class="md:col-span-3"><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">KD / Tujuan Pembelajaran</label><input type="text" id="f-kd" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
                             </div><div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Indikator Soal</label><input type="text" id="f-indikator" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Level Kognitif</label><select id="f-level" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option>C1 (Mengingat)</option><option>C2 (Memahami)</option><option>C3 (Menerapkan)</option><option>C4 (Menganalisis)</option><option>C5 (Mengevaluasi)</option><option>C6 (Mencipta)</option></select></div>
-                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Bentuk Soal</label><select id="f-bentuk" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"><option>PG</option><option>Esai</option><option>Uraian</option><option>Praktik</option></select></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Indikator Soal</label><input type="text" id="f-indikator" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Level Kognitif</label><select id="f-level" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option>C1 (Mengingat)</option><option>C2 (Memahami)</option><option>C3 (Menerapkan)</option><option>C4 (Menganalisis)</option><option>C5 (Mengevaluasi)</option><option>C6 (Mencipta)</option></select></div>
+                                <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Bentuk Soal</label><select id="f-bentuk" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"><option>PG</option><option>Esai</option><option>Uraian</option><option>Praktik</option></select></div>
                             </div>
-                            <div class="flex justify-end"><button type="submit" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
+                            <div class="flex justify-end"><button type="submit" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-2 px-6 rounded-xl text-xs shadow-sm"><i class="ph ph-floppy-disk mr-1"></i> Simpan</button></div></form>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-table text-orange-500 mr-1"></i> Tabel Kisi-Kisi</h3><div id="items-list"></div></div></div>`;
+                        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm p-6"><h3 class="text-xs font-bold uppercase tracking-wider mb-4 text-slate-800 dark:text-slate-200"><i class="ph ph-table text-forest-600 mr-1"></i> Tabel Kisi-Kisi</h3><div id="items-list"></div></div></div>`;
                     document.getElementById('item-form').addEventListener('submit', async (e) => {
                         e.preventDefault();
                         items.push({ id: 'ks_' + Date.now(), mapel: document.getElementById('f-mapel').value, kelas: document.getElementById('f-kelas').value, kd: document.getElementById('f-kd').value, indikator: document.getElementById('f-indikator').value, level: document.getElementById('f-level').value, bentuk: document.getElementById('f-bentuk').value });
@@ -2545,19 +2545,19 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                 else if (pageTitle === 'Analisis Butir Soal') {
                     contentArea.innerHTML = `<div class="fade-in space-y-6">
                         <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm">
-                            <h3 class="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 border-b dark:border-slate-700 pb-3 mb-5"><i class="ph ph-chart-bar text-orange-500 text-lg"></i> Analisis Butir Soal</h3>
+                            <h3 class="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 border-b dark:border-slate-700 pb-3 mb-5"><i class="ph ph-chart-bar text-forest-600 text-lg"></i> Analisis Butir Soal</h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 <div>
                                     <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 mb-3 uppercase">Input Kunci Jawaban</h4>
                                     <div class="space-y-3">
-                                        <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jumlah Soal</label><input type="number" id="anal-jumlah" value="20" min="5" max="50" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></div>
-                                        <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kunci Jawaban (pisahkan koma)</label><textarea id="anal-kunci" rows="3" placeholder="A,B,C,D,A,B,C,D,A,B..." class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-orange-500"></textarea></div>
+                                        <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Jumlah Soal</label><input type="number" id="anal-jumlah" value="20" min="5" max="50" class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></div>
+                                        <div><label class="block text-[10px] font-semibold text-slate-500 mb-1 uppercase">Kunci Jawaban (pisahkan koma)</label><textarea id="anal-kunci" rows="3" placeholder="A,B,C,D,A,B,C,D,A,B..." class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-xl text-xs outline-none focus:border-forest-500"></textarea></div>
                                     </div>
                                 </div>
                                 <div>
                                     <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 mb-3 uppercase">Panduan Interpretasi</h4>
                                     <div class="space-y-2 text-[11px]">
-                                        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-orange-500"></span><span class="text-slate-600 dark:text-slate-400"><strong>Tingkat Kesukaran:</strong> 0.3 - 0.7 (Baik)</span></div>
+                                        <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-forest-600"></span><span class="text-slate-600 dark:text-slate-400"><strong>Tingkat Kesukaran:</strong> 0.3 - 0.7 (Baik)</span></div>
                                         <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-blue-500"></span><span class="text-slate-600 dark:text-slate-400"><strong>Daya Beda:</strong> > 0.3 (Diterima)</span></div>
                                         <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-amber-500"></span><span class="text-slate-600 dark:text-slate-400"><strong>Pengecoh:</strong> Minimal 25% memilih</span></div>
                                     </div>
@@ -2591,7 +2591,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                                     </div>
                                 </div>
                                 <div class="flex items-center gap-2">
-                                    <a href="#" onclick="alert('Mengunduh berkas...')" class="p-1 bg-orange-500/10 text-orange-600 hover:bg-orange-500 hover:text-white rounded-lg transition-colors" title="Unduh"><i class="ph ph-download text-base"></i></a>
+                                    <a href="#" onclick="alert('Mengunduh berkas...')" class="p-1 bg-forest-600/10 text-forest-700 hover:bg-forest-600 hover:text-white rounded-lg transition-colors" title="Unduh"><i class="ph ph-download text-base"></i></a>
                                     <button onclick="deleteDoc('${d.id}')" class="p-1 bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-white rounded-lg transition-colors" title="Hapus"><i class="ph ph-trash text-base"></i></button>
                                 </div>
                             </div>
@@ -2603,9 +2603,9 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                             <div class="bg-white dark:bg-slate-800 p-6 md:p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800 shadow-sm space-y-6">
                                 <div class="flex justify-between items-center border-b dark:border-slate-700 pb-3">
                                     <h3 class="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                        <i class="ph ph-folder text-orange-500 text-lg"></i> Berkas Perangkat Ajar: ${pageTitle}
+                                        <i class="ph ph-folder text-forest-600 text-lg"></i> Berkas Perangkat Ajar: ${pageTitle}
                                     </h3>
-                                    <button onclick="uploadDocModal()" class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-1.5 px-4 rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all active:scale-98">
+                                    <button onclick="uploadDocModal()" class="bg-forest-700 hover:bg-forest-800 text-white font-bold py-1.5 px-4 rounded-xl text-xs flex items-center gap-1.5 shadow-sm transition-all active:scale-98">
                                         <i class="ph ph-upload text-base"></i> Unggah Berkas Baru
                                     </button>
                                 </div>
@@ -2621,7 +2621,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebas
                         const formBody = `
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Nama Berkas Perangkat</label>
-                                <input type="text" id="doc-upload-name" placeholder="contoh: Modul Ajar Informatika VII Ganjil" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-orange-500 outline-none">
+                                <input type="text" id="doc-upload-name" placeholder="contoh: Modul Ajar Informatika VII Ganjil" required class="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 dark:bg-slate-900 rounded-lg text-xs focus:border-forest-500 outline-none">
                             </div>
                             <div>
                                 <label class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5 uppercase">Simulasi Pilih Berkas PDF/DOC</label>
