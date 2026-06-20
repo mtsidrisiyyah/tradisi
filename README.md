@@ -1,9 +1,7 @@
 # TRADISI
-
 ## Transformasi Digital Administrasi MTs Idrisiyyah
 
 ### Tagline
-
 "Satu Platform Terpadu untuk Seluruh Administrasi Guru, Kurikulum, KBM, Kesiswaan, Asesmen, dan Arsip Digital Madrasah"
 
 ---
