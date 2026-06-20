@@ -1,0 +1,165 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "users": {
+      ".read": "auth != null",
+      "$uid": {
+        ".read": "auth != null",
+        ".write": "auth != null && (auth.uid === $uid || root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah')))",
+        ".validate": "newData.hasChildren(['email', 'roles', 'status'])",
+        "status": {
+          ".validate": "newData.isString() && (newData.val() === 'aktif' || newData.val() === 'menunggu_persetujuan' || newData.val() === 'nonaktif')"
+        },
+        "roles": {
+          ".validate": "newData.isArray()"
+        }
+      }
+    },
+
+    "collections": {
+      ".read": "auth != null",
+
+      "madrasah_settings": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah'))"
+      },
+
+      "profiles": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah'))"
+      },
+
+      "siswa": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "teachers": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator'))"
+      },
+
+      "subjects": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator'))"
+      },
+
+      "classrooms": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator'))"
+      },
+
+      "homerooms": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator'))"
+      },
+
+      "jadwal": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "events": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator'))"
+      },
+
+      "absensi": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('wali_kelas'))"
+      },
+
+      "jurnal": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "penilaian": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "prota": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kurikulum'))"
+      },
+
+      "promes": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kurikulum'))"
+      },
+
+      "atp": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kurikulum'))"
+      },
+
+      "modulAjar": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kurikulum'))"
+      },
+
+      "bahanAjar": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "lkpd": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "programAsesmen": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kurikulum'))"
+      },
+
+      "kktp": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kurikulum'))"
+      },
+
+      "bankSoal": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "kisiSoal": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "analisisSoal": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "rapor": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('wali_kelas'))"
+      },
+
+      "report_cards": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru') || root.child('users').child(auth.uid).child('roles').hasChild('wali_kelas'))"
+      },
+
+      "documents": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('operator') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "approvals": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah'))"
+      },
+
+      "approval_history": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah'))"
+      },
+
+      "teacher_assignments": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah'))"
+      },
+
+      "extracurriculars": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kesiswaan'))"
+      },
+
+      "student_violations": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kesiswaan') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "student_achievements": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kesiswaan'))"
+      },
+
+      "osim_committee": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('waka_kesiswaan'))"
+      },
+
+      "cover_administrasi": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('guru'))"
+      },
+
+      "supervisi": {
+        ".write": "auth != null && root.child('users').child(auth.uid).child('roles').exists() && (root.child('users').child(auth.uid).child('roles').hasChild('super_admin') || root.child('users').child(auth.uid).child('roles').hasChild('admin_madrasah') || root.child('users').child(auth.uid).child('roles').hasChild('kepala_madrasah'))"
+      }
+    }
+  }
+}

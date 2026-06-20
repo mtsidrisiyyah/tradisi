@@ -3,7 +3,7 @@
 // ============================================
 import { signInWithEmailAndPassword, onAuthStateChanged, signOut, signInWithCustomToken, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 import { auth, useMockDb, isFirebaseConfigured } from '../config/firebase.js';
-import { dbService } from './db.service.js';
+import { dbService, hasSuperAdmin } from './db.service.js';
 
 // Global user state
 let currentUser = null;
@@ -93,8 +93,11 @@ async function login(email, password) {
             if (!profile.status) profile.status = 'aktif';
             
             if (profile.status === 'menunggu_persetujuan') {
-                await signOut(auth);
-                throw { code: 'auth/user-disabled', message: 'Akun Anda sedang menunggu persetujuan administrator.' };
+                const adminExists = await hasSuperAdmin();
+                if (adminExists) {
+                    await signOut(auth);
+                    throw { code: 'auth/user-disabled', message: 'Akun Anda sedang menunggu persetujuan administrator.' };
+                }
             }
             if (profile.status === 'nonaktif') {
                 await signOut(auth);
@@ -196,7 +199,15 @@ function initAuthListener(onLogin, onLogout) {
                     if (!userProfile.status) userProfile.status = 'aktif';
                     
                     // Double check status block on auth state changes
-                    if (userProfile.status === 'menunggu_persetujuan' || userProfile.status === 'nonaktif') {
+                    if (userProfile.status === 'menunggu_persetujuan') {
+                        const adminExists = await hasSuperAdmin();
+                        if (adminExists) {
+                            await logout();
+                            if (onLogout) onLogout();
+                            return;
+                        }
+                    }
+                    if (userProfile.status === 'nonaktif') {
                         await logout();
                         if (onLogout) onLogout();
                         return;
