@@ -157,7 +157,7 @@
 
         <!-- RIGHT: Login Form (with slide-in animation) -->
         <div class="flex-1 flex items-center justify-center bg-stone-50 dark:bg-stone-950 px-6 login-panel-right">
-            <div class="w-full max-w-md">
+            <div class="w-full max-w-md" id="auth-container">
                 <!-- Mobile logo (shown only on small screens) -->
                 <div class="lg:hidden text-center mb-8">
                     <div class="inline-flex p-2.5 bg-forest-700 rounded-2xl shadow-lg shadow-forest-700/20 mb-3">
@@ -209,7 +209,7 @@
                 <!-- Footer -->
                 <div class="mt-8 text-center">
                     <p class="text-xs text-stone-400">
-                        Belum punya akun? <span class="text-forest-600 dark:text-forest-400 font-medium">Hubungi administrator</span>
+                        Belum punya akun? <button type="button" onclick="window.showRegisterForm()" class="text-forest-600 dark:text-forest-400 font-bold hover:underline">Daftar Akun Baru</button>
                     </p>
                 </div>
 
@@ -347,7 +347,7 @@
     </div>
 
     <!-- Application Logic -->
-    <script type="module" src="app.js"></script>
+    <script type="module" src="js/app.js"></script>
 
     <!-- Live Clock -->
     <script>

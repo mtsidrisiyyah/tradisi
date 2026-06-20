@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper to check if user is logged in
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Helper to read current user document
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+    
+    // Helper to check if user has a specific role
+    function hasRole(role) {
+      return isAuthenticated() && 
+             resource.data != null && 
+             role in getUserData().roles;
+    }
+    
+    // Helper to check if user is an administrator
+    function isAdmin() {
+      return hasRole('super_admin') || hasRole('admin_madrasah');
+    }
+
+    // User profiles rules
+    match /users/{uid} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin() || (request.auth.uid == uid && request.resource.data.status == resource.data.status);
+    }
+    
+    // RPD Collections rules
+    match /collections/{collectionName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated();
+    }
+  }
+}
