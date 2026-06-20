@@ -5,7 +5,7 @@
 
 // Core services
 import { useMockDb, isFirebaseConfigured } from './config/firebase.js';
-import { dbService, initializeLocalStorageSeed, hasSuperAdmin } from './services/db.service.js';
+import { dbService, initializeLocalStorageSeed, hasSuperAdmin, bootstrapSuperAdmin } from './services/db.service.js';
 import { login, logout, initAuthListener, getCurrentUser, getUserProfile, setUserProfile, getFirebaseAuthMessage } from './services/auth.service.js';
 
 // Utilities
@@ -189,7 +189,7 @@ function attachLoginFormListener() {
                 // For mock mode, manually trigger authenticated state
                 onUserAuthenticated();
             }
-            // For Firebase mode, onAuthStateChanged handles the rest
+            // For Firebase mode, onAuthStateChanged handles the rest (including auto-promote)
         } catch (error) {
             console.error("Login gagal:", error.code || "unknown", error.message);
             const errorMessage = getFirebaseAuthMessage(error.code, error.message);
@@ -233,7 +233,22 @@ document.getElementById('logout-btn').addEventListener('click', async () => {
 // Firebase auth state listener
 initAuthListener(
     // onLogin
-    (user, profile) => {
+    async (user, profile) => {
+        // Auto-promote to super_admin if no super admin exists yet (first Firebase user gets promoted)
+        if (!useMockDb && isFirebaseConfigured) {
+            const exists = await hasSuperAdmin();
+            if (!exists && user) {
+                console.log("⬆️ Mempromosikan user menjadi Super Admin pertama...");
+                const promoted = await bootstrapSuperAdmin(user.uid, user.email, {
+                    nama: profile.nama || 'Administrator',
+                    nip: profile.nip || '-',
+                    mapel: profile.mapel || '-',
+                    hp: profile.hp || '-'
+                });
+                setUserProfile(promoted);
+                showToast("Akun Anda dipromosikan menjadi Super Administrator!");
+            }
+        }
         onUserAuthenticated();
     },
     // onLogout
