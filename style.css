@@ -5,7 +5,7 @@
 
 /* === BASE === */
 body {
-    font-family: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -852,21 +852,293 @@ button:focus-visible {
 }
 
 /* =============================================
-   NEUMORPHIC LOGIN PAGE
+   NEUMORPHIC LOGIN PAGE (Redesign)
    ============================================= */
 
-.login-neu-bg {
+/* Full-page neumorphic login layout */
+.login-neu-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #e0e5ec;
+    padding: 20px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
-.dark .login-neu-bg {
+.dark .login-neu-page {
     background-color: #1e1f36;
 }
+
+.login-neu-container {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px;
+}
+
+.login-neu-wrapper {
+    width: 100%;
+}
+
+/* Header */
+.login-neu-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+.login-neu-logo {
+    margin-bottom: 12px;
+}
+.login-neu-logo-img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(108,99,255,0.2));
+}
+.login-neu-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #44476a;
+    margin-bottom: 6px;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+.dark .login-neu-title {
+    color: #c8c9e0;
+}
+.login-neu-subtitle {
+    color: #7a7d9c;
+    font-size: 0.9rem;
+}
+.dark .login-neu-subtitle {
+    color: #7a7d9c;
+}
+
+/* Form Card (raised neumorphic) */
+.login-neu-card {
+    background: #e0e5ec;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow:
+        12px 12px 24px #b8bec9,
+        -12px -12px 24px #ffffff;
+}
+.dark .login-neu-card {
+    background: #1e1f36;
+    box-shadow:
+        12px 12px 24px #12132a,
+        -12px -12px 24px #2a2b48;
+}
+
+/* Form groups */
+.login-neu-group {
+    margin-bottom: 25px;
+}
+.login-neu-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #44476a;
+    font-size: 0.9rem;
+    padding-left: 5px;
+}
+.dark .login-neu-label {
+    color: #a0a2c0;
+}
+
+/* Input wrapper */
+.login-neu-input-wrap {
+    position: relative;
+}
+.login-neu-input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7a7d9c;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+    pointer-events: none;
+}
+
+/* Input field (inset neumorphic) */
+.login-neu-input {
+    width: 100%;
+    padding: 16px 20px 16px 45px;
+    border: none;
+    border-radius: 15px;
+    background: #e0e5ec;
+    color: #44476a;
+    font-size: 0.95rem;
+    font-family: inherit;
+    box-shadow:
+        inset 5px 5px 10px #b8bec9,
+        inset -5px -5px 10px #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
+}
+.login-neu-input::placeholder {
+    color: #7a7d9c;
+}
+.login-neu-input:focus {
+    box-shadow:
+        inset 3px 3px 6px #b8bec9,
+        inset -3px -3px 6px #ffffff;
+}
+.login-neu-input:focus + .login-neu-input-icon {
+    color: #6c63ff;
+}
+.dark .login-neu-input {
+    background: #1e1f36;
+    color: #c8c9e0;
+    box-shadow:
+        inset 5px 5px 10px #12132a,
+        inset -5px -5px 10px #2a2b48;
+}
+.dark .login-neu-input:focus {
+    box-shadow:
+        inset 3px 3px 6px #12132a,
+        inset -3px -3px 6px #2a2b48;
+}
+
+/* Password toggle */
+.login-neu-pw-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #7a7d9c;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 4px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+.login-neu-pw-toggle:hover {
+    color: #6c63ff;
+}
+
+/* Error state */
+.login-neu-error {
+    color: #f44336;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(244,67,54,0.08);
+    margin-bottom: 15px;
+}
+
+/* Button container */
+.login-neu-btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* Submit button (raised neumorphic) */
+.login-neu-btn {
+    background: #e0e5ec;
+    color: #6c63ff;
+    border: none;
+    border-radius: 15px;
+    padding: 18px 40px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:
+        8px 8px 16px #b8bec9,
+        -8px -8px 16px #ffffff;
+    position: relative;
+    overflow: hidden;
+    min-width: 200px;
+    font-family: inherit;
+}
+.login-neu-btn:hover {
+    color: #554fd8;
+}
+.login-neu-btn:active,
+.login-neu-btn[disabled] {
+    box-shadow:
+        inset 4px 4px 8px #b8bec9,
+        inset -4px -4px 8px #ffffff;
+    color: #554fd8;
+}
+.dark .login-neu-btn {
+    background: #1e1f36;
+    box-shadow:
+        8px 8px 16px #12132a,
+        -8px -8px 16px #2a2b48;
+}
+.dark .login-neu-btn:hover {
+    color: #8b85ff;
+}
+.dark .login-neu-btn:active,
+.dark .login-neu-btn[disabled] {
+    box-shadow:
+        inset 4px 4px 8px #12132a,
+        inset -4px -4px 8px #2a2b48;
+    color: #8b85ff;
+}
+.login-neu-btn:focus {
+    outline: 2px solid #6c63ff;
+    outline-offset: 3px;
+}
+
+/* Footer */
+.login-neu-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #7a7d9c;
+    font-size: 0.9rem;
+}
+.login-neu-link {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 600;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+.login-neu-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .login-neu-container {
+        padding: 5px;
+    }
+    .login-neu-card {
+        padding: 25px 20px;
+    }
+    .login-neu-btn {
+        padding: 16px 30px;
+        min-width: 180px;
+    }
+}
+
+/* Pulse animation for button loading */
+@keyframes neuPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+.login-neu-btn.animate {
+    animation: neuPulse 0.5s ease;
+}
+
+/* =============================================
+   NEUMORPHIC SHARED COMPONENTS (Register, Setup)
+   ============================================= */
 
 /* Neumorphic Card */
 .neu-card {
     background: #e0e5ec;
     border-radius: 20px;
-    padding: 35px 30px;
+    padding: 30px 25px;
     box-shadow:
         12px 12px 24px #b8bec9,
         -12px -12px 24px #ffffff;
@@ -916,74 +1188,27 @@ button:focus-visible {
     position: relative;
     overflow: hidden;
 }
-.neu-btn:hover {
-    color: #554fd8;
-}
-.neu-btn:active,
-.neu-btn[disabled] {
-    box-shadow:
-        inset 4px 4px 8px #b8bec9,
-        inset -4px -4px 8px #ffffff;
+.neu-btn:hover { color: #554fd8; }
+.neu-btn:active, .neu-btn[disabled] {
+    box-shadow: inset 4px 4px 8px #b8bec9, inset -4px -4px 8px #ffffff;
     color: #554fd8;
 }
 .dark .neu-btn {
     background: #1e1f36;
-    box-shadow:
-        8px 8px 16px #12132a,
-        -8px -8px 16px #2a2b48;
+    box-shadow: 8px 8px 16px #12132a, -8px -8px 16px #2a2b48;
 }
-.dark .neu-btn:hover {
+.dark .neu-btn:hover { color: #8b85ff; }
+.dark .neu-btn:active, .dark .neu-btn[disabled] {
+    box-shadow: inset 4px 4px 8px #12132a, inset -4px -4px 8px #2a2b48;
     color: #8b85ff;
-}
-.dark .neu-btn:active,
-.dark .neu-btn[disabled] {
-    box-shadow:
-        inset 4px 4px 8px #12132a,
-        inset -4px -4px 8px #2a2b48;
-    color: #8b85ff;
-}
-
-/* Neumorphic button shine effect */
-.neu-btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(108,99,255,0.08), transparent);
-    transition: none;
-}
-.neu-btn:hover::after {
-    animation: btnShine 0.6s ease-out;
-}
-
-/* Responsive neumorphic */
-@media (max-width: 500px) {
-    .neu-card {
-        padding: 25px 20px;
-        border-radius: 16px;
-        box-shadow:
-            8px 8px 16px #b8bec9,
-            -8px -8px 16px #ffffff;
-    }
-    .dark .neu-card {
-        box-shadow:
-            8px 8px 16px #12132a,
-            -8px -8px 16px #2a2b48;
-    }
 }
 
 /* Neumorphic Small Raised (for icon circles) */
 .neu-raised-sm {
-    box-shadow:
-        6px 6px 12px #b8bec9,
-        -6px -6px 12px #ffffff;
+    box-shadow: 6px 6px 12px #b8bec9, -6px -6px 12px #ffffff;
 }
 .dark .neu-raised-sm {
-    box-shadow:
-        6px 6px 12px #12132a,
-        -6px -6px 12px #2a2b48;
+    box-shadow: 6px 6px 12px #12132a, -6px -6px 12px #2a2b48;
 }
 
 /* Neumorphic Info Box (subtle inset) */
@@ -994,15 +1219,11 @@ button:focus-visible {
     padding: 1rem;
     border-radius: 16px;
     background: #e0e5ec;
-    box-shadow:
-        inset 3px 3px 6px #b8bec9,
-        inset -3px -3px 6px #ffffff;
+    box-shadow: inset 3px 3px 6px #b8bec9, inset -3px -3px 6px #ffffff;
 }
 .dark .neu-info-box {
     background: #1e1f36;
-    box-shadow:
-        inset 3px 3px 6px #12132a,
-        inset -3px -3px 6px #2a2b48;
+    box-shadow: inset 3px 3px 6px #12132a, inset -3px -3px 6px #2a2b48;
 }
 
 /* Neumorphic Tabs */
@@ -1012,32 +1233,31 @@ button:focus-visible {
     cursor: pointer;
     transition: all 0.3s ease;
     color: #7a7d9c;
-    box-shadow:
-        5px 5px 10px #b8bec9,
-        -5px -5px 10px #ffffff;
+    box-shadow: 5px 5px 10px #b8bec9, -5px -5px 10px #ffffff;
 }
-.neu-tab:hover {
-    color: #6c63ff;
-}
+.neu-tab:hover { color: #6c63ff; }
 .neu-tab-active {
     color: #6c63ff;
-    box-shadow:
-        inset 3px 3px 6px #b8bec9,
-        inset -3px -3px 6px #ffffff;
+    box-shadow: inset 3px 3px 6px #b8bec9, inset -3px -3px 6px #ffffff;
 }
 .dark .neu-tab {
     background: #1e1f36;
     color: #7a7d9c;
-    box-shadow:
-        5px 5px 10px #12132a,
-        -5px -5px 10px #2a2b48;
+    box-shadow: 5px 5px 10px #12132a, -5px -5px 10px #2a2b48;
 }
-.dark .neu-tab:hover {
-    color: #8b85ff;
-}
+.dark .neu-tab:hover { color: #8b85ff; }
 .dark .neu-tab-active {
     color: #8b85ff;
-    box-shadow:
-        inset 3px 3px 6px #12132a,
-        inset -3px -3px 6px #2a2b48;
+    box-shadow: inset 3px 3px 6px #12132a, inset -3px -3px 6px #2a2b48;
+}
+
+@media (max-width: 500px) {
+    .neu-card {
+        padding: 22px 18px;
+        border-radius: 16px;
+        box-shadow: 8px 8px 16px #b8bec9, -8px -8px 16px #ffffff;
+    }
+    .dark .neu-card {
+        box-shadow: 8px 8px 16px #12132a, -8px -8px 16px #2a2b48;
+    }
 }

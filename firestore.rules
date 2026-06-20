@@ -2,37 +2,40 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Helper to check if user is logged in
+    // Helper: is user authenticated
     function isAuthenticated() {
       return request.auth != null;
     }
     
-    // Helper to read current user document
-    function getUserData() {
-      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    // Helper: does the requesting user's profile document exist
+    function userDocExists() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid));
     }
     
-    // Helper to check if user has a specific role
+    // Helper: get requesting user's roles array
+    function getUserRoles() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles;
+    }
+    
+    // Helper: check if requesting user has a specific role
     function hasRole(role) {
-      return isAuthenticated() && 
-             resource.data != null && 
-             role in getUserData().roles;
+      return isAuthenticated() && userDocExists() && role in getUserRoles();
     }
     
-    // Helper to check if user is an administrator
+    // Helper: is requesting user an admin
     function isAdmin() {
       return hasRole('super_admin') || hasRole('admin_madrasah');
     }
 
-    // User profiles rules
+    // User profiles: users/{uid}
     match /users/{uid} {
       allow read: if isAuthenticated();
-      allow write: if isAdmin() 
-                   || request.auth.uid == uid 
-                   || !exists(/databases/$(database)/documents/users/$(request.auth.uid));
+      allow create: if isAuthenticated();
+      allow update: if isAdmin() || request.auth.uid == uid;
+      allow delete: if isAdmin();
     }
     
-    // RPD Collections rules
+    // Collections: collections/{collectionName}
     match /collections/{collectionName} {
       allow read: if isAuthenticated();
       allow write: if isAuthenticated();

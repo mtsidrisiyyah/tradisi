@@ -163,23 +163,24 @@ export async function render(contentArea, ctx) {
         <div class="fade-in space-y-6 max-w-7xl mx-auto">
             ${bannerDb}
             <!-- Welcome Card -->
-            <div class="bg-gradient-to-br from-forest-700 via-forest-600 to-forest-800 text-white p-6 md:p-8 rounded-3xl shadow-xl relative overflow-hidden">
-                <div class="absolute right-0 top-0 w-40 h-40 bg-white/5 rounded-full blur-2xl translate-x-12 -translate-y-12"></div>
-                <div class="absolute left-0 bottom-0 w-32 h-32 bg-white/5 rounded-full blur-xl -translate-x-8 translate-y-8"></div>
-                <div class="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    <div>
-                        <span class="inline-block bg-white/20 text-white font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-wider mb-3">${getGreeting()}</span>
-                        <h2 class="text-xl md:text-2xl font-extrabold mb-1 font-display">Assalamu'alaikum, ${userProfile.nama}!</h2>
-                        <p class="text-sm text-forest-100/80 font-medium">${schoolSettings.nama || 'MTs Idrisiyyah'} · TA ${schoolSettings.tahunAjaran || '-'} (${schoolSettings.semester || '-'})</p>
-                    </div>
-                    <div class="flex items-center gap-3 flex-shrink-0">
-                        ${notifCount > 0 ? `<button onclick="window.loadPage('Supervisi Akademik')" class="relative p-2.5 bg-white/15 hover:bg-white/25 rounded-xl transition-colors">
-                            <i class="ph ph-bell text-xl"></i>
-                            <span class="absolute -top-1 -right-1 w-5 h-5 text-[9px] font-bold bg-rose-500 text-white rounded-full flex items-center justify-center">${notifCount}</span>
-                        </button>` : ''}
-                        <div class="text-right hidden sm:block">
-                            <p class="text-[10px] text-forest-200/60 font-medium">Hari ini</p>
-                            <p class="text-xs font-bold">${todayName}</p>
+            <div class="bg-gradient-to-r from-[#166534] to-[#14532d] text-white p-6 md:p-7 rounded-2xl shadow-lg relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-48 h-48 bg-white/5 rounded-full blur-3xl translate-x-16 -translate-y-16"></div>
+                <div class="relative z-10">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <p class="text-emerald-200/70 text-xs font-semibold uppercase tracking-wider mb-1">${getGreeting()}</p>
+                            <h2 class="text-xl md:text-2xl font-bold mb-1">Assalamu'alaikum, ${userProfile.nama}!</h2>
+                            <p class="text-sm text-emerald-100/60">${schoolSettings.nama || 'MTs Idrisiyyah'} · TA ${schoolSettings.tahunAjaran || '-'} (${schoolSettings.semester || '-'})</p>
+                        </div>
+                        <div class="flex items-center gap-2.5 flex-shrink-0">
+                            ${notifCount > 0 ? `<button onclick="window.loadPage('Supervisi Akademik')" class="relative p-2 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
+                                <i class="ph ph-bell text-lg"></i>
+                                <span class="absolute -top-1 -right-1 w-4.5 h-4.5 text-[8px] font-bold bg-rose-500 text-white rounded-full flex items-center justify-center">${notifCount}</span>
+                            </button>` : ''}
+                            <div class="hidden sm:flex items-center gap-2 bg-white/10 px-3 py-2 rounded-xl">
+                                <i class="ph ph-calendar-blank text-sm"></i>
+                                <span class="text-xs font-medium">${todayName}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
