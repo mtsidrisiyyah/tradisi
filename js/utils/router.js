@@ -62,19 +62,31 @@ export async function navigateTo(pageTitle, context = {}) {
 
     if (headerTitle) headerTitle.innerText = pageTitle;
 
-    // Highlight active menu item
+    // Update breadcrumb
+    if (window.updateBreadcrumb) window.updateBreadcrumb(pageTitle);
+
+    // Highlight active menu item and its icon
     document.querySelectorAll('.menu-item').forEach(el => {
         el.classList.remove('bg-slate-800/80', 'text-white', 'font-semibold');
         const bullet = el.querySelector('.bullet-indicator');
+        const icon = el.querySelector('.sidebar-item-icon');
         if (bullet) {
             bullet.classList.remove('bg-forest-600', 'scale-125');
             bullet.classList.add('bg-slate-600');
+        }
+        if (icon) {
+            icon.classList.remove('text-forest-400');
+            icon.classList.add('text-slate-500');
         }
         if (el.getAttribute('data-page') === pageTitle) {
             el.classList.add('bg-slate-800/80', 'text-white', 'font-semibold');
             if (bullet) {
                 bullet.classList.remove('bg-slate-600');
                 bullet.classList.add('bg-forest-600', 'scale-125');
+            }
+            if (icon) {
+                icon.classList.remove('text-slate-500');
+                icon.classList.add('text-forest-400');
             }
         }
     });

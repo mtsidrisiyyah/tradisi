@@ -264,15 +264,15 @@
 
         <!-- Sidebar -->
         <aside id="sidebar"
-            class="bg-forest-900 dark:bg-forest-950 text-white w-72 flex-shrink-0 h-full flex flex-col transition-transform transform -translate-x-full md:translate-x-0 absolute md:relative z-40 border-r border-forest-800 dark:border-forest-950 shadow-xl">
-            <div class="p-5 flex items-center justify-between border-b border-forest-800 dark:border-forest-950 bg-forest-950/50">
+            class="bg-forest-900 dark:bg-forest-950 text-white w-72 flex-shrink-0 h-full flex flex-col transition-all duration-300 transform -translate-x-full md:translate-x-0 absolute md:relative z-40 border-r border-forest-800 dark:border-forest-950 shadow-xl overflow-hidden">
+            <div class="p-5 flex items-center justify-between border-b border-forest-800 dark:border-forest-950 bg-forest-950/50 sidebar-header">
                 <div class="flex items-center gap-3">
-                    <div class="p-1.5 bg-white/10 rounded-xl">
+                    <div class="p-1.5 bg-white/10 rounded-xl flex-shrink-0">
                         <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-8 h-8 object-contain">
                     </div>
-                    <div>
-                        <h2 class="text-lg font-bold tracking-tight text-white">TRADISI</h2>
-                        <p class="text-[9px] text-forest-400 uppercase tracking-widest -mt-0.5 font-medium">Administrasi Guru</p>
+                    <div class="sidebar-brand-text overflow-hidden">
+                        <h2 class="text-lg font-bold tracking-tight text-white whitespace-nowrap">TRADISI</h2>
+                        <p class="text-[9px] text-forest-400 uppercase tracking-widest -mt-0.5 font-medium whitespace-nowrap">Administrasi Guru</p>
                     </div>
                 </div>
                 <button id="close-sidebar" class="md:hidden text-forest-400 hover:text-white p-1 rounded hover:bg-forest-800">
@@ -284,19 +284,19 @@
                 <!-- Menu rendered via JavaScript -->
             </div>
 
-            <div class="p-4 border-t border-forest-800 dark:border-forest-950 bg-forest-950/30">
+            <div class="p-4 border-t border-forest-800 dark:border-forest-950 bg-forest-950/30 sidebar-footer">
                 <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 rounded-xl bg-forest-700 flex items-center justify-center text-lg font-bold text-white shadow-md"
+                    <div class="w-10 h-10 rounded-xl bg-forest-700 flex items-center justify-center text-lg font-bold text-white shadow-md flex-shrink-0"
                         id="user-initial">G</div>
-                    <div class="overflow-hidden">
+                    <div class="overflow-hidden sidebar-brand-text">
                         <p class="text-sm font-medium truncate" id="sidebar-user-name">Memuat...</p>
-                        <p class="text-[10px] text-sand-400 font-semibold uppercase tracking-wider"
+                        <p class="text-[10px] text-sand-400 font-semibold uppercase tracking-wider whitespace-nowrap"
                             id="sidebar-user-role">Guru / Pendidik</p>
                     </div>
                 </div>
                 <button id="logout-btn"
                     class="w-full flex items-center justify-center gap-2 bg-red-500/10 hover:bg-red-600 text-red-400 hover:text-white border border-red-500/20 py-2.5 rounded-xl transition-all text-xs font-semibold">
-                    <i class="ph ph-sign-out"></i> Keluar
+                    <i class="ph ph-sign-out"></i> <span class="sidebar-brand-text">Keluar</span>
                 </button>
             </div>
         </aside>
@@ -307,17 +307,36 @@
             <!-- Topbar -->
             <header id="topbar"
                 class="bg-white dark:bg-stone-900 shadow-sm border-b border-stone-200 dark:border-stone-800 px-4 md:px-8 py-3.5 flex items-center justify-between flex-shrink-0 z-30 transition-colors duration-200">
-                <div class="flex items-center gap-4">
+                <div class="flex items-center gap-3">
                     <button id="open-sidebar"
                         class="md:hidden text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 p-1.5 rounded-lg">
                         <i class="ph ph-list text-2xl"></i>
                     </button>
+                    <!-- Sidebar collapse toggle (desktop only) -->
+                    <button id="sidebar-collapse-btn"
+                        class="hidden md:flex text-stone-500 dark:text-stone-400 hover:text-forest-600 dark:hover:text-forest-400 hover:bg-stone-100 dark:hover:bg-stone-800 p-2 rounded-xl transition-colors"
+                        title="Toggle Sidebar">
+                        <i id="sidebar-collapse-icon" class="ph ph-sidebar text-lg"></i>
+                    </button>
                     <div>
                         <h2 class="text-lg font-bold text-stone-800 dark:text-stone-100 flex items-center gap-2"
                             id="header-title">Dashboard</h2>
+                        <!-- Breadcrumb -->
+                        <nav id="breadcrumb" class="hidden md:flex items-center gap-1.5 text-[10px] text-stone-400 mt-0.5">
+                            <span class="breadcrumb-home cursor-pointer hover:text-forest-600 transition-colors">Home</span>
+                        </nav>
                     </div>
                 </div>
-                <div class="flex items-center gap-3">
+                <div class="flex items-center gap-2.5">
+                    <!-- Global Search Trigger -->
+                    <button id="search-trigger"
+                        class="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-colors text-xs"
+                        title="Pencarian (Ctrl+K)">
+                        <i class="ph ph-magnifying-glass text-base"></i>
+                        <span class="hidden lg:inline">Cari...</span>
+                        <kbd class="hidden lg:inline text-[9px] font-bold bg-stone-200 dark:bg-stone-700 text-stone-500 dark:text-stone-400 px-1.5 py-0.5 rounded">Ctrl+K</kbd>
+                    </button>
+
                     <button onclick="toggleDarkMode()"
                         class="p-2 rounded-xl bg-stone-100 dark:bg-stone-800 text-stone-600 dark:text-stone-300 hover:text-forest-600 transition-colors"
                         title="Toggle Tema">
@@ -380,6 +399,30 @@
         class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3 bg-stone-900 text-white dark:bg-white dark:text-stone-900 py-3 px-5 rounded-2xl shadow-2xl max-w-sm border border-stone-800 dark:border-stone-200">
         <i id="toast-icon" class="ph ph-check-circle text-xl text-forest-500"></i>
         <div class="text-xs font-semibold" id="toast-text">Berhasil!</div>
+    </div>
+
+    <!-- ============ GLOBAL SEARCH MODAL (Command Palette) ============ -->
+    <div id="search-modal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-stone-950/50 backdrop-blur-sm" id="search-overlay"></div>
+        <div class="relative mx-auto mt-[15vh] max-w-xl w-full px-4">
+            <div class="bg-white dark:bg-stone-800 rounded-2xl shadow-2xl border border-stone-200 dark:border-stone-700 overflow-hidden">
+                <!-- Search Input -->
+                <div class="flex items-center gap-3 px-5 py-4 border-b border-stone-100 dark:border-stone-700">
+                    <i class="ph ph-magnifying-glass text-xl text-stone-400"></i>
+                    <input type="text" id="search-input"
+                        class="flex-1 bg-transparent outline-none text-sm text-stone-800 dark:text-stone-200 placeholder:text-stone-400"
+                        placeholder="Cari halaman, data siswa, guru..." autocomplete="off">
+                    <kbd class="text-[9px] font-bold bg-stone-100 dark:bg-stone-700 text-stone-400 px-2 py-1 rounded">ESC</kbd>
+                </div>
+                <!-- Search Results -->
+                <div id="search-results" class="max-h-80 overflow-y-auto custom-scrollbar p-2">
+                    <div class="text-center py-8 text-xs text-stone-400">
+                        <i class="ph ph-magnifying-glass text-2xl mb-2 block"></i>
+                        Ketik untuk mencari halaman atau data...
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Application Logic -->

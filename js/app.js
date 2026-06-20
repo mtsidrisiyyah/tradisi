@@ -14,7 +14,7 @@ import { showToast, openModal, closeModal, showConfirmDialog, showLoading, showE
 import { registerPage, navigateTo, initRouter } from './utils/router.js';
 
 // Components
-import { renderSidebar, updateSidebarUser, initSidebarToggle } from './components/sidebar.js';
+import { renderSidebar, updateSidebarUser, initSidebarToggle, toggleSidebarCollapse, initSidebarCollapse, menuStructure } from './components/sidebar.js';
 
 // ============================================
 // 1. INITIALIZE SEED DATA
@@ -277,11 +277,205 @@ if (!useMockDb && isFirebaseConfigured) {
 // ============================================
 initUIListeners();
 initSidebarToggle();
+initSidebarCollapse();
 updateThemeIcon();
 attachLoginFormListener();
 
+// Sidebar collapse button (desktop)
+const collapseBtn = document.getElementById('sidebar-collapse-btn');
+if (collapseBtn) {
+    collapseBtn.addEventListener('click', () => toggleSidebarCollapse());
+}
+
 // Render initial guest sidebar
 renderSidebar('guru');
+
+// ============================================
+// 9. GLOBAL SEARCH (Command Palette Ctrl+K)
+// ============================================
+const searchModal = document.getElementById('search-modal');
+const searchInput = document.getElementById('search-input');
+const searchResults = document.getElementById('search-results');
+const searchTrigger = document.getElementById('search-trigger');
+const searchOverlay = document.getElementById('search-overlay');
+let searchActiveIndex = -1;
+let searchItems = [];
+
+function openSearch() {
+    if (!searchModal) return;
+    searchModal.classList.remove('hidden');
+    if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+    }
+    searchActiveIndex = -1;
+    renderSearchResults('');
+}
+
+function closeSearch() {
+    if (searchModal) searchModal.classList.add('hidden');
+}
+
+function renderSearchResults(query) {
+    if (!searchResults) return;
+    const q = (query || '').toLowerCase().trim();
+    let html = '';
+    searchItems = [];
+
+    if (!q) {
+        // Show all pages grouped by category
+        menuStructure.forEach(group => {
+            const profile = getUserProfile();
+            const allowed = group.items.filter(item => {
+                if (!profile || !profile.activeRole) return true;
+                const { canAccessPage } = (() => { try { return { canAccessPage: (r, p) => true }; } catch(e) { return {}; } })();
+                return true;
+            });
+            if (allowed.length > 0) {
+                html += `<div class="search-result-group-title">${group.category}</div>`;
+                allowed.forEach(item => {
+                    const idx = searchItems.length;
+                    searchItems.push({ type: 'page', name: item.name, icon: item.icon, category: group.category });
+                    html += `<div class="search-result-item" data-index="${idx}" onclick="window.__searchNavigate(${idx})">
+                        <i class="ph ${item.icon} text-base"></i>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold truncate">${item.name}</div>
+                            <div class="text-[10px] text-stone-400">${group.category}</div>
+                        </div>
+                    </div>`;
+                });
+            }
+        });
+    } else {
+        // Filter pages by query
+        let found = 0;
+        menuStructure.forEach(group => {
+            group.items.forEach(item => {
+                if (item.name.toLowerCase().includes(q) || group.category.toLowerCase().includes(q)) {
+                    const idx = searchItems.length;
+                    searchItems.push({ type: 'page', name: item.name, icon: item.icon, category: group.category });
+                    html += `<div class="search-result-item" data-index="${idx}" onclick="window.__searchNavigate(${idx})">
+                        <i class="ph ${item.icon} text-base"></i>
+                        <div class="flex-1 min-w-0">
+                            <div class="text-xs font-semibold truncate">${item.name}</div>
+                            <div class="text-[10px] text-stone-400">${group.category}</div>
+                        </div>
+                    </div>`;
+                    found++;
+                }
+            });
+        });
+
+        // Search in data collections (siswa, guru)
+        const searchData = async () => {
+            try {
+                const siswa = await dbService.getData('siswa');
+                siswa.filter(s => s.nama.toLowerCase().includes(q) || s.nisn.includes(q)).slice(0, 3).forEach(s => {
+                    const idx = searchItems.length;
+                    searchItems.push({ type: 'data', name: s.nama, sub: s.nisn + ' · ' + s.kelas, icon: 'ph-student' });
+                    const el = document.createElement('div');
+                    el.className = 'search-result-item';
+                    el.setAttribute('data-index', idx);
+                    el.onclick = () => window.__searchNavigate(idx);
+                    el.innerHTML = `<i class="ph ph-student text-base"></i><div class="flex-1 min-w-0"><div class="text-xs font-semibold truncate">${s.nama}</div><div class="text-[10px] text-stone-400">${s.nisn} · ${s.kelas}</div></div>`;
+                    searchResults.appendChild(el);
+                });
+            } catch (e) { /* ignore */ }
+        };
+
+        if (q.length >= 2) searchData();
+
+        if (found === 0 && q.length < 2) {
+            html = `<div class="text-center py-6 text-xs text-stone-400"><i class="ph ph-magnifying-glass text-2xl mb-2 block"></i>Tidak ditemukan hasil untuk "${query}"</div>`;
+        }
+    }
+
+    if (!html && searchItems.length === 0) {
+        html = `<div class="text-center py-6 text-xs text-stone-400"><i class="ph ph-magnifying-glass text-2xl mb-2 block"></i>Tidak ditemukan hasil untuk "${query}"</div>`;
+    }
+
+    searchResults.innerHTML = html;
+    searchActiveIndex = -1;
+}
+
+window.__searchNavigate = function(idx) {
+    const item = searchItems[idx];
+    if (!item) return;
+    closeSearch();
+    if (item.type === 'page') {
+        window.loadPage(item.name);
+    }
+};
+
+function updateSearchHighlight() {
+    const items = searchResults?.querySelectorAll('.search-result-item');
+    if (!items) return;
+    items.forEach((el, i) => {
+        el.classList.toggle('active', i === searchActiveIndex);
+    });
+    if (searchActiveIndex >= 0 && items[searchActiveIndex]) {
+        items[searchActiveIndex].scrollIntoView({ block: 'nearest' });
+    }
+}
+
+// Keyboard shortcut
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        renderSearchResults(e.target.value);
+    });
+    searchInput.addEventListener('keydown', (e) => {
+        const total = searchItems.length;
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            searchActiveIndex = Math.min(searchActiveIndex + 1, total - 1);
+            updateSearchHighlight();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            searchActiveIndex = Math.max(searchActiveIndex - 1, 0);
+            updateSearchHighlight();
+        } else if (e.key === 'Enter' && searchActiveIndex >= 0) {
+            e.preventDefault();
+            window.__searchNavigate(searchActiveIndex);
+        }
+    });
+}
+
+document.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        openSearch();
+    }
+    if (e.key === 'Escape' && searchModal && !searchModal.classList.contains('hidden')) {
+        closeSearch();
+    }
+});
+
+if (searchTrigger) searchTrigger.addEventListener('click', openSearch);
+if (searchOverlay) searchOverlay.addEventListener('click', closeSearch);
+
+// ============================================
+// 10. BREADCRUMB UPDATE
+// ============================================
+window.updateBreadcrumb = function(pageTitle) {
+    const breadcrumb = document.getElementById('breadcrumb');
+    if (!breadcrumb) return;
+
+    let category = '';
+    menuStructure.forEach(group => {
+        group.items.forEach(item => {
+            if (item.name === pageTitle) category = group.category;
+        });
+    });
+
+    let html = `<span class="breadcrumb-home cursor-pointer hover:text-forest-600 transition-colors" onclick="window.loadPage('Dashboard')">Home</span>`;
+    if (category) {
+        html += `<span class="breadcrumb-sep">/</span>`;
+        html += `<span>${category}</span>`;
+    }
+    html += `<span class="breadcrumb-sep">/</span>`;
+    html += `<span class="breadcrumb-current">${pageTitle}</span>`;
+    breadcrumb.innerHTML = html;
+};
 
 // Start live clock
 updateClock();
