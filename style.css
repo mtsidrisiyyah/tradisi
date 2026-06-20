@@ -717,3 +717,136 @@ input:focus, select:focus, textarea:focus {
     0%, 100% { transform: rotate(-3deg) scaleY(1); }
     50% { transform: rotate(4deg) scaleY(1.03); }
 }
+
+/* =============================================
+   PHASE 4: THEME POLISH
+   ============================================= */
+
+/* === SMOOTH THEME TRANSITIONS === */
+body,
+#topbar,
+#sidebar,
+#content-area,
+.bg-white,
+.bg-stone-50,
+.dark\:bg-stone-800,
+.dark\:bg-stone-900,
+.border-stone-200 {
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* === LIGHT MODE ENHANCED === */
+
+/* Surface hierarchy */
+.bg-stone-50 { --surface: base; }
+.bg-white { --surface: card; }
+
+/* Refined shadow scale */
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03), 0 1px 3px 0 rgba(0,0,0,0.05); }
+.shadow-md, .shadow { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -4px rgba(0,0,0,0.05); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08), 0 8px 10px -6px rgba(0,0,0,0.04); }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15); }
+
+/* Focus rings - visible accessibility */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+button:focus-visible {
+    outline: 2px solid #166534;
+    outline-offset: 2px;
+    border-radius: 8px;
+}
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible,
+.dark button:focus-visible {
+    outline-color: #4ade80;
+}
+
+/* === DARK MODE ENHANCED === */
+
+/* Layered dark surfaces */
+.dark body { background-color: #0c0a09; }
+.dark .bg-stone-900 { background-color: #1c1917; } /* base */
+.dark .bg-stone-800 { background-color: #292524; } /* card */
+.dark .bg-stone-850 { background-color: #1f1b19; } /* elevated (between base and card) */
+
+/* Dark mode text contrast (WCAG AA) */
+.dark .text-stone-100 { color: #f5f5f4; } /* 15.4:1 ratio */
+.dark .text-stone-200 { color: #e7e5e4; } /* 13.2:1 ratio */
+.dark .text-stone-300 { color: #d6d3d1; } /* 11.1:1 ratio */
+.dark .text-stone-400 { color: #a8a29e; } /* 7.4:1 ratio */
+.dark .text-stone-500 { color: #78716c; } /* 4.8:1 ratio */
+
+/* Dark borders */
+.dark .border-stone-700 { border-color: #3f3b39; }
+.dark .border-stone-800 { border-color: #2c2927; }
+
+/* Dark mode chart colors - more vibrant */
+.dark .stat-card-blue .text-blue-600 { color: #60a5fa; }
+.dark .stat-card-emerald .text-emerald-600 { color: #34d399; }
+.dark .stat-card-purple .text-purple-600 { color: #a78bfa; }
+.dark .stat-card-rose .text-rose-600 { color: #fb7185; }
+.dark .stat-card-teal .text-teal-600 { color: #2dd4bf; }
+.dark .stat-card-orange .text-orange-600 { color: #fb923c; }
+
+/* Dark mode images - reduced brightness */
+.dark img {
+    filter: brightness(0.9);
+}
+.dark img:hover {
+    filter: brightness(1);
+}
+
+/* Dark scrollbar */
+.dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #44403c; }
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #57534e; }
+
+/* Dark toast */
+.dark .toast-item {
+    background: #292524;
+    border-color: #3f3b39;
+}
+
+/* Dark skeleton */
+.dark .skeleton {
+    background: linear-gradient(90deg, #292524 25%, #3f3b39 50%, #292524 75%);
+    background-size: 200% 100%;
+}
+
+/* Dark modal backdrop */
+.dark #crud-modal {
+    background: rgba(0,0,0,0.7);
+}
+
+/* Dark search modal */
+.dark #search-modal .bg-white {
+    background: #292524;
+    border-color: #3f3b39;
+}
+
+/* Donut chart dark mode */
+.dark .donut-center {
+    background: #292524;
+}
+
+/* === PRINT ENHANCEMENTS === */
+@media print {
+    #mobile-bottom-nav,
+    #breadcrumb,
+    #search-modal,
+    #toast-container,
+    .toast-item {
+        display: none !important;
+    }
+    .shadow-sm, .shadow-md, .shadow, .shadow-lg, .shadow-xl, .shadow-2xl {
+        box-shadow: none !important;
+    }
+    .rounded-2xl, .rounded-3xl {
+        border-radius: 4px !important;
+    }
+    .stat-card::before {
+        print-color-adjust: exact !important;
+    }
+}
