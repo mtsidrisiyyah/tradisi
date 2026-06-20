@@ -1,5 +1,3 @@
-# RPD MASTER FINAL
-
 # TRADISI
 
 ## Transformasi Digital Administrasi MTs Idrisiyyah
