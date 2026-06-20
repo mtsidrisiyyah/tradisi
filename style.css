@@ -850,3 +850,126 @@ button:focus-visible {
         print-color-adjust: exact !important;
     }
 }
+
+/* =============================================
+   NEUMORPHIC LOGIN PAGE
+   ============================================= */
+
+.login-neu-bg {
+    background-color: #e0e5ec;
+}
+.dark .login-neu-bg {
+    background-color: #1e1f36;
+}
+
+/* Neumorphic Card */
+.neu-card {
+    background: #e0e5ec;
+    border-radius: 20px;
+    padding: 35px 30px;
+    box-shadow:
+        12px 12px 24px #b8bec9,
+        -12px -12px 24px #ffffff;
+}
+.dark .neu-card {
+    background: #1e1f36;
+    box-shadow:
+        12px 12px 24px #12132a,
+        -12px -12px 24px #2a2b48;
+}
+
+/* Neumorphic Input (inset shadow) */
+.neu-input {
+    background: #e0e5ec;
+    border: none;
+    box-shadow:
+        inset 5px 5px 10px #b8bec9,
+        inset -5px -5px 10px #ffffff;
+    transition: box-shadow 0.3s ease;
+}
+.neu-input:focus {
+    box-shadow:
+        inset 3px 3px 6px #b8bec9,
+        inset -3px -3px 6px #ffffff;
+}
+.dark .neu-input {
+    background: #1e1f36;
+    box-shadow:
+        inset 5px 5px 10px #12132a,
+        inset -5px -5px 10px #2a2b48;
+}
+.dark .neu-input:focus {
+    box-shadow:
+        inset 3px 3px 6px #12132a,
+        inset -3px -3px 6px #2a2b48;
+}
+
+/* Neumorphic Button (raised with press effect) */
+.neu-btn {
+    background: #e0e5ec;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow:
+        8px 8px 16px #b8bec9,
+        -8px -8px 16px #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+.neu-btn:hover {
+    color: #554fd8;
+}
+.neu-btn:active,
+.neu-btn[disabled] {
+    box-shadow:
+        inset 4px 4px 8px #b8bec9,
+        inset -4px -4px 8px #ffffff;
+    color: #554fd8;
+}
+.dark .neu-btn {
+    background: #1e1f36;
+    box-shadow:
+        8px 8px 16px #12132a,
+        -8px -8px 16px #2a2b48;
+}
+.dark .neu-btn:hover {
+    color: #8b85ff;
+}
+.dark .neu-btn:active,
+.dark .neu-btn[disabled] {
+    box-shadow:
+        inset 4px 4px 8px #12132a,
+        inset -4px -4px 8px #2a2b48;
+    color: #8b85ff;
+}
+
+/* Neumorphic button shine effect */
+.neu-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(108,99,255,0.08), transparent);
+    transition: none;
+}
+.neu-btn:hover::after {
+    animation: btnShine 0.6s ease-out;
+}
+
+/* Responsive neumorphic */
+@media (max-width: 500px) {
+    .neu-card {
+        padding: 25px 20px;
+        border-radius: 16px;
+        box-shadow:
+            8px 8px 16px #b8bec9,
+            -8px -8px 16px #ffffff;
+    }
+    .dark .neu-card {
+        box-shadow:
+            8px 8px 16px #12132a,
+            -8px -8px 16px #2a2b48;
+    }
+}

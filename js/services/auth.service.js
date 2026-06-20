@@ -46,7 +46,11 @@ async function login(email, password) {
                 throw { code: 'auth/user-disabled', message: 'Akun Anda telah dinonaktifkan.' };
             }
             currentUser = { uid: found.id, email: found.email };
-            userProfile = found;
+            userProfile = { ...found };
+            // Ensure role fields always present
+            if (!userProfile.roles || !userProfile.roles.length) userProfile.roles = ['guru'];
+            if (!userProfile.activeRole) userProfile.activeRole = userProfile.roles[0] || 'guru';
+            if (!userProfile.status) userProfile.status = 'aktif';
             return { user: currentUser, profile: userProfile };
         }
         
@@ -63,13 +67,14 @@ async function login(email, password) {
                 status: "aktif" 
             };
             currentUser = { uid: demo.id, email: demo.email };
-            userProfile = demo;
+            userProfile = { ...demo };
             return { user: currentUser, profile: userProfile };
         }
 
         throw { code: 'auth/user-not-found', message: 'Akun dengan email ini tidak ditemukan.' };
     }
 
+    // Firebase mode
     const isPreviewEnv = typeof __app_id !== 'undefined';
 
     if (isPreviewEnv && typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
@@ -78,9 +83,15 @@ async function login(email, password) {
         await signInAnonymously(auth);
     } else {
         const credential = await signInWithEmailAndPassword(auth, email, password);
-        // Verify user approval status on Firebase mode
+        
+        // Load profile and verify status immediately
         const profile = await dbService.getProfile(credential.user.uid);
         if (profile) {
+            // Safety net: ensure role fields
+            if (!profile.roles || !profile.roles.length) profile.roles = ['guru'];
+            if (!profile.activeRole) profile.activeRole = profile.roles[0] || 'guru';
+            if (!profile.status) profile.status = 'aktif';
+            
             if (profile.status === 'menunggu_persetujuan') {
                 await signOut(auth);
                 throw { code: 'auth/user-disabled', message: 'Akun Anda sedang menunggu persetujuan administrator.' };
@@ -89,10 +100,14 @@ async function login(email, password) {
                 await signOut(auth);
                 throw { code: 'auth/user-disabled', message: 'Akun Anda telah dinonaktifkan.' };
             }
+            
+            // Set profile immediately so onAuthStateChanged has it
+            userProfile = profile;
+            currentUser = credential.user;
         }
     }
 
-    // onAuthStateChanged will handle the rest
+    // onAuthStateChanged will handle the rest (including auto-promote)
     return { user: auth.currentUser };
 }
 
