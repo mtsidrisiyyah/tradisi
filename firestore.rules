@@ -27,7 +27,9 @@ service cloud.firestore {
     // User profiles rules
     match /users/{uid} {
       allow read: if isAuthenticated();
-      allow write: if isAdmin() || (request.auth.uid == uid && request.resource.data.status == resource.data.status);
+      allow write: if isAdmin() 
+                   || request.auth.uid == uid 
+                   || !exists(/databases/$(database)/documents/users/$(request.auth.uid));
     }
     
     // RPD Collections rules

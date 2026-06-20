@@ -411,19 +411,32 @@ const dbService = {
 export { dbService, SEED_DATA };
 
 /**
- * Check if any super_admin account exists in profiles
+ * Check if any super_admin account exists
+ * Checks both collections/profiles AND users/ documents
  * Returns true if at least one profile has 'super_admin' in roles and status 'aktif'
  */
 async function hasSuperAdmin() {
     if (useMockDb) {
-        // Mock mode always has the demo super admin
         return true;
     }
     try {
+        // Check collections/profiles first
         const profiles = await dbService.getData('profiles');
-        return profiles.some(p =>
+        const foundInCollection = profiles.some(p =>
             p.roles && p.roles.includes('super_admin') && p.status === 'aktif'
         );
+        if (foundInCollection) return true;
+
+        // Also check if current logged-in user has super_admin role in their user doc
+        const { getAuth } = await import("https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js");
+        const authInstance = getAuth();
+        if (authInstance.currentUser) {
+            const userProfile = await dbService.getProfile(authInstance.currentUser.uid);
+            if (userProfile && userProfile.roles && userProfile.roles.includes('super_admin') && userProfile.status === 'aktif') {
+                return true;
+            }
+        }
+        return false;
     } catch (e) {
         console.warn("Gagal cek super admin:", e);
         return false;
@@ -433,6 +446,7 @@ async function hasSuperAdmin() {
 /**
  * Bootstrap the first super admin account (Firebase mode only)
  * Creates a profile with super_admin role and status 'aktif' (bypasses approval)
+ * Writes to BOTH users/{uid} AND collections/profiles for consistency
  */
 async function bootstrapSuperAdmin(uid, email, profileData) {
     const superAdminProfile = {
@@ -444,7 +458,25 @@ async function bootstrapSuperAdmin(uid, email, profileData) {
         createdAt: new Date().toISOString(),
         ...profileData
     };
+    // Save to users/{uid}
     await dbService.saveProfile(uid, superAdminProfile);
+
+    // Also save to collections/profiles so hasSuperAdmin() can find it
+    if (!useMockDb) {
+        try {
+            const profiles = await dbService.getData('profiles');
+            const existing = profiles.findIndex(p => p.id === uid);
+            if (existing !== -1) {
+                profiles[existing] = { ...profiles[existing], ...superAdminProfile };
+            } else {
+                profiles.push({ ...superAdminProfile });
+            }
+            await dbService.saveData('profiles', profiles);
+        } catch (e) {
+            console.warn("Gagal sync ke collections/profiles:", e);
+        }
+    }
+
     return superAdminProfile;
 }
 
