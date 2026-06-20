@@ -973,3 +973,71 @@ button:focus-visible {
             -8px -8px 16px #2a2b48;
     }
 }
+
+/* Neumorphic Small Raised (for icon circles) */
+.neu-raised-sm {
+    box-shadow:
+        6px 6px 12px #b8bec9,
+        -6px -6px 12px #ffffff;
+}
+.dark .neu-raised-sm {
+    box-shadow:
+        6px 6px 12px #12132a,
+        -6px -6px 12px #2a2b48;
+}
+
+/* Neumorphic Info Box (subtle inset) */
+.neu-info-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 16px;
+    background: #e0e5ec;
+    box-shadow:
+        inset 3px 3px 6px #b8bec9,
+        inset -3px -3px 6px #ffffff;
+}
+.dark .neu-info-box {
+    background: #1e1f36;
+    box-shadow:
+        inset 3px 3px 6px #12132a,
+        inset -3px -3px 6px #2a2b48;
+}
+
+/* Neumorphic Tabs */
+.neu-tab {
+    background: #e0e5ec;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #7a7d9c;
+    box-shadow:
+        5px 5px 10px #b8bec9,
+        -5px -5px 10px #ffffff;
+}
+.neu-tab:hover {
+    color: #6c63ff;
+}
+.neu-tab-active {
+    color: #6c63ff;
+    box-shadow:
+        inset 3px 3px 6px #b8bec9,
+        inset -3px -3px 6px #ffffff;
+}
+.dark .neu-tab {
+    background: #1e1f36;
+    color: #7a7d9c;
+    box-shadow:
+        5px 5px 10px #12132a,
+        -5px -5px 10px #2a2b48;
+}
+.dark .neu-tab:hover {
+    color: #8b85ff;
+}
+.dark .neu-tab-active {
+    color: #8b85ff;
+    box-shadow:
+        inset 3px 3px 6px #12132a,
+        inset -3px -3px 6px #2a2b48;
+}
