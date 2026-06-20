@@ -10,7 +10,7 @@ import { login, logout, initAuthListener, getCurrentUser, getUserProfile, setUse
 
 // Utilities
 import { getGreeting, formatTanggalIndonesia, updateClock, getHariIndonesia, getTodayStr, generateId } from './utils/helpers.js';
-import { showToast, openModal, closeModal, showConfirmDialog, showLoading, showEmptyState, deleteItem, initUIListeners } from './utils/ui.js';
+import { showToast, openModal, closeModal, showConfirmDialog, showLoading, showEmptyState, showErrorState, showSkeleton, createDataTable, deleteItem, initUIListeners } from './utils/ui.js';
 import { registerPage, navigateTo, initRouter } from './utils/router.js';
 
 // Components
@@ -38,6 +38,9 @@ const appContext = {
     showConfirmDialog,
     showLoading,
     showEmptyState,
+    showErrorState,
+    showSkeleton,
+    createDataTable,
     deleteItem,
     getCurrentUser,
     getUserProfile,

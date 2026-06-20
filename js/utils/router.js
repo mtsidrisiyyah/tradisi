@@ -2,6 +2,7 @@
 // TRADISI — SPA Router Module
 // ============================================
 import { canAccessPage } from './rbac.js';
+import { showSkeleton, showErrorState, showEmptyState } from './ui.js';
 
 /**
  * Page registry — maps page titles to lazy-loaded modules
@@ -96,14 +97,9 @@ export async function navigateTo(pageTitle, context = {}) {
         window.toggleSidebar(false);
     }
 
-    // Show loading
+    // Show skeleton loading
     if (contentArea) {
-        contentArea.innerHTML = `
-            <div class="flex flex-col justify-center items-center h-64 text-slate-400">
-                <i class="ph ph-spinner animate-spin text-3xl text-forest-600 mb-2"></i>
-                <p class="text-xs">Memuat konten...</p>
-            </div>
-        `;
+        showSkeleton(contentArea, 'dashboard');
     }
 
     // Load page module
@@ -117,24 +113,21 @@ export async function navigateTo(pageTitle, context = {}) {
         } catch (err) {
             console.error(`Gagal memuat halaman "${pageTitle}":`, err);
             if (contentArea) {
-                contentArea.innerHTML = `
-                    <div class="flex flex-col justify-center items-center h-64 text-slate-400">
-                        <i class="ph ph-warning-circle text-3xl text-rose-500 mb-2"></i>
-                        <p class="text-xs text-rose-500 font-semibold">Gagal memuat halaman</p>
-                        <p class="text-[10px] text-slate-400 mt-1">${err.message}</p>
-                    </div>
-                `;
+                showErrorState(contentArea, {
+                    title: 'Gagal Memuat Halaman',
+                    message: err.message || 'Terjadi kesalahan saat memuat konten.',
+                    retryAction: () => navigateTo(pageTitle, context)
+                });
             }
         }
     } else {
         // Fallback for unregistered pages
         if (contentArea) {
-            contentArea.innerHTML = `
-                <div class="flex flex-col justify-center items-center h-64 text-slate-400">
-                    <i class="ph ph-construction text-3xl mb-2"></i>
-                    <p class="text-xs font-semibold">Halaman "${pageTitle}" sedang dalam pengembangan</p>
-                </div>
-            `;
+            showEmptyState(contentArea, {
+                icon: 'ph-wrench',
+                title: 'Halaman Dalam Pengembangan',
+                description: `Halaman "${pageTitle}" belum tersedia.`
+            });
         }
     }
 }
