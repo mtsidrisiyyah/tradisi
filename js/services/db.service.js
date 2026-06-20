@@ -400,3 +400,43 @@ const dbService = {
 };
 
 export { dbService, SEED_DATA };
+
+/**
+ * Check if any super_admin account exists in profiles
+ * Returns true if at least one profile has 'super_admin' in roles and status 'aktif'
+ */
+async function hasSuperAdmin() {
+    if (useMockDb) {
+        // Mock mode always has the demo super admin
+        return true;
+    }
+    try {
+        const profiles = await dbService.getData('profiles');
+        return profiles.some(p =>
+            p.roles && p.roles.includes('super_admin') && p.status === 'aktif'
+        );
+    } catch (e) {
+        console.warn("Gagal cek super admin:", e);
+        return false;
+    }
+}
+
+/**
+ * Bootstrap the first super admin account (Firebase mode only)
+ * Creates a profile with super_admin role and status 'aktif' (bypasses approval)
+ */
+async function bootstrapSuperAdmin(uid, email, profileData) {
+    const superAdminProfile = {
+        id: uid,
+        email: email,
+        roles: ['super_admin', 'guru'],
+        activeRole: 'super_admin',
+        status: 'aktif',
+        createdAt: new Date().toISOString(),
+        ...profileData
+    };
+    await dbService.saveProfile(uid, superAdminProfile);
+    return superAdminProfile;
+}
+
+export { hasSuperAdmin, bootstrapSuperAdmin };

@@ -5,7 +5,7 @@
 
 // Core services
 import { useMockDb, isFirebaseConfigured } from './config/firebase.js';
-import { dbService, initializeLocalStorageSeed } from './services/db.service.js';
+import { dbService, initializeLocalStorageSeed, hasSuperAdmin } from './services/db.service.js';
 import { login, logout, initAuthListener, getCurrentUser, getUserProfile, setUserProfile, getFirebaseAuthMessage } from './services/auth.service.js';
 
 // Utilities
@@ -216,6 +216,13 @@ window.showRegisterForm = async function() {
     }
 };
 
+window.showSetupForm = async function() {
+    if (authContainer) {
+        const setupModule = await import('./pages/auth/setup-admin.js');
+        setupModule.render(authContainer);
+    }
+};
+
 // Logout handler
 document.getElementById('logout-btn').addEventListener('click', async () => {
     await logout();
@@ -234,6 +241,21 @@ initAuthListener(
         onUserLoggedOut();
     }
 );
+
+// ============================================
+// 8.5 FIRST-RUN SUPER ADMIN SETUP CHECK
+// ============================================
+// In Firebase mode, if no super admin exists yet, show setup wizard instead of login
+if (!useMockDb && isFirebaseConfigured) {
+    // Delay slightly to let onAuthStateChanged fire first (avoids race condition)
+    setTimeout(async () => {
+        const exists = await hasSuperAdmin();
+        if (!exists) {
+            console.log("⚠️ Belum ada Super Admin. Menampilkan wizard setup...");
+            window.showSetupForm();
+        }
+    }, 1000);
+}
 
 // ============================================
 // 8. INITIALIZE UI
