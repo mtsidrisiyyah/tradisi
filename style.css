@@ -5,9 +5,14 @@
 
 /* === BASE === */
 body {
-    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Display font (headings) */
+.font-display {
+    font-family: 'Outfit', 'Inter', sans-serif;
 }
 
 /* Smooth transitions for all interactive elements */
@@ -138,7 +143,7 @@ input:focus, select:focus, textarea:focus {
 .toast-show { transform: translateY(0) !important; opacity: 1 !important; }
 
 /* ============================================
-   LOGIN PAGE ANIMATIONS
+   LOGIN PAGE — International Standard + Betta Fish
    ============================================ */
 
 /* Slide-in from left for branding panel */
@@ -147,7 +152,7 @@ input:focus, select:focus, textarea:focus {
     to { opacity: 1; transform: translateX(0); }
 }
 .login-panel-left {
-    animation: slideInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideInLeft 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Slide-in from right for form panel */
@@ -156,7 +161,7 @@ input:focus, select:focus, textarea:focus {
     to { opacity: 1; transform: translateX(0); }
 }
 .login-panel-right {
-    animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+    animation: slideInRight 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
     opacity: 0;
 }
 
@@ -165,7 +170,7 @@ input:focus, select:focus, textarea:focus {
     from { opacity: 0; transform: translateY(25px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.login-reveal { opacity: 0; animation: revealUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.login-reveal { opacity: 0; animation: revealUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 .login-reveal-1 { animation-delay: 0.4s; }
 .login-reveal-2 { animation-delay: 0.55s; }
 .login-reveal-3 { animation-delay: 0.7s; }
@@ -173,37 +178,38 @@ input:focus, select:focus, textarea:focus {
 .login-reveal-5 { animation-delay: 1.0s; }
 .login-reveal-6 { animation-delay: 1.15s; }
 
-/* Floating particles */
+/* Floating particles (bubbles) */
 @keyframes particleFloat {
     0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
+    10% { opacity: 0.6; }
+    90% { opacity: 0.6; }
     100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
 }
 .login-particle {
     position: absolute;
     width: 4px;
     height: 4px;
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
     border-radius: 50%;
+    box-shadow: 0 0 6px rgba(255,255,255,0.15);
     animation: particleFloat linear infinite;
 }
-.login-particle:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; width: 3px; height: 3px; }
-.login-particle:nth-child(2) { left: 25%; animation-duration: 18s; animation-delay: 2s; width: 5px; height: 5px; }
-.login-particle:nth-child(3) { left: 40%; animation-duration: 14s; animation-delay: 4s; }
-.login-particle:nth-child(4) { left: 55%; animation-duration: 20s; animation-delay: 1s; width: 6px; height: 6px; }
-.login-particle:nth-child(5) { left: 70%; animation-duration: 16s; animation-delay: 3s; width: 3px; height: 3px; }
-.login-particle:nth-child(6) { left: 85%; animation-duration: 22s; animation-delay: 5s; }
-.login-particle:nth-child(7) { left: 15%; animation-duration: 15s; animation-delay: 6s; width: 5px; height: 5px; }
-.login-particle:nth-child(8) { left: 60%; animation-duration: 19s; animation-delay: 2.5s; width: 3px; height: 3px; }
+.login-particle:nth-child(1) { left: 8%; animation-duration: 14s; animation-delay: 0s; width: 3px; height: 3px; }
+.login-particle:nth-child(2) { left: 22%; animation-duration: 20s; animation-delay: 2s; width: 5px; height: 5px; }
+.login-particle:nth-child(3) { left: 38%; animation-duration: 16s; animation-delay: 4s; }
+.login-particle:nth-child(4) { left: 52%; animation-duration: 22s; animation-delay: 1s; width: 6px; height: 6px; }
+.login-particle:nth-child(5) { left: 68%; animation-duration: 18s; animation-delay: 3s; width: 3px; height: 3px; }
+.login-particle:nth-child(6) { left: 82%; animation-duration: 24s; animation-delay: 5s; }
+.login-particle:nth-child(7) { left: 14%; animation-duration: 17s; animation-delay: 6s; width: 5px; height: 5px; }
+.login-particle:nth-child(8) { left: 58%; animation-duration: 21s; animation-delay: 2.5s; width: 3px; height: 3px; }
 
 /* Gentle pulse glow behind logo */
 @keyframes logoPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.1); }
-    50% { box-shadow: 0 0 40px rgba(255,255,255,0.2); }
+    0%, 100% { box-shadow: 0 0 20px rgba(255,255,255,0.08); }
+    50% { box-shadow: 0 0 45px rgba(255,255,255,0.15); }
 }
 .login-logo-glow {
-    animation: logoPulse 3s ease-in-out infinite;
+    animation: logoPulse 3.5s ease-in-out infinite;
 }
 
 /* Feature pills hover effect */
@@ -212,15 +218,15 @@ input:focus, select:focus, textarea:focus {
 }
 .login-pill:hover {
     transform: translateY(-2px);
-    background: rgba(255,255,255,0.2) !important;
+    background: rgba(255,255,255,0.15) !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* Input field glow animation */
 @keyframes inputGlow {
     0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
-    50% { box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.15); }
-    100% { box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.1); }
+    50% { box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.12); }
+    100% { box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.08); }
 }
 #login-form input:focus {
     animation: inputGlow 0.4s ease-out forwards;
@@ -242,20 +248,11 @@ input:focus, select:focus, textarea:focus {
     left: -100%;
     width: 50%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
     transition: none;
 }
 #login-btn:hover::after {
     animation: btnShine 0.6s ease-out;
-}
-
-/* Decorative wave SVG animation */
-@keyframes waveMove {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-.login-wave {
-    animation: waveMove 20s linear infinite;
 }
 
 /* Gradient text shimmer for headline accent */
@@ -265,10 +262,252 @@ input:focus, select:focus, textarea:focus {
     100% { background-position: 0% 50%; }
 }
 .login-text-shimmer {
-    background: linear-gradient(270deg, #fbbf24, #f59e0b, #d97706, #fbbf24);
+    background: linear-gradient(270deg, #fbbf24, #d4a574, #c4956a, #fbbf24);
     background-size: 300% 300%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: textShimmer 4s ease-in-out infinite;
+    animation: textShimmer 5s ease-in-out infinite;
+}
+
+/* ===== WATER CAUSTICS OVERLAY ===== */
+.caustics-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80px 60px at 20% 30%, rgba(100,220,180,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 120px 80px at 60% 70%, rgba(80,200,160,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 100px 70px at 80% 20%, rgba(120,230,190,0.05) 0%, transparent 70%);
+    animation: causticsMove 12s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+@keyframes causticsMove {
+    0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+    50% { transform: translate(20px, -15px) scale(1.05); opacity: 1; }
+    100% { transform: translate(-15px, 10px) scale(0.95); opacity: 0.8; }
+}
+
+/* ===== BETTA FISH (IKAN CUPANG) ANIMATIONS ===== */
+
+/* Base fish container */
+.betta-fish {
+    position: absolute;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* Fish body styling */
+.fish-body {
+    position: relative;
+    width: 80px;
+    height: 38px;
+    background: radial-gradient(ellipse at 65% 40%, #ff6b4a, #d4432a, #a82e1f);
+    border-radius: 60% 40% 35% 65% / 55% 50% 50% 45%;
+    box-shadow: 0 2px 15px rgba(212,67,42,0.3);
+    animation: fishBodyPulse 3s ease-in-out infinite;
+}
+.fish-body-blue {
+    background: radial-gradient(ellipse at 65% 40%, #7c8cf8, #4f5bd9, #3944a8);
+    box-shadow: 0 2px 15px rgba(79,91,217,0.3);
+}
+.fish-body-gold {
+    background: radial-gradient(ellipse at 65% 40%, #ffd699, #f0b856, #d49a3a);
+    box-shadow: 0 2px 15px rgba(240,184,86,0.3);
+}
+
+/* Fish eye */
+.fish-eye {
+    position: absolute;
+    top: 28%;
+    right: 18%;
+    width: 7px;
+    height: 7px;
+    background: radial-gradient(circle at 35% 35%, #fff, #222);
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0,0,0,0.3);
+}
+
+/* Fish fins (flowing betta fins) */
+.fish-fin {
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+}
+.fish-fin-top {
+    top: -18px;
+    left: 20%;
+    width: 40px;
+    height: 22px;
+    background: linear-gradient(180deg, rgba(255,107,74,0.6), rgba(212,67,42,0.3));
+    transform-origin: bottom center;
+    animation: finWaveTop 2.5s ease-in-out infinite;
+}
+.fish-fin-bottom {
+    bottom: -14px;
+    left: 25%;
+    width: 35px;
+    height: 18px;
+    background: linear-gradient(0deg, rgba(255,107,74,0.5), rgba(212,67,42,0.2));
+    transform-origin: top center;
+    animation: finWaveBottom 2.8s ease-in-out infinite 0.3s;
+}
+.fish-body-blue .fish-fin-top {
+    background: linear-gradient(180deg, rgba(124,140,248,0.6), rgba(79,91,217,0.3));
+}
+.fish-body-blue .fish-fin-bottom {
+    background: linear-gradient(0deg, rgba(124,140,248,0.5), rgba(79,91,217,0.2));
+}
+.fish-body-gold .fish-fin-top {
+    background: linear-gradient(180deg, rgba(255,214,153,0.6), rgba(240,184,86,0.3));
+}
+.fish-body-gold .fish-fin-bottom {
+    background: linear-gradient(0deg, rgba(255,214,153,0.5), rgba(240,184,86,0.2));
+}
+
+/* Fish tail (flowing betta tail) */
+.fish-tail {
+    position: absolute;
+    left: -28px;
+    top: -8px;
+    width: 35px;
+    height: 50px;
+    background: linear-gradient(135deg, rgba(255,107,74,0.7), rgba(212,67,42,0.3), rgba(168,46,31,0.15));
+    border-radius: 0 30% 50% 70% / 0 50% 50% 80%;
+    transform-origin: right center;
+    animation: tailWave 2s ease-in-out infinite;
+}
+.fish-tail-2 {
+    left: -22px;
+    top: 2px;
+    width: 28px;
+    height: 35px;
+    background: linear-gradient(135deg, rgba(255,107,74,0.5), rgba(212,67,42,0.2));
+    animation: tailWave 2s ease-in-out infinite 0.4s;
+    opacity: 0.7;
+}
+.fish-body-blue .fish-tail {
+    background: linear-gradient(135deg, rgba(124,140,248,0.7), rgba(79,91,217,0.3), rgba(57,68,168,0.15));
+}
+.fish-body-blue .fish-tail-2 {
+    background: linear-gradient(135deg, rgba(124,140,248,0.5), rgba(79,91,217,0.2));
+}
+.fish-body-gold .fish-tail {
+    background: linear-gradient(135deg, rgba(255,214,153,0.7), rgba(240,184,86,0.3), rgba(212,154,58,0.15));
+}
+.fish-body-gold .fish-tail-2 {
+    background: linear-gradient(135deg, rgba(255,214,153,0.5), rgba(240,184,86,0.2));
+}
+
+/* Fin animations */
+@keyframes finWaveTop {
+    0%, 100% { transform: rotate(-5deg) scaleY(1); }
+    50% { transform: rotate(8deg) scaleY(1.15); }
+}
+@keyframes finWaveBottom {
+    0%, 100% { transform: rotate(5deg) scaleY(1); }
+    50% { transform: rotate(-8deg) scaleY(1.1); }
+}
+@keyframes tailWave {
+    0%, 100% { transform: rotate(-8deg) scaleX(1); }
+    50% { transform: rotate(12deg) scaleX(1.1); }
+}
+@keyframes fishBodyPulse {
+    0%, 100% { transform: scaleX(1) scaleY(1); }
+    50% { transform: scaleX(1.02) scaleY(0.98); }
+}
+
+/* Fish swimming paths */
+.fish-1 {
+    animation: swimPath1 22s ease-in-out infinite;
+    top: 25%;
+    left: 10%;
+}
+.fish-2 {
+    animation: swimPath2 28s ease-in-out infinite 3s;
+    top: 55%;
+    left: 50%;
+    transform: scaleX(-1);
+}
+.fish-3 {
+    animation: swimPath3 18s ease-in-out infinite 6s;
+    top: 70%;
+    left: 25%;
+}
+.fish-3 .fish-body {
+    width: 55px;
+    height: 26px;
+}
+.fish-3 .fish-tail { left: -20px; width: 25px; height: 36px; }
+.fish-3 .fish-tail-2 { left: -15px; width: 20px; height: 25px; }
+.fish-3 .fish-fin-top { width: 28px; height: 15px; top: -12px; }
+.fish-3 .fish-fin-bottom { width: 24px; height: 12px; bottom: -10px; }
+.fish-3 .fish-eye { width: 5px; height: 5px; }
+
+/* Flip fish when swimming right-to-left */
+@keyframes swimPath1 {
+    0%   { transform: translate(0, 0) scaleX(1); }
+    15%  { transform: translate(120px, -40px) scaleX(1); }
+    30%  { transform: translate(250px, 20px) scaleX(1); }
+    45%  { transform: translate(350px, -60px) scaleX(1); }
+    48%  { transform: translate(360px, -50px) scaleX(-1); }
+    65%  { transform: translate(200px, 30px) scaleX(-1); }
+    80%  { transform: translate(80px, -20px) scaleX(-1); }
+    95%  { transform: translate(10px, 10px) scaleX(-1); }
+    98%  { transform: translate(0, 0) scaleX(1); }
+    100% { transform: translate(0, 0) scaleX(1); }
+}
+@keyframes swimPath2 {
+    0%   { transform: translate(0, 0) scaleX(-1); }
+    20%  { transform: translate(-150px, 30px) scaleX(-1); }
+    40%  { transform: translate(-280px, -50px) scaleX(-1); }
+    48%  { transform: translate(-300px, -40px) scaleX(1); }
+    70%  { transform: translate(-120px, 40px) scaleX(1); }
+    90%  { transform: translate(-20px, -10px) scaleX(1); }
+    98%  { transform: translate(0, 0) scaleX(-1); }
+    100% { transform: translate(0, 0) scaleX(-1); }
+}
+@keyframes swimPath3 {
+    0%   { transform: translate(0, 0) scaleX(1); }
+    25%  { transform: translate(100px, -30px) scaleX(1); }
+    45%  { transform: translate(180px, 15px) scaleX(1); }
+    50%  { transform: translate(190px, 10px) scaleX(-1); }
+    75%  { transform: translate(80px, -15px) scaleX(-1); }
+    95%  { transform: translate(5px, 5px) scaleX(-1); }
+    98%  { transform: translate(0, 0) scaleX(1); }
+    100% { transform: translate(0, 0) scaleX(1); }
+}
+
+/* ===== AQUATIC PLANTS (Seaweed) ===== */
+.aquatic-plant {
+    position: absolute;
+    bottom: 0;
+    width: 12px;
+    border-radius: 50% 50% 0 0;
+    transform-origin: bottom center;
+    z-index: 2;
+}
+.plant-1 {
+    left: 12%;
+    height: 140px;
+    background: linear-gradient(to top, #0d4a2a, #1a7a45, #0d4a2a);
+    opacity: 0.25;
+    animation: plantSway 6s ease-in-out infinite;
+}
+.plant-2 {
+    left: 18%;
+    height: 100px;
+    width: 8px;
+    background: linear-gradient(to top, #0a3d22, #15663a, #0a3d22);
+    opacity: 0.2;
+    animation: plantSway 7s ease-in-out infinite 1s;
+}
+.plant-3 {
+    right: 15%;
+    height: 120px;
+    background: linear-gradient(to top, #0d4a2a, #1a7a45, #0d4a2a);
+    opacity: 0.2;
+    animation: plantSway 5.5s ease-in-out infinite 2s;
+}
+@keyframes plantSway {
+    0%, 100% { transform: rotate(-3deg) scaleY(1); }
+    50% { transform: rotate(4deg) scaleY(1.03); }
 }

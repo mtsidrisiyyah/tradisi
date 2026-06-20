@@ -10,10 +10,10 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Font: Outfit (closest free alternative to Google Sans) -->
+    <!-- Google Font: Outfit + Inter (international standard pairing) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
@@ -28,7 +28,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                        display: ['Outfit', 'Inter', 'sans-serif'],
                     },
                     colors: {
                         forest: {
@@ -78,12 +79,16 @@
 
 <body class="text-stone-800 dark:text-stone-200 antialiased h-screen overflow-hidden flex flex-col bg-stone-50 dark:bg-stone-900 transition-colors duration-200">
 
-    <!-- ============ LOGIN PAGE - Modern Split Layout ============ -->
+    <!-- ============ LOGIN PAGE - International Standard + Betta Fish ============ -->
     <div id="login-view" class="flex-1 absolute inset-0 z-50 flex">
-        
-        <!-- LEFT: Branding Panel (with slide-in animation) -->
-        <div class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-gradient-to-br from-forest-800 via-forest-700 to-forest-900 login-panel-left">
-            <!-- Floating particles -->
+
+        <!-- LEFT: Immersive Branding Panel with Betta Fish Aquarium -->
+        <div class="hidden lg:flex lg:w-[55%] relative overflow-hidden login-panel-left" style="background: linear-gradient(160deg, #071a12 0%, #0c2e1a 30%, #0f3d24 60%, #0a2918 100%);">
+
+            <!-- Animated water caustics overlay -->
+            <div class="caustics-overlay"></div>
+
+            <!-- Floating light particles (bubbles) -->
             <div class="login-particle"></div>
             <div class="login-particle"></div>
             <div class="login-particle"></div>
@@ -92,91 +97,122 @@
             <div class="login-particle"></div>
             <div class="login-particle"></div>
             <div class="login-particle"></div>
+
+            <!-- ===== BETTA FISH (Ikan Cupang) ===== -->
+            <!-- Fish 1: Red/Orange Betta - main hero -->
+            <div class="betta-fish fish-1">
+                <div class="fish-body">
+                    <div class="fish-eye"></div>
+                    <div class="fish-fin fish-fin-top"></div>
+                    <div class="fish-fin fish-fin-bottom"></div>
+                    <div class="fish-tail"></div>
+                    <div class="fish-tail fish-tail-2"></div>
+                </div>
+            </div>
+            <!-- Fish 2: Blue/Purple Betta -->
+            <div class="betta-fish fish-2">
+                <div class="fish-body fish-body-blue">
+                    <div class="fish-eye"></div>
+                    <div class="fish-fin fish-fin-top"></div>
+                    <div class="fish-fin fish-fin-bottom"></div>
+                    <div class="fish-tail"></div>
+                    <div class="fish-tail fish-tail-2"></div>
+                </div>
+            </div>
+            <!-- Fish 3: White/Gold Betta (smaller) -->
+            <div class="betta-fish fish-3">
+                <div class="fish-body fish-body-gold">
+                    <div class="fish-eye"></div>
+                    <div class="fish-fin fish-fin-top"></div>
+                    <div class="fish-fin fish-fin-bottom"></div>
+                    <div class="fish-tail"></div>
+                    <div class="fish-tail fish-tail-2"></div>
+                </div>
+            </div>
+
+            <!-- Seaweed/plant decorations -->
+            <div class="aquatic-plant plant-1"></div>
+            <div class="aquatic-plant plant-2"></div>
+            <div class="aquatic-plant plant-3"></div>
 
             <!-- Decorative blobs -->
-            <div class="absolute top-20 left-20 w-64 h-64 rounded-full bg-forest-600/20 blur-3xl animate-pulse"></div>
-            <div class="absolute bottom-20 right-10 w-80 h-80 rounded-full bg-sand-500/10 blur-3xl" style="animation: floatBlob 20s infinite alternate ease-in-out;"></div>
-            <div class="absolute top-1/2 left-1/3 w-40 h-40 rounded-full bg-forest-400/10 blur-2xl" style="animation: floatBlob 15s infinite alternate-reverse ease-in-out;"></div>
-            
-            <!-- Decorative geometric pattern -->
-            <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+            <div class="absolute top-20 left-20 w-72 h-72 rounded-full bg-emerald-500/10 blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-32 right-16 w-96 h-96 rounded-full bg-teal-400/5 blur-3xl" style="animation: floatBlob 25s infinite alternate ease-in-out;"></div>
+
+            <!-- Subtle grid pattern -->
+            <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, white 1px, transparent 0); background-size: 48px 48px;"></div>
 
             <!-- Content -->
-            <div class="relative z-10 flex flex-col justify-between p-12 w-full">
+            <div class="relative z-10 flex flex-col justify-between p-14 w-full">
                 <div>
-                    <div class="flex items-center gap-3 mb-2 login-reveal login-reveal-1">
-                        <div class="p-2.5 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 login-logo-glow">
-                            <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-10 h-10 object-contain">
+                    <div class="flex items-center gap-3.5 mb-2 login-reveal login-reveal-1">
+                        <div class="p-2.5 bg-white/10 backdrop-blur-md rounded-2xl border border-white/10 login-logo-glow">
+                            <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-11 h-11 object-contain">
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">TRADISI</h2>
-                            <p class="text-[10px] text-forest-300 uppercase tracking-widest">Digital Administration</p>
+                            <h2 class="text-2xl font-bold text-white font-display tracking-tight">TRADISI</h2>
+                            <p class="text-[10px] text-emerald-300/70 uppercase tracking-[0.2em] font-medium">Digital Administration</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-6">
-                    <h1 class="text-4xl font-extrabold text-white leading-tight login-reveal login-reveal-2">
+                <div class="space-y-7">
+                    <h1 class="text-[2.75rem] font-extrabold text-white leading-[1.15] font-display login-reveal login-reveal-2">
                         Transformasi Digital<br>
                         <span class="login-text-shimmer">Administrasi</span> Madrasah
                     </h1>
-                    <p class="text-forest-200/80 text-sm max-w-md leading-relaxed login-reveal login-reveal-3">
+                    <p class="text-emerald-100/60 text-sm max-w-lg leading-relaxed login-reveal login-reveal-3">
                         Sistem informasi manajemen guru terpadu untuk MTs Idrisiyyah Tasikmalaya. Kelola administrasi, absensi, penilaian, dan perangkat ajar dalam satu platform.
                     </p>
-                    
+
                     <!-- Feature pills -->
-                    <div class="flex flex-wrap gap-2 login-reveal login-reveal-4">
-                        <span class="login-pill px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                    <div class="flex flex-wrap gap-2.5 login-reveal login-reveal-4">
+                        <span class="login-pill px-3.5 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-emerald-100/80 border border-white/10">
                             <i class="ph ph-users mr-1"></i> Data Siswa
                         </span>
-                        <span class="login-pill px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                        <span class="login-pill px-3.5 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-emerald-100/80 border border-white/10">
                             <i class="ph ph-notebook mr-1"></i> Jurnal Guru
                         </span>
-                        <span class="login-pill px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                        <span class="login-pill px-3.5 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-emerald-100/80 border border-white/10">
                             <i class="ph ph-chart-bar mr-1"></i> Penilaian
                         </span>
-                        <span class="login-pill px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-forest-100 border border-white/10">
+                        <span class="login-pill px-3.5 py-1.5 bg-white/10 backdrop-blur-sm rounded-full text-[11px] font-medium text-emerald-100/80 border border-white/10">
                             <i class="ph ph-book-open-text mr-1"></i> Perangkat Ajar
                         </span>
                     </div>
                 </div>
 
-                <div class="text-[11px] text-forest-400/60 login-reveal login-reveal-5">
-                    &copy; 2026 MTs Idrisiyyah Tasikmalaya
+                <div class="text-[11px] text-emerald-400/40 login-reveal login-reveal-5 font-medium tracking-wide">
+                    &copy; 2026 MTs Idrisiyyah Tasikmalaya &middot; All rights reserved
                 </div>
-            </div>
-
-            <!-- Decorative wave at bottom -->
-            <div class="absolute bottom-0 left-0 right-0 overflow-hidden" style="height: 60px;">
-                <svg class="login-wave absolute bottom-0" style="width: 200%; height: 60px;" viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                    <path d="M0 30C240 10 480 50 720 30C960 10 1200 50 1440 30V60H0V30Z" fill="rgba(255,255,255,0.03)"/>
-                    <path d="M0 40C240 20 480 55 720 35C960 15 1200 55 1440 35V60H0V40Z" fill="rgba(255,255,255,0.02)"/>
-                </svg>
             </div>
         </div>
 
-        <!-- RIGHT: Login Form (with slide-in animation) -->
-        <div class="flex-1 flex items-center justify-center bg-stone-50 dark:bg-stone-950 px-6 login-panel-right">
-            <div class="w-full max-w-md" id="auth-container">
+        <!-- RIGHT: Login Form (Glassmorphism) -->
+        <div class="flex-1 flex items-center justify-center bg-stone-50 dark:bg-stone-950 px-6 login-panel-right relative">
+            <!-- Subtle background pattern for form side -->
+            <div class="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]" style="background-image: radial-gradient(circle at 1px 1px, #166534 1px, transparent 0); background-size: 32px 32px;"></div>
+
+            <div class="w-full max-w-md relative z-10" id="auth-container">
                 <!-- Mobile logo (shown only on small screens) -->
                 <div class="lg:hidden text-center mb-8">
-                    <div class="inline-flex p-2.5 bg-forest-700 rounded-2xl shadow-lg shadow-forest-700/20 mb-3">
+                    <div class="inline-flex p-3 bg-forest-700 rounded-2xl shadow-lg shadow-forest-700/20 mb-3">
                         <img src="https://i.postimg.cc/YChZPb1f/LOGO-MTS.png" alt="Logo" class="w-12 h-12 object-contain">
                     </div>
-                    <h1 class="text-2xl font-bold text-forest-800 dark:text-forest-300">TRADISI</h1>
+                    <h1 class="text-2xl font-bold text-forest-800 dark:text-forest-300 font-display">TRADISI</h1>
                     <p class="text-xs text-stone-400 mt-1">Transformasi Digital Administrasi Idrisiyyah</p>
                 </div>
 
                 <!-- Form header -->
                 <div class="mb-8">
-                    <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100">Selamat datang kembali</h2>
-                    <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">Masuk ke akun Anda untuk melanjutkan</p>
+                    <h2 class="text-2xl font-bold text-stone-900 dark:text-stone-100 font-display tracking-tight">Selamat datang kembali</h2>
+                    <p class="text-sm text-stone-500 dark:text-stone-400 mt-1.5">Masuk ke akun Anda untuk melanjutkan</p>
                 </div>
 
                 <!-- Login Form -->
                 <form id="login-form" class="space-y-5">
                     <div>
-                        <label class="block text-xs font-semibold text-stone-600 dark:text-stone-400 mb-2 uppercase tracking-wide">Email</label>
+                        <label class="block text-[11px] font-semibold text-stone-500 dark:text-stone-400 mb-2 uppercase tracking-wider">Email</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-stone-400">
                                 <i class="ph ph-envelope-simple text-lg"></i>
@@ -187,7 +223,7 @@
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold text-stone-600 dark:text-stone-400 mb-2 uppercase tracking-wide">Password</label>
+                        <label class="block text-[11px] font-semibold text-stone-500 dark:text-stone-400 mb-2 uppercase tracking-wider">Password</label>
                         <div class="relative">
                             <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-stone-400">
                                 <i class="ph ph-lock-key text-lg"></i>
@@ -197,9 +233,9 @@
                                 placeholder="Masukkan kata sandi">
                         </div>
                     </div>
-                    
+
                     <div id="login-error" class="text-red-600 dark:text-red-400 text-xs hidden bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800/50 p-3 rounded-xl"></div>
-                    
+
                     <button type="submit" id="login-btn"
                         class="w-full bg-forest-700 hover:bg-forest-800 text-white font-semibold py-3.5 px-4 rounded-xl transition-all shadow-lg shadow-forest-700/20 active:scale-[0.98] flex justify-center items-center text-sm">
                         <span>Masuk</span>
