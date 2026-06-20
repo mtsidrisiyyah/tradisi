@@ -368,6 +368,30 @@
 
         <!-- Mobile Overlay -->
         <div id="mobile-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"></div>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav id="mobile-bottom-nav" class="fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-stone-900 border-t border-stone-200 dark:border-stone-800 flex md:hidden safe-bottom">
+            <button onclick="window.loadPage('Dashboard')" class="flex-1 flex flex-col items-center py-2.5 gap-0.5 text-stone-400 hover:text-forest-600 transition-colors" data-page="Dashboard">
+                <i class="ph ph-squares-four text-xl"></i>
+                <span class="text-[9px] font-bold">Home</span>
+            </button>
+            <button onclick="window.loadPage('Data Siswa')" class="flex-1 flex flex-col items-center py-2.5 gap-0.5 text-stone-400 hover:text-forest-600 transition-colors" data-page="Data Siswa">
+                <i class="ph ph-student text-xl"></i>
+                <span class="text-[9px] font-bold">Siswa</span>
+            </button>
+            <button onclick="window.loadPage('Absensi Siswa')" class="flex-1 flex flex-col items-center py-2.5 gap-0.5 text-stone-400 hover:text-forest-600 transition-colors" data-page="Absensi Siswa">
+                <i class="ph ph-check-square text-xl"></i>
+                <span class="text-[9px] font-bold">Absensi</span>
+            </button>
+            <button onclick="window.loadPage('Jurnal Agenda Guru')" class="flex-1 flex flex-col items-center py-2.5 gap-0.5 text-stone-400 hover:text-forest-600 transition-colors" data-page="Jurnal Agenda Guru">
+                <i class="ph ph-notebook text-xl"></i>
+                <span class="text-[9px] font-bold">Jurnal</span>
+            </button>
+            <button onclick="window.toggleSidebar(true)" class="flex-1 flex flex-col items-center py-2.5 gap-0.5 text-stone-400 hover:text-forest-600 transition-colors">
+                <i class="ph ph-list text-xl"></i>
+                <span class="text-[9px] font-bold">Menu</span>
+            </button>
+        </nav>
     </div>
 
     <!-- ============ GLOBAL CRUD MODAL ============ -->

@@ -97,6 +97,14 @@ export async function navigateTo(pageTitle, context = {}) {
         window.toggleSidebar(false);
     }
 
+    // Update mobile bottom nav active state
+    document.querySelectorAll('#mobile-bottom-nav button').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-page') === pageTitle) {
+            btn.classList.add('active');
+        }
+    });
+
     // Show skeleton loading
     if (contentArea) {
         showSkeleton(contentArea, 'dashboard');

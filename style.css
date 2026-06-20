@@ -227,6 +227,80 @@ a, button, input, select, textarea {
     border-spacing: 0;
 }
 
+/* === RESPONSIVE MOBILE === */
+
+/* Bottom Navigation */
+#mobile-bottom-nav button.active {
+    color: #166534;
+}
+.dark #mobile-bottom-nav button.active {
+    color: #4ade80;
+}
+
+/* iOS Safe Areas */
+.safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Touch-friendly buttons */
+@media (max-width: 767px) {
+    button, .btn, a.btn {
+        min-height: 44px;
+    }
+    #content-area {
+        padding-bottom: 5rem !important; /* space for bottom nav */
+    }
+    /* Full-screen modals on mobile */
+    #crud-modal {
+        padding: 0 !important;
+    }
+    #crud-modal-box {
+        max-width: 100% !important;
+        border-radius: 0 !important;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    #crud-modal-box > form {
+        flex: 1;
+        overflow-y: auto;
+    }
+    /* Tables: horizontal scroll + sticky first column */
+    .overflow-x-auto table {
+        min-width: 600px;
+    }
+    .overflow-x-auto table th:first-child,
+    .overflow-x-auto table td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: inherit;
+    }
+}
+
+/* Desktop enhancements */
+@media (min-width: 768px) {
+    /* Sticky topbar with backdrop blur */
+    #topbar {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background: rgba(255,255,255,0.85);
+    }
+    .dark #topbar {
+        background: rgba(28,25,23,0.85);
+    }
+}
+
+/* Content area max-width for ultrawide */
+@media (min-width: 1536px) {
+    #content-area {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+}
+
 /* === FLOATING BLOBS === */
 @keyframes floatBlob {
     0% { transform: translate(0, 0) scale(1); }
