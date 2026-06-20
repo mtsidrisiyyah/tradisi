@@ -298,14 +298,23 @@ const dbService = {
             // Default demo profile fallback
             return { id: uid, nama: "Ir. Hermawan, M.Pd.", nip: "197508212005011002", mapel: "Informatika", roles: ["super_admin", "guru"], activeRole: "super_admin", status: "aktif" };
         } else {
+            const defaultProfile = { id: uid, nama: "Guru Pendidik", nip: "-", mapel: "-", roles: ["guru"], activeRole: "guru", status: "aktif" };
             try {
                 const docRef = doc(db, getUserDocPath(uid));
                 const snap = await getDoc(docRef);
-                return snap.exists() ? snap.data() : { nama: "Guru Pendidik", nip: "-", mapel: "-" };
+                if (snap.exists()) {
+                    const data = snap.data();
+                    // Patch missing role fields with safe defaults
+                    if (!data.roles || !data.roles.length) data.roles = ['guru'];
+                    if (!data.activeRole) data.activeRole = data.roles[0] || 'guru';
+                    if (!data.status) data.status = 'aktif';
+                    return data;
+                }
+                return defaultProfile;
             } catch (e) {
                 console.warn("Firestore getProfile failed, fallback to local storage:", e);
                 const data = localStorage.getItem(`tradisi_profile_${uid}`);
-                return data ? JSON.parse(data) : { nama: "Ir. Hermawan, M.Pd.", nip: "197508212005011002", mapel: "Informatika" };
+                return data ? JSON.parse(data) : defaultProfile;
             }
         }
     },

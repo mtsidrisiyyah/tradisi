@@ -42,7 +42,7 @@ export async function navigateTo(pageTitle, context = {}) {
 
     // Route Guard: check permission based on active role in user profile
     const profile = context.getUserProfile ? context.getUserProfile() : null;
-    const activeRole = profile ? profile.activeRole : 'guru';
+    const activeRole = (profile && profile.activeRole) ? profile.activeRole : 'guru';
 
     if (!canAccessPage(activeRole, pageTitle)) {
         if (headerTitle) headerTitle.innerText = "Akses Ditolak";

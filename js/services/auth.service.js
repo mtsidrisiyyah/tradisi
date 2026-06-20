@@ -175,6 +175,11 @@ function initAuthListener(onLogin, onLogout) {
                 try {
                     userProfile = await dbService.getProfile(user.uid);
                     
+                    // Safety net: ensure profile always has roles, activeRole, and status
+                    if (!userProfile.roles || !userProfile.roles.length) userProfile.roles = ['guru'];
+                    if (!userProfile.activeRole) userProfile.activeRole = userProfile.roles[0] || 'guru';
+                    if (!userProfile.status) userProfile.status = 'aktif';
+                    
                     // Double check status block on auth state changes
                     if (userProfile.status === 'menunggu_persetujuan' || userProfile.status === 'nonaktif') {
                         await logout();
